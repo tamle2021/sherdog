@@ -48,6 +48,7 @@ class SherdogStatsSpider(scrapy.Spider):
         self.age = ""
         self.height = ""
         self.weight = ""
+        self.fighterClass = ""
         self.win = ""
         self.loss = ""
         self.locality = ""
@@ -244,8 +245,12 @@ class SherdogStatsSpider(scrapy.Spider):
             else:
                 self.weight = "None"
 
-
             # class
+            fighterClass = checkEmpty(response.xpath("//div[@class ='size_info']/h6/strong/a/text()").get())
+            if (fighterClass != "None"):
+                self.fighterClass = fighterClass
+            else:
+                self.fighterClass = ""
 
             win = checkEmpty(response.xpath("//div[@class='bio_graph']/span[@class='card']/span[2]/text()").get())
             if (win != "None"):
@@ -270,9 +275,6 @@ class SherdogStatsSpider(scrapy.Spider):
                 setCountry(self,country)
             else:
                 self.country = "None"
-
-            print("")
-
 
         except Exception as ex:
             print("exception: {x}".format(x=ex))

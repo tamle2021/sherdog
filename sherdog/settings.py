@@ -1,6 +1,6 @@
 # scrapy settings for sherdog project
 #
-# for simplicity, this file contains only settings considered important or
+# For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
 #
 #     https://docs.scrapy.org/en/latest/topics/settings.html
@@ -67,7 +67,7 @@ DOWNLOADER_MIDDLEWARES = {
 # }
 
 # enable and configure the AutoThrottle extension (disabled by default)
-# See https://docs.scrapy.org/en/latest/topics/autothrottle.html
+# see https://docs.scrapy.org/en/latest/topics/autothrottle.html
 AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 AUTOTHROTTLE_START_DELAY = 6.5

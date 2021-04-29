@@ -12,6 +12,7 @@ class SherdogStatsPipeline:
     def __init__(self):
         self.outputEventDir = "sherdog\\csv_files\\event"
         self.outputSpecificEventDir = "sherdog\\csv_files\\specific_event"
+        self.outputFighterDir = "sherdog\\csv_"
         self.eventList = ["date","eventName","eventTitle","location"]
         self.specificEventList = ["fighter1Name","fighter1Result","fighter2Name","fighter2Result", \
             "fighterMethodResult"]
