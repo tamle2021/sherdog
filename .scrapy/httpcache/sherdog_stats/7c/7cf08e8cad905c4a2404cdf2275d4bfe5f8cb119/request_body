@@ -1,0 +1,11 @@
+{
+    "cookies": [],
+    "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en",
+        "Referer": "https://www.sherdog.com/events/OFC-4-Original-Fighting-Championship-4-88738",
+        "User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; America Online Browser 1.1; rev1.5; Windows NT 5.1; .NET CLR 1.1.4322)"
+    },
+    "lua_source": "\n                          function main(splash,args)\n                              local cookies = splash:get_cookies()\n                              splash:init_cookies(cookies)\n                              assert(splash:go(splash.args.url))\n                              assert(splash:wait(1.5))\n\n                              return {\n                                  cookies,\n                                  html = splash:html(),\n                                  -- png = splash:png(),\n                                  -- har = splash:har()\n                              }\n                          end\n                      ",
+    "url": "https://www.sherdog.com/fighter/Hejazullah-Sidiqi-381731"
+}
