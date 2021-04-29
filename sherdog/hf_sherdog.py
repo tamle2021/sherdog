@@ -1,9 +1,8 @@
 import re
 from scrapy.loader import ItemLoader
-from .items import EventItem,FightCardItem
+from .items import EventItem,FightCardItem,FighterStatsItem
 import logging
 from .switch_month import switchMonthThreeLetters
-
 
 def resetFighterStats(self):
     self.birthDate = ""
@@ -171,6 +170,31 @@ def loadFightCardItem(self,response):
     loader.add_value("fighter1Result",self.fighter1Result)
     loader.add_value("fighter2Result",self.fighter2Result)
     loader.add_value("fighterMethodResult",self.fighterMethodResult)
+    return loader
+
+def loadFighterStatsItem(self,response):
+    self.fighterName = self.fighterName if (self.fighterName != "") else "None"
+    self.birthDate = self.birthDate if (self.birthDate != "") else "None"
+    self.age = self.age if (self.age != "") else "None"
+    self.height = self.height if (self.height != "") else "None"
+    self.weight = self.weight if (self.weight != "") else "None"
+    self.fighterClass = self.fighterClass if (self.fighterClass != "") else "None"
+    self.win = self.win if (self.win != "") else "None"
+    self.loss = self.loss if (self.loss != "") else "None"
+    self.locality = self.locality if (self.locality != "") else "None"
+    self.country = self.country if (self.country != "") else "None"
+
+    loader = ItemLoader(item=FighterStatsItem(),response=response)
+    loader.add_value("fighterName",self.fighterName)
+    loader.add_value("birthDate",self.birthDate)
+    loader.add_value("age",self.age)
+    loader.add_value("height",self.height)
+    loader.add_value("weight",self.weight)
+    loader.add_value("fighterClass",self.fighterClass)
+    loader.add_value("win",self.win)
+    loader.add_value("loss",self.loss)
+    loader.add_value("locality",self.locality)
+    loader.add_value("country",self.country)
     return loader
 
 def resetFightCard(self):

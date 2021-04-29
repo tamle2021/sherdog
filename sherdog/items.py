@@ -5,6 +5,7 @@
 import scrapy
 
 class FighterStatsItem(scrapy.Item):
+    fighterName = scrapy.Field()
     birthDate = scrapy.Field()
     age = scrapy.Field()
     height = scrapy.Field()

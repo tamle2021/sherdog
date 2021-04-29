@@ -5,24 +5,31 @@
 import os,re
 from scrapy import signals
 from scrapy.exporters import CsvItemExporter
-from .items import EventItem,FightCardItem
+from .items import EventItem,FightCardItem,FighterStatsItem
 from datetime import datetime
 
 class SherdogStatsPipeline:
     def __init__(self):
         self.outputEventDir = "sherdog\\csv_files\\event"
         self.outputSpecificEventDir = "sherdog\\csv_files\\specific_event"
-        self.outputFighterDir = "sherdog\\csv_"
+        self.outputFighterDir = "sherdog\\csv_files\\fighter"
         self.eventList = ["date","eventName","eventTitle","location"]
         self.specificEventList = ["fighter1Name","fighter1Result","fighter2Name","fighter2Result", \
             "fighterMethodResult"]
+        self.fighterList = ["fighterName","birthDate","age","height","weight","fighterClass","win","loss", \
+            "locality","country"]
 
         self.eventWriter = ""
         self.specificEventWriter = ""
+        self.fighterWriter = ""
+        # ----------------------------------
         self.eventFileName = ""
         self.specificEventFileName = ""
+        self.fighterFileName = ""
+        # ----------------------------------
         self.eventExporter = ""
         self.specificEventExporter = ""
+        self.fighterExporter = ""
 
     @classmethod
     def from_crawler(cls,crawler):
@@ -39,24 +46,36 @@ class SherdogStatsPipeline:
         self.specificEventFileName = "specific_event_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
 
+        self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + "_.csv"
+
         absolutePathEvent = os.path.join(os.getcwd(),self.outputEventDir)
         absolutePathSpecificEvent = os.path.join(os.getcwd(),self.outputSpecificEventDir)
+        absolutePathFighter = os.path.join(os.getcwd(),self.outputFighterDir)
 
         self.eventWriter = open(os.path.join(absolutePathEvent,self.eventFileName),'wb+')
         self.specificEventWriter = open(os.path.join(absolutePathSpecificEvent,self.specificEventFileName),'wb+')
+        self.fighterWriter = open(os.path.join(absolutePathFighter,self.fighterFileName),"wb+")
 
         self.eventExporter = CsvItemExporter(self.eventWriter)
         self.specificEventExporter = CsvItemExporter(self.specificEventWriter)
+        self.fighterExporter = CsvItemExporter(self.fighterWriter)
+
         self.eventExporter.fields_to_export = self.eventList
         self.specificEventExporter.fields_to_export = self.specificEventList
+        self.fighterExporter.fields_to_export = self.fighterList
+
         self.eventExporter.start_exporting()
         self.specificEventExporter.start_exporting()
+        self.fighterExporter.start_exporting()
 
     def spider_closed(self,spider):
         self.eventExporter.finish_exporting()
         self.specificEventExporter.finish_exporting()
+        self.fighterExporter.finish_exporting()
+
         self.eventWriter.close()
         self.specificEventWriter.close()
+        self.fighterWriter.close()
 
     def process_item(self,item,spider):
         if (isinstance(item,EventItem)):
@@ -70,6 +89,12 @@ class SherdogStatsPipeline:
                 return item
             else:
                 self.specificEventExporter.export_item(item)
+                return item
+        elif (isinstance(item,FighterStatsItem)):
+            if (len(item) == 0):
+                return item
+            else:
+                self.fighterExporter.export_item(item)
                 return item
 
     def checkMonthDay(self,dayOrMonth):

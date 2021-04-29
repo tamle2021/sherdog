@@ -6,7 +6,7 @@ import logging
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
     setEventNameTitleUrl,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
-    setWeight,setCountry,setLocality,resetFighterStats
+    setWeight,setCountry,setLocality,resetFighterStats,loadFighterStatsItem
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -20,7 +20,7 @@ class SherdogStatsSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogStatsPipeline': 199,
         },
-        "CLOSESPIDER_ITEMCOUNT": 465
+        "CLOSESPIDER_ITEMCOUNT": 485
     }
 
     configure_logging(install_root_handler=False)
@@ -44,6 +44,7 @@ class SherdogStatsSpider(scrapy.Spider):
         self.fighter2Result = ""
         self.fighterMethodResult = ""
 
+        self.fighterName = ""
         self.birthDate = ""
         self.age = ""
         self.height = ""
@@ -221,6 +222,12 @@ class SherdogStatsSpider(scrapy.Spider):
         try:
             resetFighterStats(self)
 
+            fighterName = checkEmpty(response.xpath("//div[@class='module bio_fighter vcard']/h1/span/text()").get())
+            if (fighterName != "None"):
+                self.fighterName = fighterName
+            else:
+                self.fighterName = "None"
+
             birthDate = checkEmpty(response.xpath("//div[@class='birth_info']/span/span/text()").get())
             if (birthDate != "None"):
                 setBirthDate(self,birthDate)
@@ -245,7 +252,6 @@ class SherdogStatsSpider(scrapy.Spider):
             else:
                 self.weight = "None"
 
-            # class
             fighterClass = checkEmpty(response.xpath("//div[@class ='size_info']/h6/strong/a/text()").get())
             if (fighterClass != "None"):
                 self.fighterClass = fighterClass
@@ -275,6 +281,9 @@ class SherdogStatsSpider(scrapy.Spider):
                 setCountry(self,country)
             else:
                 self.country = "None"
+
+            loader = loadFighterStatsItem(self,response)
+            yield loader.load_item()
 
         except Exception as ex:
             print("exception: {x}".format(x=ex))

@@ -1,0 +1,4 @@
+# ignore scrapy http cache
+.scrapy
+~/httpcache
+.scrapy/httpcache
