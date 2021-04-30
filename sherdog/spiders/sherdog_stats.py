@@ -6,7 +6,7 @@ import logging
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
     setEventNameTitleUrl,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
-    setWeight,setCountry,setLocality,resetFighterStats,loadFighterStatsItem
+    setWeight,setCountry,setLocality,resetFighterStats,loadFighterStatsItem,setLocation
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -111,7 +111,7 @@ class SherdogStatsSpider(scrapy.Spider):
 
                     location = checkEmpty(i.xpath(".//td[4]/span/text()").get())
                     if (location != "None"):
-                        self.location = location.strip()
+                        setLocation(self,location)
                     else:
                         self.location = "None"
 
@@ -141,7 +141,7 @@ class SherdogStatsSpider(scrapy.Spider):
 
                     location = checkEmpty(i.xpath(".//td[4]/span/text()").get())
                     if (location != "None"):
-                        self.location = location
+                        setLocation(self,location)
                     else:
                         self.location = "None"
 

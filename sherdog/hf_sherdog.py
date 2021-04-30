@@ -14,6 +14,10 @@ def resetFighterStats(self):
     self.locality = ""
     self.country = ""
 
+def setLocation(self,location):
+    subComma = re.sub(r"[\,]",";",location)
+    self.location = '"' + subComma + '"'
+
 def setLocality(self,locality):
     if (re.search(r"N/A",locality) != None):
         self.locality = "None"
@@ -92,7 +96,6 @@ def setFirstRowFightCard(self,response):
             self.fighterMethodResult = fighterMethodResult.lower()
         else:
             self.fighterMethodResult
-
 
     except Exception as ex:
         print("exception: {0}".format(ex))
