@@ -20,7 +20,7 @@ class SherdogStatsSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogStatsPipeline': 199,
         },
-        "CLOSESPIDER_ITEMCOUNT": 485
+        "CLOSESPIDER_ITEMCOUNT": 588
     }
 
     configure_logging(install_root_handler=False)
@@ -224,7 +224,7 @@ class SherdogStatsSpider(scrapy.Spider):
 
             fighterName = checkEmpty(response.xpath("//div[@class='module bio_fighter vcard']/h1/span/text()").get())
             if (fighterName != "None"):
-                self.fighterName = fighterName
+                self.fighterName = fighterName.lower()
             else:
                 self.fighterName = "None"
 
