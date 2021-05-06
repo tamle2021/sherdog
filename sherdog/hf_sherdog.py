@@ -20,10 +20,10 @@ def setLocation(self,location):
 
 def setLocality(self,locality):
     if (re.search(r"N/A",locality) != None):
+        self.locality = "None"
+    else:
         subComma = re.sub(r"[\,]",";",locality)
         self.locality = '"' + subComma + '"'
-    else:
-        self.locality = locality
 
 def setCountry(self,country):
     if (re.search(r"N/A",country) != None):

@@ -1,51 +1,26 @@
 fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
-takafumi ato,08/31/1985, 35,[64],115,Strawweight,10,11,"Suginami, Tokyo",Japan
-janaina calves barbosa,05/14/1986, 34,[65],170,Welterweight,0,8,"Campo Grande, Mato Grosso do Sul",Brazil
-alvaro lima,04/18/1991, 30,None,125,Flyweight,0,1,"Itabi, Sergipe",Brazil
-ravi kumar,05/13/1992, 28,[65],125,Flyweight,0,1,Uttar Pradesh,India
-vikas kumar,07/23/1998, 22,[62],125,Flyweight,2,0,Delhi,India
-deepanshu sharma,03/14/2001, 20,[68],125,Flyweight,0,1,Uttar Pradesh,India
-karan kumar kushwaha,None,None,[62],125,Flyweight,2,1,New Delhi,India
-salauddin salauddin,09/21/2001, 19,[64],135,Bantamweight,0,1,Delhi,India
-himanshu joshi,10/21/1996, 24,[69],135,Bantamweight,1,0,Uttrakhand,India
-surendra kumar,03/17/1995, 26,[67],135,Bantamweight,0,1,Delhi,India
-kapil kapil,08/10/1998, 22,[67],135,Bantamweight,1,0,Uttar Pradesh,India
-kapil gupta,01/01/1999, 22,[70],135,Bantamweight,0,1,Delhi,India
-anubhav kashyap,None,None,[68],125,Flyweight,2,1,"Faizabad, Uttar Pradesh",India
-sourav sourav,03/07/1998, 23,[67],125,Flyweight,0,1,Delhi,India
-vikash mourya,04/06/1999, 22,[67],125,Flyweight,1,0,Uttar Pradesh,India
-kartik sharma,08/23/2001, 19,[69],135,Bantamweight,0,1,Delhi,India
-ankit gujar,05/27/1998, 22,[66],125,Flyweight,1,0,Haryana,India
-manish sachdeva,06/24/2003, 17,[67],125,Flyweight,1,1,Delhi,India
-abhishek verma,07/18/2002, 18,[66],105,Atomweight,1,0,Uttar Pradesh,India
-raj kumar,03/14/2003, 18,[69],125,Flyweight,0,1,Uttar Pradesh,India
-kumar shubham,04/05/2000, 21,[67],125,Flyweight,1,0,Uttar Pradesh,India
-kartik kartik,02/06/2001, 20,[73],205,Light Heavyweight,0,1,Haryana,India
-abdul fazeel,None,None,None,194,Light Heavyweight,2,0,None,Afghanistan
-salmy silva,07/04/1989, 31,[63],135,Bantamweight,4,3,"Feira Nova, Sergipe",Brazil
-lucas silva,10/13/2001, 19,[61],121,Flyweight,1,1,"Maceio, Alagoas",Brazil
-erick gomes de oliveira,05/27/1997, 23,None,125,Flyweight,1,0,"Aracaju, Sergipe",Brazil
-johnatan vieira,09/18/1995, 25,None,145,Featherweight,0,2,"Maceio, Alagoas",Brazil
-michael santos,08/24/1988, 32,None,155,Lightweight,1,0,"Aracaju, Sergipe",Brasil
-luiz claudio,None,None,None,135,Bantamweight,0,2,"Trancoso, Bahia",Brazil
-johnatan santos,06/15/1995, 25,[68],155,Lightweight,3,0,"Aracaju, Sergipe",Brazil
-daniella oliveira,03/13/1998, 23,None,134,Bantamweight,1,0,"Curitiba, PR",Brazil
-davi lucas da silva,12/15/1991, 29,[72],185,Middleweight,0,12,"Praia Grande, Sao Paulo",Brazil
-edivan santos,05/03/1992, 29,[79],246,Heavyweight,12,2,"Sao Luiz, Maranhao",Brazil
-gustavo felipe silva,10/10/2000, 20,None,145,Featherweight,0,2,"Campo Grande, MS",Brazil
-edilson rafael silva,06/12/1997, 23,None,145,Featherweight,1,0,"Foz do Iguaçu, PR",Brazil
-paolo gomez,None,None,None,185,Middleweight,1,3,None,Paraguay
-viscardi andrade,03/08/1984, 37,[72],170,Welterweight,22,9,"Jales, Sao Paulo",Brazil
-koyuru tanoue,02/05/2002, 19,[61],115,Strawweight,5,0,Osaka,Japan
-kohei maeda,None,None,None,145,Featherweight,4,3,None,Japan
-toshiomi kazama,05/15/1997, 23,[67],145,Featherweight,3,1,Ibaraki,Japan
-shuto aki,None,None,None,115,Strawweight,5,3,None,Japan
-keito yamakita,None,None,None,125,Flyweight,3,0,None,Japan
-tatsuhiko iwamoto,None,None,None,143,Featherweight,10,7,Osaka,Japan
-hirotaka nakada,04/01/1996, 25,[68],155,Lightweight,1,2,Tokyo,Japan
-shohei nose,None,None,None,145,Featherweight,4,2,Fukuoka,Japan
-hikaru yoshino,None,None,None,135,Bantamweight,9,2,None,Japan
-kenji yamanaka,None,None,None,125,Flyweight,8,9,None,Japan
-toru ogawa,03/19/1987, 34,[64],125,Flyweight,12,4,Niigata,Japan
-takuya nagata,07/01/1994, 26,[69],170,Welterweight,9,4,Hyogo,Japan
-kazuki kasai,None,None,None,170,Welterweight,7,1,None,Japan
+mansoor noorzai,03/03/2002, 19,[69],135,Bantamweight,1,0,"""Kabul""",Afghanistan
+jeferson lourenco silverio,None,None,[67],155,Lightweight,0,2,"""Rio de Janeiro; Rio de Janeiro""",Brazil
+qudratullah shenwari,04/02/1999, 22,[68],135,Bantamweight,0,1,"""Kabul""",Afghanistan
+rahmudin razmi,05/01/1999, 22,[69],135,Bantamweight,0,1,"""Kabul""",Afghanistan
+maicon patricio de jesus,None,None,None,185,Middleweight,1,1,"""Belo Horizonte; Minas Gerais""",Brazil
+jonathan hensley,07/10/1993, 27,None,170,Welterweight,0,0,"""South Carolina""",United States
+drew hudson,None,None,None,170,Welterweight,0,0,"""South Carolina""",United States
+ilya tunguzov,None,None,[67],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+ivan yuferev,None,None,[67],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+murod sultonov,None,None,[68],155,Lightweight,0,1,"""Yoshkar-Ola""",Russia
+reshit ovezov,None,None,[73],155,Lightweight,1,0,"""Kazan""",Russia
+mustafo merobov,None,None,[69],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+valibek gasanbekov,10/10/2000, 20,None,125,Flyweight,0,0,"""Tatarstan""",Russia
+ilyas orazov,None,None,[69],135,Bantamweight,0,1,"""Kazan""",Russia
+kirill toykishkin,None,None,[68],135,Bantamweight,1,0,"""Yoshkar-Ola""",Russia
+corey grooms,05/05/1989, 32,[67],155,Lightweight,0,0,"""South Carolina""",United States
+rustam muborakkadamov,None,None,None,155,Lightweight,0,0,"""Yoshkar-Ola""",Russia
+dilshod nazarov,None,None,[67],155,Lightweight,0,0,"""Kazan""",Russia
+kristina vasilieva,None,None,None,145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+angelina komleva,None,None,[66],145,Featherweight,0,0,"""Kazan""",Russia
+clay crossway,10/29/2000, 20,None,155,Lightweight,0,0,"""South Carolina""",United States
+islanio silva,08/07/1989, 31,[68],134,Bantamweight,1,1,"""Pouso Alegre; Minas Gerais""",Brazil
+deberson batista,12/03/1990, 30,[69],145,Featherweight,8,3,"""Belo Horizonte; Minas Gerais""",Brazil
+andre gomes pereira,03/04/1985, 36,[63],135,Bantamweight,1,4,"""Manhuacu; Minas Gerais""",Brazil
+carlos soares,None,None,None,135,Bantamweight,11,2,"""Belo Horizonte; Minas Gerais""",Brazil
