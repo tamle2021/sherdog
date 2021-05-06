@@ -20,7 +20,8 @@ def setLocation(self,location):
 
 def setLocality(self,locality):
     if (re.search(r"N/A",locality) != None):
-        self.locality = "None"
+        subComma = re.sub(r"[\,]",";",locality)
+        self.locality = '"' + subComma + '"'
     else:
         self.locality = locality
 
@@ -108,8 +109,8 @@ def checkFightResult(self,fightResult):
         return "L"
 
 def createUrl(self):
-    # 3-196
-    for i,x in enumerate(range(3,5)):
+    # 1-202
+    for i,x in enumerate(range(2,20,2)):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 

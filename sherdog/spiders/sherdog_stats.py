@@ -20,7 +20,7 @@ class SherdogStatsSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogStatsPipeline': 199,
         },
-        "CLOSESPIDER_ITEMCOUNT": 588
+        "CLOSESPIDER_ITEMCOUNT": 499
     }
 
     configure_logging(install_root_handler=False)
