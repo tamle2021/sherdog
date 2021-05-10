@@ -35,7 +35,7 @@ def setHeight(self,height):
     if (re.search(r"N/A",height) == None and re.search(r"0'0",height) == None):
         subDoubleQuote = re.sub(r"[\"]","",height)
         splitSingleQuote = subDoubleQuote.split("'")
-        self.height = (int(splitSingleQuote[0]) * 12) + int(splitSingleQuote[1])
+        self.height = str((int(splitSingleQuote[0]) * 12) + int(splitSingleQuote[1]))
     else:
         self.height = "None"
 
@@ -110,7 +110,7 @@ def checkFightResult(self,fightResult):
 
 def createUrl(self):
     # 1-202
-    for i,x in enumerate(range(2,20,2)):
+    for i,x in enumerate(range(3,37,3)):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 
