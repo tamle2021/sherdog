@@ -5,7 +5,7 @@ INFO: Overridden settings:
 {'AUTOTHROTTLE_ENABLED': True,
  'AUTOTHROTTLE_START_DELAY': 6.5,
  'BOT_NAME': 'sherdog',
- 'CLOSESPIDER_ITEMCOUNT': 44,
+ 'CLOSESPIDER_ITEMCOUNT': 55,
  'CONCURRENT_REQUESTS': 5,
  'DUPEFILTER_CLASS': 'scrapy_splash.SplashAwareDupeFilter',
  'HTTPCACHE_ENABLED': True,
@@ -13,7 +13,7 @@ INFO: Overridden settings:
  'NEWSPIDER_MODULE': 'sherdog.spiders',
  'RETRY_HTTP_CODES': [429],
  'SPIDER_MODULES': ['sherdog.spiders']}
-INFO: Telnet Password: 7acbe8a23d37fc46
+INFO: Telnet Password: 161e2fd6384eb0c3
 INFO: Enabled extensions:
 ['scrapy.extensions.corestats.CoreStats',
  'scrapy.extensions.telnet.TelnetConsole',
@@ -50,3 +50,529 @@ DEBUG: Using filesystem cache storage in C:\Users\TamLe\Desktop\programming\pyth
 INFO: Telnet console listening on 127.0.0.1:6023
 DEBUG: Crawled (200) <GET https://www.sherdog.com> (referer: None) ['cached']
 DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Francis-Ngannou-152341 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Francis-Ngannou-152341>
+{'age': [' 34'],
+ 'birthDate': ['09/05/1986'],
+ 'country': ['France'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['francis ngannou'],
+ 'height': ['76'],
+ 'locality': ['"Paris"'],
+ 'loss': ['3'],
+ 'weight': ['263'],
+ 'win': ['16']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Ante-Delija-75487 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Ante-Delija-75487>
+{'age': [' 30'],
+ 'birthDate': ['08/07/1990'],
+ 'country': ['Croatia'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['ante delija'],
+ 'height': ['77'],
+ 'locality': ['"Dubrovnik"'],
+ 'loss': ['4'],
+ 'weight': ['251'],
+ 'win': ['17']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Bruno-Henrique-Cappelozza-74598 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Bruno-Henrique-Cappelozza-74598>
+{'age': [' 31'],
+ 'birthDate': ['05/20/1989'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Light Heavyweight'],
+ 'fighterName': ['bruno henrique cappelozza'],
+ 'height': ['74'],
+ 'locality': ['"Jau; Sao Paulo"'],
+ 'loss': ['None'],
+ 'weight': ['205'],
+ 'win': ['None']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Mohammed-Usman-253535 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Mohammed-Usman-253535>
+{'age': [' 32'],
+ 'birthDate': ['04/01/1989'],
+ 'country': ['Nigeria'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['mohammed usman'],
+ 'height': ['74'],
+ 'locality': ['"Auchi"'],
+ 'loss': ['2'],
+ 'weight': ['245'],
+ 'win': ['7']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Brandon-Sayles-67806 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Brandon-Sayles-67806>
+{'age': [' 40'],
+ 'birthDate': ['04/23/1981'],
+ 'country': ['United States'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['brandon sayles'],
+ 'height': ['77'],
+ 'locality': ['"Hilo; Hawaii"'],
+ 'loss': ['1'],
+ 'weight': ['265'],
+ 'win': ['6']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Justin-Gaethje-46648 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Justin-Gaethje-46648>
+{'age': [' 32'],
+ 'birthDate': ['11/14/1988'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['justin gaethje'],
+ 'height': ['71'],
+ 'locality': ['"Safford; Arizona"'],
+ 'loss': ['3'],
+ 'weight': ['155'],
+ 'win': ['22']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Tony-Ferguson-31239 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Tony-Ferguson-31239>
+{'age': [' 37'],
+ 'birthDate': ['02/12/1984'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['tony ferguson'],
+ 'height': ['72'],
+ 'locality': ['"Oxnard; California"'],
+ 'loss': ['5'],
+ 'weight': ['155'],
+ 'win': ['25']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Jorge-Masvidal-7688 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Jorge-Masvidal-7688>
+{'age': [' 36'],
+ 'birthDate': ['11/12/1984'],
+ 'country': ['United States'],
+ 'fighterClass': ['Welterweight'],
+ 'fighterName': ['jorge masvidal'],
+ 'height': ['71'],
+ 'locality': ['"Miami; Florida"'],
+ 'loss': ['15'],
+ 'weight': ['170'],
+ 'win': ['35']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Kyron-Bowen-166817 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Kyron-Bowen-166817>
+{'age': [' 27'],
+ 'birthDate': ['12/22/1993'],
+ 'country': ['United States'],
+ 'fighterClass': ['Welterweight'],
+ 'fighterName': ['kyron bowen'],
+ 'height': ['74'],
+ 'locality': ['"Springfield; Illinois"'],
+ 'loss': ['6'],
+ 'weight': ['170'],
+ 'win': ['9']}
+INFO: Crawled 10 pages (at 10 pages/min), scraped 9 items (at 9 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Magomed-Umalatov-233045 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Magomed-Umalatov-233045>
+{'age': ['None'],
+ 'birthDate': ['None'],
+ 'country': ['Russia'],
+ 'fighterClass': ['Welterweight'],
+ 'fighterName': ['magomed umalatov'],
+ 'height': ['73'],
+ 'locality': ['"Astrakhan"'],
+ 'loss': ['0'],
+ 'weight': ['170'],
+ 'win': ['10']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Muhammed-DeReese-121069 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Muhammed-DeReese-121069>
+{'age': [' 32'],
+ 'birthDate': ['05/15/1988'],
+ 'country': ['United States'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['muhammed dereese'],
+ 'height': ['72'],
+ 'locality': ['"Titusville; Florida"'],
+ 'loss': ['3'],
+ 'weight': ['245'],
+ 'win': ['8']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Denis-Goltsov-72521 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Denis-Goltsov-72521>
+{'age': [' 30'],
+ 'birthDate': ['10/06/1990'],
+ 'country': ['Russia'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['denis goltsov'],
+ 'height': ['77'],
+ 'locality': ['"St. Petersburg"'],
+ 'loss': ['6'],
+ 'weight': ['227'],
+ 'win': ['26']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Julija-Pajic-347221 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Julija-Pajic-347221>
+{'age': [' 23'],
+ 'birthDate': ['10/15/1997'],
+ 'country': ['Croatia'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['julija pajic'],
+ 'height': ['72'],
+ 'locality': ['"Zagreb"'],
+ 'loss': ['1'],
+ 'weight': ['155'],
+ 'win': ['3']}
+INFO: Crawled 14 pages (at 4 pages/min), scraped 13 items (at 4 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Larissa-Pacheco-144115 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Larissa-Pacheco-144115>
+{'age': [' 26'],
+ 'birthDate': ['09/07/1994'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['larissa pacheco'],
+ 'height': ['68'],
+ 'locality': ['"Belem; Para"'],
+ 'loss': ['4'],
+ 'weight': ['145'],
+ 'win': ['14']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Mariana-Morais-141747 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Mariana-Morais-141747>
+{'age': [' 26'],
+ 'birthDate': ['03/05/1995'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Bantamweight'],
+ 'fighterName': ['mariana morais'],
+ 'height': ['64'],
+ 'locality': ['"Sao Joao da Boa Vista; Sao Paulo"'],
+ 'loss': ['11'],
+ 'weight': ['135'],
+ 'win': ['16']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Fabricio-Werdum-8390 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Fabricio-Werdum-8390>
+{'age': [' 43'],
+ 'birthDate': ['07/30/1977'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['fabricio werdum'],
+ 'height': ['76'],
+ 'locality': ['"Porto Alegre; Rio Grande do Sul"'],
+ 'loss': ['9'],
+ 'weight': ['242'],
+ 'win': ['24']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Renan-Ferreira-181493 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Renan-Ferreira-181493>
+{'age': [' 31'],
+ 'birthDate': ['11/23/1989'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['renan ferreira'],
+ 'height': ['80'],
+ 'locality': ['"Santa Tereza de Goias; Goias"'],
+ 'loss': ['None'],
+ 'weight': ['260'],
+ 'win': ['1']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Gregor-Gillespie-111701 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Gregor-Gillespie-111701>
+{'age': [' 34'],
+ 'birthDate': ['03/18/1987'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['gregor gillespie'],
+ 'height': ['69'],
+ 'locality': ['"New York; New York"'],
+ 'loss': ['1'],
+ 'weight': ['155'],
+ 'win': ['14']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Marina-Rodriguez-193977 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Marina-Rodriguez-193977>
+{'age': [' 34'],
+ 'birthDate': ['04/29/1987'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Strawweight'],
+ 'fighterName': ['marina rodriguez'],
+ 'height': ['67'],
+ 'locality': ['"Bage; Rio Grande do Sul"'],
+ 'loss': ['1'],
+ 'weight': ['115'],
+ 'win': ['14']}
+INFO: Crawled 20 pages (at 6 pages/min), scraped 19 items (at 6 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Charles-Oliveira-30300 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Charles-Oliveira-30300>
+{'age': [' 31'],
+ 'birthDate': ['10/17/1989'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['charles oliveira'],
+ 'height': ['70'],
+ 'locality': ['"Guaruja; Sao Paulo"'],
+ 'loss': ['8'],
+ 'weight': ['155'],
+ 'win': ['30']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Claressa-Shields-381927 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Claressa-Shields-381927>
+{'age': [' 26'],
+ 'birthDate': ['03/17/1995'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['claressa shields'],
+ 'height': ['68'],
+ 'locality': ['"Flint; Michigan"'],
+ 'loss': ['0'],
+ 'weight': ['155'],
+ 'win': ['0']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Kayla-Harrison-237039 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Kayla-Harrison-237039>
+{'age': [' 30'],
+ 'birthDate': ['07/02/1990'],
+ 'country': ['United States'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['kayla harrison'],
+ 'height': ['68'],
+ 'locality': ['"Middletown; Ohio"'],
+ 'loss': ['0'],
+ 'weight': ['146'],
+ 'win': ['9']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Beneil-Dariush-56583 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Beneil-Dariush-56583>
+{'age': [' 32'],
+ 'birthDate': ['05/06/1989'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['beneil dariush'],
+ 'height': ['70'],
+ 'locality': ['"Yorba Linda; California"'],
+ 'loss': ['4'],
+ 'weight': ['155'],
+ 'win': ['20']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Daniel-Swain-73000 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Daniel-Swain-73000>
+{'age': [' 30'],
+ 'birthDate': ['01/30/1991'],
+ 'country': ['United States'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['daniel swain'],
+ 'height': ['69'],
+ 'locality': ['"Newport; Washington"'],
+ 'loss': ['10'],
+ 'weight': ['145'],
+ 'win': ['20']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Kamuela-Kirk-162187 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Kamuela-Kirk-162187>
+{'age': [' 27'],
+ 'birthDate': ['04/13/1994'],
+ 'country': ['United States'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['kamuela kirk'],
+ 'height': ['69'],
+ 'locality': ['"Arizona"'],
+ 'loss': ['4'],
+ 'weight': ['145'],
+ 'win': ['10']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Katlyn-Chookagian-119071 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Katlyn-Chookagian-119071>
+{'age': [' 32'],
+ 'birthDate': ['12/28/1988'],
+ 'country': ['United States'],
+ 'fighterClass': ['Flyweight'],
+ 'fighterName': ['katlyn chookagian'],
+ 'height': ['69'],
+ 'locality': ['"Jersey City; New Jersey"'],
+ 'loss': ['4'],
+ 'weight': ['125'],
+ 'win': ['15']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Michael-Chandler-50829 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Michael-Chandler-50829>
+{'age': [' 35'],
+ 'birthDate': ['04/24/1986'],
+ 'country': ['United States'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['michael chandler'],
+ 'height': ['68'],
+ 'locality': ['"High Ridge; Missouri"'],
+ 'loss': ['5'],
+ 'weight': ['155'],
+ 'win': ['22']}
+INFO: Crawled 28 pages (at 8 pages/min), scraped 27 items (at 8 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Brandon-Vera-4886 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Brandon-Vera-4886>
+{'age': [' 43'],
+ 'birthDate': ['10/10/1977'],
+ 'country': ['United States'],
+ 'fighterClass': ['Light Heavyweight'],
+ 'fighterName': ['brandon vera'],
+ 'height': ['74'],
+ 'locality': ['"San Diego; California"'],
+ 'loss': ['8'],
+ 'weight': ['205'],
+ 'win': ['16']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Arjan-Singh-Bhullar-175321 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Arjan-Singh-Bhullar-175321>
+{'age': [' 35'],
+ 'birthDate': ['05/13/1986'],
+ 'country': ['Canada'],
+ 'fighterClass': ['Heavyweight'],
+ 'fighterName': ['arjan singh bhullar'],
+ 'height': ['73'],
+ 'locality': ['"Richmond; British Columbia"'],
+ 'loss': ['1'],
+ 'weight': ['241'],
+ 'win': ['10']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Andre-Muniz-81800 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Andre-Muniz-81800>
+{'age': [' 31'],
+ 'birthDate': ['02/17/1990'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Middleweight'],
+ 'fighterName': ['andre muniz'],
+ 'height': ['74'],
+ 'locality': ['"Montes Claros; Minas Gerais"'],
+ 'loss': ['4'],
+ 'weight': ['185'],
+ 'win': ['20']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Ronaldo-Souza-8394 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Ronaldo-Souza-8394>
+{'age': [' 41'],
+ 'birthDate': ['12/07/1979'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Middleweight'],
+ 'fighterName': ['ronaldo souza'],
+ 'height': ['73'],
+ 'locality': ['"Manaus; Amazonas"'],
+ 'loss': ['9'],
+ 'weight': ['185'],
+ 'win': ['26']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Conor-McGregor-29688 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Conor-McGregor-29688>
+{'age': [' 32'],
+ 'birthDate': ['07/14/1988'],
+ 'country': ['Ireland'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['conor mcgregor'],
+ 'height': ['68'],
+ 'locality': ['"Dublin"'],
+ 'loss': ['5'],
+ 'weight': ['155'],
+ 'win': ['22']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Ronda-Rousey-73073 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Ronda-Rousey-73073>
+{'age': [' 34'],
+ 'birthDate': ['02/01/1987'],
+ 'country': ['United States'],
+ 'fighterClass': ['Bantamweight'],
+ 'fighterName': ['ronda rousey'],
+ 'height': ['66'],
+ 'locality': ['"Santa Monica; California"'],
+ 'loss': ['2'],
+ 'weight': ['135'],
+ 'win': ['12']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Amanda-Nunes-31496 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Amanda-Nunes-31496>
+{'age': [' 32'],
+ 'birthDate': ['05/30/1988'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['amanda nunes'],
+ 'height': ['68'],
+ 'locality': ['"Salvador; Bahia"'],
+ 'loss': ['4'],
+ 'weight': ['145'],
+ 'win': ['21']}
+INFO: Crawled 35 pages (at 7 pages/min), scraped 34 items (at 7 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Deiveson-Figueiredo-110485 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Deiveson-Figueiredo-110485>
+{'age': [' 33'],
+ 'birthDate': ['12/18/1987'],
+ 'country': ['Brazil'],
+ 'fighterClass': ['Flyweight'],
+ 'fighterName': ['deiveson figueiredo'],
+ 'height': ['65'],
+ 'locality': ['"Soure; Para"'],
+ 'loss': ['1'],
+ 'weight': ['125'],
+ 'win': ['20']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Henry-Cejudo-125297 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Henry-Cejudo-125297>
+{'age': [' 34'],
+ 'birthDate': ['02/09/1987'],
+ 'country': ['United States'],
+ 'fighterClass': ['Bantamweight'],
+ 'fighterName': ['henry cejudo'],
+ 'height': ['64'],
+ 'locality': ['"Phoenix; Arizona"'],
+ 'loss': ['2'],
+ 'weight': ['135'],
+ 'win': ['16']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Alexander-Volkanovski-101527 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Alexander-Volkanovski-101527>
+{'age': [' 32'],
+ 'birthDate': ['09/29/1988'],
+ 'country': ['Australia'],
+ 'fighterClass': ['Featherweight'],
+ 'fighterName': ['alexander volkanovski'],
+ 'height': ['66'],
+ 'locality': ['"Windang; New South Wales"'],
+ 'loss': ['1'],
+ 'weight': ['145'],
+ 'win': ['22']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Khabib-Nurmagomedov-56035 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Khabib-Nurmagomedov-56035>
+{'age': [' 32'],
+ 'birthDate': ['09/20/1988'],
+ 'country': ['Russia'],
+ 'fighterClass': ['Lightweight'],
+ 'fighterName': ['khabib nurmagomedov'],
+ 'height': ['70'],
+ 'locality': ['"Makhachkala; Dagestan"'],
+ 'loss': ['0'],
+ 'weight': ['155'],
+ 'win': ['29']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Kamaru-Usman-120691 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Kamaru-Usman-120691>
+{'age': [' 34'],
+ 'birthDate': ['05/11/1987'],
+ 'country': ['United States'],
+ 'fighterClass': ['Welterweight'],
+ 'fighterName': ['kamaru usman'],
+ 'height': ['72'],
+ 'locality': ['"Delray Beach; Florida"'],
+ 'loss': ['1'],
+ 'weight': ['170'],
+ 'win': ['19']}
+INFO: Crawled 40 pages (at 5 pages/min), scraped 39 items (at 5 items/min)
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Israel-Adesanya-56374 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Israel-Adesanya-56374>
+{'age': [' 31'],
+ 'birthDate': ['07/22/1989'],
+ 'country': ['Nigeria'],
+ 'fighterClass': ['Light Heavyweight'],
+ 'fighterName': ['israel adesanya'],
+ 'height': ['76'],
+ 'locality': ['"Lagos"'],
+ 'loss': ['1'],
+ 'weight': ['201'],
+ 'win': ['20']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/fighter/Jon-Jones-27944 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/fighter/Jon-Jones-27944>
+{'age': [' 33'],
+ 'birthDate': ['07/19/1987'],
+ 'country': ['United States'],
+ 'fighterClass': ['Light Heavyweight'],
+ 'fighterName': ['jon jones'],
+ 'height': ['76'],
+ 'locality': ['"Rochester; New York"'],
+ 'loss': ['None'],
+ 'weight': ['205'],
+ 'win': ['1']}
+INFO: Closing spider (finished)
+INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 53878,
+ 'downloader/request_count': 42,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/request_method_count/POST': 41,
+ 'downloader/response_bytes': 16105891,
+ 'downloader/response_count': 42,
+ 'downloader/response_status_count/200': 42,
+ 'elapsed_time_seconds': 369.705064,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 5, 13, 14, 37, 30, 386619),
+ 'httpcache/firsthand': 41,
+ 'httpcache/hit': 1,
+ 'httpcache/miss': 41,
+ 'httpcache/store': 41,
+ 'item_scraped_count': 41,
+ 'log_count/DEBUG': 84,
+ 'log_count/INFO': 16,
+ 'request_depth_max': 1,
+ 'response_received_count': 42,
+ 'scheduler/dequeued': 83,
+ 'scheduler/dequeued/memory': 83,
+ 'scheduler/enqueued': 83,
+ 'scheduler/enqueued/memory': 83,
+ 'splash/execute/request_count': 41,
+ 'splash/execute/response_count/200': 41,
+ 'start_time': datetime.datetime(2021, 5, 13, 14, 31, 20, 681555)}
+INFO: Spider closed (finished)

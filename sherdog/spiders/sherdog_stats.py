@@ -298,7 +298,7 @@ class SherdogFighterStatsSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogStatsPipeline': 199,
         },
-        "CLOSESPIDER_ITEMCOUNT": 44
+        "CLOSESPIDER_ITEMCOUNT": 55
     }
 
     configure_logging(install_root_handler=False)
@@ -314,18 +314,6 @@ class SherdogFighterStatsSpider(CrawlSpider):
 
     def __init__(self,*args,**kwargs):
         super(SherdogFighterStatsSpider,self).__init__(*args,**kwargs)
-        self.eventUrlList = []
-        self.date = ""
-        self.eventName = ""
-        self.eventTitle = ""
-        self.location = ""
-
-        self.fighter1Name = ""
-        self.fighter2Name = ""
-        self.fighter1Result = ""
-        self.fighter2Result = ""
-        self.fighterMethodResult = ""
-
         self.fighterName = ""
         self.birthDate = ""
         self.age = ""
@@ -338,7 +326,7 @@ class SherdogFighterStatsSpider(CrawlSpider):
         self.country = ""
 
         self.count = 0
-        # self.url = "https://www.sherdgo.com"
+        # self.url = "https://www.sherdog.com"
         self.script = """
                          function main(splash,args)
                              local cookies = splash:get_cookies()
@@ -435,14 +423,6 @@ class SherdogFighterStatsSpider(CrawlSpider):
 
                 loader = loadFighterStatsItem(self,response)
                 yield loader.load_item()
-
-                # loader = loadMatchupItem(self,response)
-                # yield loader.load_item()
-
-                # if (self.eventUrl != "None"):
-                #     yield SplashRequest(url=self.eventUrl,callback=self.parseEventOrBoxer,
-                #         endpoint="execute",args={"lua_source": self.script},
-                #         headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
         except Exception as ex:
             print("error => %s" % ex)
