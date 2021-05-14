@@ -47,10 +47,12 @@ def setWeight(self,weight):
         self.weight = "None"
 
 def setAge(self,age):
+    subStr = ""
     if (re.search(r"N/A",age) != None):
         self.age = "None"
     else:
-        self.age = re.sub(r"AGE:","",age)
+        subStr = re.sub(r"AGE:","",age)
+        self.age = subStr.strip()
 
 def setBirthDate(self,birthDate):
     month = ""
@@ -101,7 +103,6 @@ def setFirstRowFightCard(self,response):
     except Exception as ex:
         print("exception: {0}".format(ex))
 
-
 def checkFightResult(self,fightResult):
     if (fightResult == "win"):
         return "W"
@@ -110,7 +111,7 @@ def checkFightResult(self,fightResult):
 
 def createUrl(self):
     # 1-202
-    for i,x in enumerate(range(3,37,3)):
+    for i,x in enumerate(range(4,44,4)):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 
