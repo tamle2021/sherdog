@@ -111,7 +111,7 @@ def checkFightResult(self,fightResult):
 
 def createUrl(self):
     # 1-202
-    for i,x in enumerate(range(4,44,4)):
+    for i,x in enumerate(range(2,38,2)):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 
