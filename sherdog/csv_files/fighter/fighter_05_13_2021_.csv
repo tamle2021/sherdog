@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
 francis ngannou,09/05/1986, 34,76,263,Heavyweight,16,3,"""Paris""",France
 ante delija,08/07/1990, 30,77,251,Heavyweight,17,4,"""Dubrovnik""",Croatia
@@ -40,3 +41,47 @@ khabib nurmagomedov,09/20/1988, 32,70,155,Lightweight,29,0,"""Makhachkala; Dages
 kamaru usman,05/11/1987, 34,72,170,Welterweight,19,1,"""Delray Beach; Florida""",United States
 israel adesanya,07/22/1989, 31,76,201,Light Heavyweight,20,1,"""Lagos""",Nigeria
 jon jones,07/19/1987, 33,76,205,Light Heavyweight,1,None,"""Rochester; New York""",United States
+=======
+fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
+francis ngannou,09/05/1986, 34,76,263,Heavyweight,16,3,"""Paris""",France
+ante delija,08/07/1990, 30,77,251,Heavyweight,17,4,"""Dubrovnik""",Croatia
+bruno henrique cappelozza,05/20/1989, 31,74,205,Light Heavyweight,None,None,"""Jau; Sao Paulo""",Brazil
+mohammed usman,04/01/1989, 32,74,245,Heavyweight,7,2,"""Auchi""",Nigeria
+brandon sayles,04/23/1981, 40,77,265,Heavyweight,6,1,"""Hilo; Hawaii""",United States
+justin gaethje,11/14/1988, 32,71,155,Lightweight,22,3,"""Safford; Arizona""",United States
+tony ferguson,02/12/1984, 37,72,155,Lightweight,25,5,"""Oxnard; California""",United States
+jorge masvidal,11/12/1984, 36,71,170,Welterweight,35,15,"""Miami; Florida""",United States
+kyron bowen,12/22/1993, 27,74,170,Welterweight,9,6,"""Springfield; Illinois""",United States
+magomed umalatov,None,None,73,170,Welterweight,10,0,"""Astrakhan""",Russia
+muhammed dereese,05/15/1988, 32,72,245,Heavyweight,8,3,"""Titusville; Florida""",United States
+denis goltsov,10/06/1990, 30,77,227,Heavyweight,26,6,"""St. Petersburg""",Russia
+julija pajic,10/15/1997, 23,72,155,Lightweight,3,1,"""Zagreb""",Croatia
+larissa pacheco,09/07/1994, 26,68,145,Featherweight,14,4,"""Belem; Para""",Brazil
+mariana morais,03/05/1995, 26,64,135,Bantamweight,16,11,"""Sao Joao da Boa Vista; Sao Paulo""",Brazil
+fabricio werdum,07/30/1977, 43,76,242,Heavyweight,24,9,"""Porto Alegre; Rio Grande do Sul""",Brazil
+renan ferreira,11/23/1989, 31,80,260,Heavyweight,1,None,"""Santa Tereza de Goias; Goias""",Brazil
+gregor gillespie,03/18/1987, 34,69,155,Lightweight,14,1,"""New York; New York""",United States
+marina rodriguez,04/29/1987, 34,67,115,Strawweight,14,1,"""Bage; Rio Grande do Sul""",Brazil
+charles oliveira,10/17/1989, 31,70,155,Lightweight,30,8,"""Guaruja; Sao Paulo""",Brazil
+claressa shields,03/17/1995, 26,68,155,Lightweight,0,0,"""Flint; Michigan""",United States
+kayla harrison,07/02/1990, 30,68,146,Featherweight,9,0,"""Middletown; Ohio""",United States
+beneil dariush,05/06/1989, 32,70,155,Lightweight,20,4,"""Yorba Linda; California""",United States
+daniel swain,01/30/1991, 30,69,145,Featherweight,20,10,"""Newport; Washington""",United States
+kamuela kirk,04/13/1994, 27,69,145,Featherweight,10,4,"""Arizona""",United States
+katlyn chookagian,12/28/1988, 32,69,125,Flyweight,15,4,"""Jersey City; New Jersey""",United States
+michael chandler,04/24/1986, 35,68,155,Lightweight,22,5,"""High Ridge; Missouri""",United States
+brandon vera,10/10/1977, 43,74,205,Light Heavyweight,16,8,"""San Diego; California""",United States
+arjan singh bhullar,05/13/1986, 35,73,241,Heavyweight,10,1,"""Richmond; British Columbia""",Canada
+andre muniz,02/17/1990, 31,74,185,Middleweight,20,4,"""Montes Claros; Minas Gerais""",Brazil
+ronaldo souza,12/07/1979, 41,73,185,Middleweight,26,9,"""Manaus; Amazonas""",Brazil
+conor mcgregor,07/14/1988, 32,68,155,Lightweight,22,5,"""Dublin""",Ireland
+ronda rousey,02/01/1987, 34,66,135,Bantamweight,12,2,"""Santa Monica; California""",United States
+amanda nunes,05/30/1988, 32,68,145,Featherweight,21,4,"""Salvador; Bahia""",Brazil
+deiveson figueiredo,12/18/1987, 33,65,125,Flyweight,20,1,"""Soure; Para""",Brazil
+henry cejudo,02/09/1987, 34,64,135,Bantamweight,16,2,"""Phoenix; Arizona""",United States
+alexander volkanovski,09/29/1988, 32,66,145,Featherweight,22,1,"""Windang; New South Wales""",Australia
+khabib nurmagomedov,09/20/1988, 32,70,155,Lightweight,29,0,"""Makhachkala; Dagestan""",Russia
+kamaru usman,05/11/1987, 34,72,170,Welterweight,19,1,"""Delray Beach; Florida""",United States
+israel adesanya,07/22/1989, 31,76,201,Light Heavyweight,20,1,"""Lagos""",Nigeria
+jon jones,07/19/1987, 33,76,205,Light Heavyweight,1,None,"""Rochester; New York""",United States
+>>>>>>> 263da8141b56ca54c4d8460c45eccece6cfd0d6e

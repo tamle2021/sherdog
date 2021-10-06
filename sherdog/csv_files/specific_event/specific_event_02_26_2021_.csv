@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fighter1Name,fighter1Result,fighter2Name,fighter2Result,fighterMethodResult
 zabiullah parwoni,W,safetullah mubariz,L, submission
 mansoor noorzai,W,qudratullah shenwari,L,tko
@@ -9,3 +10,16 @@ mojiburahman osmani,W,mostafa yaran,L,decision
 zubaidullah raziqi,W,hejazullah sidiqi,L,tko
 None,None,None,None,None
 None,None,None,None,None
+=======
+fighter1Name,fighter1Result,fighter2Name,fighter2Result,fighterMethodResult
+zabiullah parwoni,W,safetullah mubariz,L, submission
+mansoor noorzai,W,qudratullah shenwari,L,tko
+mohammad sharif batoor,W,rahmudin razmi,L,submission
+None,None,None,None,None
+mansoor hafizi,W,ghulam kunduzi,L,tko
+wazir aqa noori,W,ahmad zubair ebrahimi,L,tko
+mojiburahman osmani,W,mostafa yaran,L,decision
+zubaidullah raziqi,W,hejazullah sidiqi,L,tko
+None,None,None,None,None
+None,None,None,None,None
+>>>>>>> 263da8141b56ca54c4d8460c45eccece6cfd0d6e

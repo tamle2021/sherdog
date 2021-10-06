@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fighter1Name,fighter1Result,fighter2Name,fighter2Result,fighterMethodResult
 mikhail ragozin,W,leonardo guimaraes,L, decision (unanimous)
 pavel gordeev,W,kaik brito,L,decision (unanimous)
@@ -86,3 +87,93 @@ manga felix,,rodolphe kamdem,,"
                                 "
 endom bikim steve durant,,mvougou mvodo,,"
                                 "
+=======
+fighter1Name,fighter1Result,fighter2Name,fighter2Result,fighterMethodResult
+mikhail ragozin,W,leonardo guimaraes,L, decision (unanimous)
+pavel gordeev,W,kaik brito,L,decision (unanimous)
+boris medvedev,W,ilyas khamzin,L,tko 
+evgeniy ignatiev,W,zandan tsydenov,L,ko 
+vladimir palchenkov,W,alexey ilyenko,L,decision (unanimous)
+kirill kornilov,W,yuriy fedorov,L,ko 
+ivan sopivskoy,W,andrey shilimov,L,decision (unanimous)
+nikolay prismakov,W,oleg korotkov,L,decision (unanimous)
+alexander gorbunov,W,ilya erastov,L,decision (unanimous)
+samuil shelest,W,aleksandr prigarov,L,submission 
+mikhail doroshenko,W,dmitry mikhailidi,L,decision (split)
+nadzhmudin sobirov,W,dmitry nikulnikov,L,decision (split)
+None,None,None,None,None
+solekh khasanov,W,alexander batalov,L, submission (rear-naked choke)
+dodikhudo sangakov,W,bayzhigit satymkulov,L,decision (unanimous)
+kanatbek uulu zhanbolot,W,maksatbek uulu akzhigit,L,tko
+tsubasa kamino,W,takumi takumi,L, submission (triangle choke)
+alikhan elzhurkaev,W,arman dzhanayev,L,submission (triangle choke)
+daniel gomes,W,tetsuo kondo,L,ko
+samat uulu rustambek,W,abdilakhay uulu tolonbay,L,tko
+alex sorriso,W,teruya teruya,L,ko
+sharaputdin ramazanov,W,shokhrukh elmiev,L,submission (rear-naked choke)
+sharaputdin ramazanov,W,reito reito,L,disqualification (illegal elbow)
+kazuki kazuki,W,yohei ono,L,decision (split)
+arstanbek zulumov,W,ramazan mardidov,L,submission (triangle choke)
+kubanychbek uulu ariet,W,melis kursanov,L,submission (triangle choke)
+sherzod kayumov,W,marsabek uulu aybek,L,ko
+obidjon rakhimzoda,W,ulukbek uulu asybek,L,submission (heel hook)
+fayzidini radzhabali,W,alexey kuznetsov,L,submission (triangle choke)
+umarali dzhalilov,W,kurmanbek kimsanov,L,tko
+dzhambul chergeskhanov,W,kazbek uulu nurgazy,L,submission (armbar)
+sukhrob safarov,W,almaz samatov,L,submission (armbar)
+sherzodi sadullo,W,adam makhtiev,L,tko
+mukhammad kholikov,W,nurgazy baryev,L,tko (injury)
+nursultan tokonov,W,umarali nuridinov,L,submission (rear-naked choke)
+shamil magomedov,W,khakan kurakhov,L,submission (rear-naked choke)
+temur akhmatzhanov,W,kumarin kazbekov,L,tko
+abdulaziz razhzhabekov,W,ulan uranov,L,submission (guillotine choke)
+zabi paktival,W,georgiy semyonov,L,submission (guillotine choke)
+orifjon bekodiev,W,allab otman,L,submission (guillotine choke)
+magomed kadiev,W,shohrukh aliyev,L,tko
+durusbek aladashov,W,izzatbek abdurakhimov,L,disqualification
+kubanychbek kurmanbekov,W,fariddun kholikov,L,tko
+mirlan rakhmanberdiev,W,bakhridin khushmatov,L,submission (guillotine choke)
+toychubek uulu daniyar,W,magomed terekbaev,L,tko
+shokhrukh shomurodov,W,ali amangeldiev,L,decision (unanimous)
+aleksandr balaur,W,magomed zainalov,L,tko
+kutubay uulu zhigitali,W,yusuf zaripov,L,decision (unanimous)
+alexander arustamyan,W,anvar magomaev,L,submission (guillotine choke)
+usman kodirov,W,ernest abdukhalilov,L,disqualification
+alaybek soronbaev,W,khurshed yunuszoda,L,submission (armbar)
+zholboldu akhunov,W,bakhtovar khalifaev,L,submission (armbar)
+gennadiy yakovlev,W,zhasur abdurakhimov,L,submission (armbar)
+argen satymov,W,ekhson kurbonov,L,submission (triangle choke)
+subkhonali naimov,W,danila rud,L,submission (choke)
+shakhbulat abuev,W,abdusalom niyazov,L,tko
+murad velikhanov,W,subkhan rakhmatillov,L,tko
+zavkivbek mirov,W,anzor omarov,L,submission (armbar)
+georgiy tskhovrebov,W,magomed magomedov,L,decision (unanimous)
+maksat mamatkulov,W,alim makhaev,L,tko
+khamzali lashkariev,W,kadyrbek uulu nasirov,L,submission (armbar)
+nurtilek tabaldy uulu,W,amantur zaripbekov,L,submission (choke)
+bekzod kuldashev,W,okhunjon zafar ogli umurzokov,L,ko
+magomedmurad abakarov,W,faiziddin rakhmanov,L,tko
+magomed magomedov,W,shakhmurat abduraymov,L,submission (rear-naked choke)
+syymyk adylbekov,W,munir zhuraev,L,submission (choke)
+nursultan abdirashitov,W,akmal sarimsakov,L,decision (unanimous)
+bakdoolot isakov,W,amriddin nasriddinov,L,tko
+zokirzhon azimov,W,ulanbek karypov,L,submission (guillotine choke)
+kurmanbek absamatov,W,anzor ayubov,L,tko
+georgiy kozaev,W,zhanbolot muraliev,L,disqualification
+talantbek uulu erbol,W,mirzobek mirzoev,L,submission (rear-naked choke)
+ivan bayakin,W,niymon mamytov,L,ko
+andrey koreshkov,W,adriano rodrigues de oliveira,L, submission (armbar)
+vladimir egoyan,W,gustavo erak,L,tko (arm injury)
+yusup shuaev,W,wagner da conceicao martins,L,decision (majority)
+david barkhudaryan,W,marcio santos,L,tko (punches)
+badmatsyren dorzhiev,W,rildeci lima dias,L,decision (unanimous)
+shamil michilov,W,ruslan hubolov,L,submission (guillotine choke)
+achmiz azamat,W,sergey borisov,L,tko (punches)
+alibeg rasulov,W,mikhail turkanov,L,tko (elbows and punches)
+anzor abzhamov,W,anton vakunov,L,decision (split)
+staline valentin kamgang,,mbong rene,, 
+manga felix,,rodolphe kamdem,,"
+                                "
+endom bikim steve durant,,mvougou mvodo,,"
+                                "
+>>>>>>> 263da8141b56ca54c4d8460c45eccece6cfd0d6e

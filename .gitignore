@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 # ignore scrapy http cache
 .scrapy
 ~/httpcache
+=======
+# ignore scrapy http cache
+.scrapy
+~/httpcache
+>>>>>>> 263da8141b56ca54c4d8460c45eccece6cfd0d6e
 .scrapy/httpcache

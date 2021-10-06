@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
 mansoor noorzai,03/03/2002, 19,[69],135,Bantamweight,1,0,"""Kabul""",Afghanistan
 jeferson lourenco silverio,None,None,[67],155,Lightweight,0,2,"""Rio de Janeiro; Rio de Janeiro""",Brazil
@@ -24,3 +25,31 @@ islanio silva,08/07/1989, 31,[68],134,Bantamweight,1,1,"""Pouso Alegre; Minas Ge
 deberson batista,12/03/1990, 30,[69],145,Featherweight,8,3,"""Belo Horizonte; Minas Gerais""",Brazil
 andre gomes pereira,03/04/1985, 36,[63],135,Bantamweight,1,4,"""Manhuacu; Minas Gerais""",Brazil
 carlos soares,None,None,None,135,Bantamweight,11,2,"""Belo Horizonte; Minas Gerais""",Brazil
+=======
+fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
+mansoor noorzai,03/03/2002, 19,[69],135,Bantamweight,1,0,"""Kabul""",Afghanistan
+jeferson lourenco silverio,None,None,[67],155,Lightweight,0,2,"""Rio de Janeiro; Rio de Janeiro""",Brazil
+qudratullah shenwari,04/02/1999, 22,[68],135,Bantamweight,0,1,"""Kabul""",Afghanistan
+rahmudin razmi,05/01/1999, 22,[69],135,Bantamweight,0,1,"""Kabul""",Afghanistan
+maicon patricio de jesus,None,None,None,185,Middleweight,1,1,"""Belo Horizonte; Minas Gerais""",Brazil
+jonathan hensley,07/10/1993, 27,None,170,Welterweight,0,0,"""South Carolina""",United States
+drew hudson,None,None,None,170,Welterweight,0,0,"""South Carolina""",United States
+ilya tunguzov,None,None,[67],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+ivan yuferev,None,None,[67],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+murod sultonov,None,None,[68],155,Lightweight,0,1,"""Yoshkar-Ola""",Russia
+reshit ovezov,None,None,[73],155,Lightweight,1,0,"""Kazan""",Russia
+mustafo merobov,None,None,[69],145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+valibek gasanbekov,10/10/2000, 20,None,125,Flyweight,0,0,"""Tatarstan""",Russia
+ilyas orazov,None,None,[69],135,Bantamweight,0,1,"""Kazan""",Russia
+kirill toykishkin,None,None,[68],135,Bantamweight,1,0,"""Yoshkar-Ola""",Russia
+corey grooms,05/05/1989, 32,[67],155,Lightweight,0,0,"""South Carolina""",United States
+rustam muborakkadamov,None,None,None,155,Lightweight,0,0,"""Yoshkar-Ola""",Russia
+dilshod nazarov,None,None,[67],155,Lightweight,0,0,"""Kazan""",Russia
+kristina vasilieva,None,None,None,145,Featherweight,0,0,"""Yoshkar-Ola""",Russia
+angelina komleva,None,None,[66],145,Featherweight,0,0,"""Kazan""",Russia
+clay crossway,10/29/2000, 20,None,155,Lightweight,0,0,"""South Carolina""",United States
+islanio silva,08/07/1989, 31,[68],134,Bantamweight,1,1,"""Pouso Alegre; Minas Gerais""",Brazil
+deberson batista,12/03/1990, 30,[69],145,Featherweight,8,3,"""Belo Horizonte; Minas Gerais""",Brazil
+andre gomes pereira,03/04/1985, 36,[63],135,Bantamweight,1,4,"""Manhuacu; Minas Gerais""",Brazil
+carlos soares,None,None,None,135,Bantamweight,11,2,"""Belo Horizonte; Minas Gerais""",Brazil
+>>>>>>> 263da8141b56ca54c4d8460c45eccece6cfd0d6e
