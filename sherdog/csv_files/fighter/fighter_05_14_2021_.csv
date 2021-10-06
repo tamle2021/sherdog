@@ -1,0 +1,15 @@
+fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
+rahmudin razmi,05/01/1999,22,69,135,Bantamweight,0,1,"""Kabul""",Afghanistan
+mohammad sharif batoor,02/03/2002,19,68,135,Bantamweight,1,0,"""Kabul""",Afghanistan
+qudratullah shenwari,04/02/1999,22,68,135,Bantamweight,0,1,"""Kabul""",Afghanistan
+jeferson lourenco silverio,None,None,67,155,Lightweight,0,2,"""Rio de Janeiro; Rio de Janeiro""",Brazil
+jonathan hensley,07/10/1993,27,None,170,Welterweight,0,0,"""South Carolina""",United States
+drew hudson,None,None,None,170,Welterweight,0,0,"""South Carolina""",United States
+corey grooms,05/05/1989,32,67,155,Lightweight,0,0,"""South Carolina""",United States
+andre gomes pereira,03/04/1985,36,63,135,Bantamweight,1,4,"""Manhuacu; Minas Gerais""",Brazil
+clay crossway,10/29/2000,20,None,155,Lightweight,0,0,"""South Carolina""",United States
+maicon patricio de jesus,None,None,None,185,Middleweight,1,1,"""Belo Horizonte; Minas Gerais""",Brazil
+islanio silva,08/07/1989,31,68,134,Bantamweight,1,1,"""Pouso Alegre; Minas Gerais""",Brazil
+deberson batista,12/03/1990,30,69,145,Featherweight,8,3,"""Belo Horizonte; Minas Gerais""",Brazil
+carlos soares,None,None,None,135,Bantamweight,11,2,"""Belo Horizonte; Minas Gerais""",Brazil
+pim kusters,None,None,None,183,Middleweight,2,2,None,Netherlands

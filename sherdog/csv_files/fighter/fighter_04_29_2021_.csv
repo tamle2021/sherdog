@@ -1,0 +1,122 @@
+fighterName,birthDate,age,height,weight,fighterClass,win,loss,locality,country
+Niymon Mamytov,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Anton Vakunov,None,None,None,135,Bantamweight,3,1,Bryansk,Russia
+Anzor Abzhamov,None,None,None,135,Bantamweight,3,0,None,Russia
+Mikhail Turkanov,12/26/1987, 33,[73],170,Welterweight,8,6,St. Petersburg,Russia
+Mvougou Mvodo,None,None,None,155,Lightweight,0,0,Doula,Cameroon
+Endom Bikim Steve Durant,None,None,None,155,Lightweight,0,0,None,Cameroon
+Rodolphe Kamdem,None,None,None,170,Welterweight,0,0,Doula,Cameroon
+Manga Felix,None,None,None,170,Welterweight,0,0,None,Cameroon
+Alibeg Rasulov,12/01/1992, 28,[72],170,Welterweight,11,0,"Makhachkala, Dagestan",Russia
+Sergey Borisov,03/31/1990, 31,None,205,Light Heavyweight,0,1,Novosibirsk,Russia
+Achmiz Azamat,None,None,[70],145,Featherweight,3,1,Sochi,Russia
+Ruslan Hubolov,None,None,None,155,Lightweight,2,1,None,Russia
+Shamil Michilov,None,None,None,155,Lightweight,5,0,None,Russia
+Rildeci Lima Dias,11/05/1985, 35,[67],125,Flyweight,24,14,"Almerim, Para",Brazil
+Badmatsyren Dorzhiev,03/18/1994, 27,[67],125,Flyweight,4,0,Moscow,Russia
+Marcio Santos,02/14/1989, 32,None,170,Welterweight,None,None,"Belford Roxo, Rio de Janeiro",Brazil
+David Barkhudaryan,12/16/1996, 24,[71],170,Welterweight,8,3,"Krasnodar, Krasnodar",Russia
+Wagner da Conceicao Martins,05/19/1978, 42,[79],390,Super Heavyweight,12,10,Sao Luis,Brazil
+Yusup Shuaev,None,None,None,250,Heavyweight,5,0,None,Russia
+Gustavo Erak,05/08/1992, 28,[67],135,Bantamweight,23,5,"Indaiatuba, Sao Paulo",Brazil
+Vladimir Egoyan,10/07/1991, 29,None,135,Bantamweight,23,7,"Rostov-on-Don, Rostov",Russia
+Ivan Bayakin,None,None,None,135,Bantamweight,1,2,None,Russia
+Mirzobek Mirzoev,None,None,None,155,Lightweight,1,1,None,Tajikistan
+Talantbek Uulu Erbol,None,None,None,155,Lightweight,1,0,None,Kyrgyzstan
+Zhanbolot Muraliev,None,None,None,145,Featherweight,None,None,None,Kyrgyzstan
+Georgiy Kozaev,None,None,None,145,Featherweight,None,None,None,Russia
+Anzor Ayubov,None,None,None,125,Flyweight,0,2,None,Russia
+Kurmanbek Absamatov,None,None,None,135,Bantamweight,2,1,None,Kyrgyzstan
+Ulanbek Karypov,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Zokirzhon Azimov,None,None,None,135,Bantamweight,1,0,None,Tajikistan
+Amriddin Nasriddinov,None,None,None,135,Bantamweight,0,1,None,Tajikistan
+Bakdoolot Isakov,None,None,None,135,Bantamweight,2,0,None,Kyrgyzstan
+Akmal Sarimsakov,None,None,None,145,Featherweight,0,1,None,Uzbekistan
+Nursultan Abdirashitov,None,None,None,145,Featherweight,1,0,None,Kyrgyzstan
+Munir Zhuraev,None,None,None,145,Featherweight,0,1,None,Uzbekistan
+Syymyk Adylbekov,None,None,None,145,Featherweight,1,0,None,Kyrgyzstan
+Shakhmurat Abduraymov,None,None,None,170,Welterweight,2,1,Osh,Kyrgyzstan
+Magomed Magomedov,None,None,None,155,Lightweight,1,0,None,Russia
+Faiziddin Rakhmanov,None,None,None,170,Welterweight,0,1,None,Tajikistan
+Magomedmurad Abakarov,None,None,None,170,Welterweight,1,0,None,Russia
+Okhunjon Zafar Ogli Umurzokov,None,None,None,170,Welterweight,1,1,None,Uzbekistan
+Bekzod Kuldashev,None,None,None,170,Welterweight,1,0,None,Uzbekistan
+Amantur Zaripbekov,None,None,None,145,Featherweight,0,1,None,Kyrgyzstan
+Nurtilek Tabaldy Uulu,None,None,[68],145,Featherweight,3,2,None,Kyrgyzstan
+Kadyrbek Uulu Nasirov,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Khamzali Lashkariev,None,None,None,145,Featherweight,2,0,None,Tajikistan
+Alim Makhaev,None,None,None,155,Lightweight,0,1,None,Russia
+Maksat Mamatkulov,None,None,None,155,Lightweight,2,0,None,Kyrgyzstan
+Magomed Magomedov,None,None,None,185,Middleweight,0,3,None,Russia
+Georgiy Tskhovrebov,None,None,None,185,Middleweight,2,0,Alania,Russia
+Anzor Omarov,None,None,None,170,Welterweight,0,1,None,Russia
+Zavkivbek Mirov,None,None,None,170,Welterweight,2,1,None,Tajikistan
+Subkhan Rakhmatillov,None,None,None,155,Lightweight,0,1,None,Tajikistan
+Murad Velikhanov,None,None,None,155,Lightweight,1,0,None,Russia
+Abdusalom Niyazov,None,None,None,170,Welterweight,0,1,None,Uzbekistan
+Shakhbulat Abuev,None,None,None,170,Welterweight,1,0,None,Russia
+Danila Rud,None,None,None,170,Welterweight,0,1,None,Russia
+Subkhonali Naimov,None,None,None,170,Welterweight,1,1,None,Tajikistan
+Ekhson Kurbonov,None,None,None,125,Flyweight,1,3,None,Tajikistan
+Argen Satymov,None,None,None,125,Flyweight,3,1,None,Kyrgyzstan
+Zhasur Abdurakhimov,None,None,None,170,Welterweight,0,1,None,Uzbekistan
+Gennadiy Yakovlev,12/30/1992, 28,[70],170,Welterweight,1,0,Volgograd,Russia
+Bakhtovar Khalifaev,None,None,None,135,Bantamweight,1,4,None,Tajikistan
+Zholboldu Akhunov,None,None,None,145,Featherweight,1,1,None,Kyrgyzstan
+Khurshed Yunuszoda,None,None,None,155,Lightweight,1,1,None,Tajikistan
+Alaybek Soronbaev,None,None,None,155,Lightweight,3,1,None,Kyrgyzstan
+Ernest Abdukhalilov,None,None,None,125,Flyweight,None,None,None,Kyrgyzstan
+Usman Kodirov,None,None,[66],135,Bantamweight,None,None,Moscow,Russia
+Anvar Magomaev,None,None,None,155,Lightweight,1,3,None,Russia
+Alexander Arustamyan,10/12/1993, 27,[67],135,Bantamweight,1,0,Volgograd,Russia
+Yusuf Zaripov,None,None,None,155,Lightweight,0,2,None,United States
+Kutubay Uulu Zhigitali,None,None,None,135,Bantamweight,1,1,None,Kyrgyzstan
+Magomed Zainalov,06/09/1999, 21,None,170,Welterweight,1,2,Tver,Russia
+Aleksandr Balaur,None,None,None,170,Welterweight,2,2,None,Moldova
+Ali Amangeldiev,None,None,None,125,Flyweight,0,1,None,Kyrgyzstan
+Shokhrukh Shomurodov,None,None,None,125,Flyweight,1,0,None,Uzbekistan
+Magomed Terekbaev,None,None,None,125,Flyweight,0,1,None,Russia
+Toychubek uulu Daniyar,None,None,None,125,Flyweight,2,0,None,Kyrgyzstan
+Bakhridin Khushmatov,None,None,None,145,Featherweight,0,2,None,Uzbekistan
+Fariddun Kholikov,None,None,None,145,Featherweight,None,None,None,Tajikistan
+Kubanychbek Kurmanbekov,None,None,None,125,Flyweight,2,0,None,Kyrgyzstan
+Izzatbek Abdurakhimov,None,None,None,125,Flyweight,None,None,None,Tajikistan
+Durusbek Aladashov,None,None,[68],125,Flyweight,None,None,None,Kyrgyzstan
+Shohrukh Aliyev,None,None,None,135,Bantamweight,0,2,Dushanbe,Tajikistan
+Magomed Kadiev,None,None,[66],125,Flyweight,4,1,Dagestan,Russia
+Allab Otman,None,None,None,125,Flyweight,0,2,None,Afghanistan
+Orifjon Bekodiev,None,None,None,135,Bantamweight,2,1,None,Tajikistan
+Georgiy Semyonov,None,None,None,125,Flyweight,0,1,None,Russia
+Zabi Paktival,None,None,None,125,Flyweight,1,0,None,Afghanistan
+Ulan Uranov,None,None,None,125,Flyweight,0,1,None,Russia
+Abdulaziz Razhzhabekov,None,None,None,125,Flyweight,1,0,None,Uzbekistan
+Kumarin Kazbekov,None,None,None,155,Lightweight,0,1,None,Russia
+Temur Akhmatzhanov,None,None,None,155,Lightweight,1,0,None,Uzbekistan
+Khakan Kurakhov,None,None,None,265,Heavyweight,0,1,None,Tajikistan
+Shamil Magomedov,None,None,None,265,Heavyweight,1,0,None,Russia
+Umarali Nuridinov,None,None,None,None,None,2,1,None,Tajikistan
+Nursultan Tokonov,None,None,None,135,Bantamweight,2,0,None,Kyrgyzstan
+Nurgazy Baryev,None,None,None,145,Featherweight,0,1,None,Kyrgyzstan
+Mukhammad Kholikov,None,None,None,155,Lightweight,3,0,None,Uzbekistan
+Adam Makhtiev,None,None,None,125,Flyweight,0,1,None,Russia
+Sherzodi Sadullo,None,None,None,125,Flyweight,4,1,None,Tajikistan
+Almaz Samatov,None,None,None,145,Featherweight,1,2,None,Kyrgyzstan
+Sukhrob Safarov,None,None,None,135,Bantamweight,2,0,None,Tajikistan
+Kazbek uulu Nurgazy,None,None,None,155,Lightweight,0,1,None,Kyrgyzstan
+Dzhambul Chergeskhanov,None,None,None,170,Welterweight,2,0,Dagestan,Russia
+Kurmanbek Kimsanov,None,None,None,125,Flyweight,0,1,None,Kyrgyzstan
+Umarali Dzhalilov,None,None,[66],135,Bantamweight,3,1,"Yekaterinburg, Sverdlovsk",Russia
+Alexey Kuznetsov,None,None,None,155,Lightweight,0,1,None,Russia
+Fayzidini Radzhabali,None,None,None,145,Featherweight,6,4,None,Tajikistan
+Ulukbek uulu Asybek,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Obidjon Rakhimzoda,None,None,None,135,Bantamweight,2,1,None,Tajikistan
+Marsabek uulu Aybek,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Melis Kursanov,None,None,None,135,Bantamweight,0,1,None,Kyrgyzstan
+Sherzod Kayumov,None,None,None,135,Bantamweight,5,4,None,Tajikistan
+Kubanychbek Uulu Ariet,None,None,None,135,Bantamweight,3,1,None,Kyrgyzstan
+Ramazan Mardidov,None,None,None,135,Bantamweight,0,1,None,Tajikistan
+Arstanbek Zulumov,None,None,None,125,Flyweight,3,0,Moscow,Russia
+Yohei Ono,None,None,None,135,Bantamweight,0,1,None,Japan
+Reito Reito,None,None,None,135,Bantamweight,None,None,None,Japan
+Shokhrukh Elmiev,None,None,None,145,Featherweight,0,1,None,Uzbekistan
+Kazuki Kazuki,None,None,None,135,Bantamweight,1,0,None,Japan
