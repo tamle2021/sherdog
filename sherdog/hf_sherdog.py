@@ -187,6 +187,7 @@ def loadFighterItem(self,response):
     self.age = self.age if (self.age != "") else "None"
     self.height = self.height if (self.height != "") else "None"
     self.weight = self.weight if (self.weight != "") else "None"
+    self.association = self.association if (self.association != "") else "None"
     self.fighterClass = self.fighterClass if (self.fighterClass != "") else "None"
     self.win = self.win if (self.win != "") else "None"
     self.loss = self.loss if (self.loss != "") else "None"
@@ -199,6 +200,7 @@ def loadFighterItem(self,response):
     loader.add_value("age",self.age)
     loader.add_value("height",self.height)
     loader.add_value("weight",self.weight)
+    loader.add_value("association",self.association)
     loader.add_value("fighterClass",self.fighterClass)
     loader.add_value("win",self.win)
     loader.add_value("loss",self.loss)

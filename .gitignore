@@ -3,3 +3,5 @@
 ~/httpcache
 .scrapy/httpcache
 sherdog/__pycache__/
+sherdog/__pycache__
+~sherdog/__pycache__

@@ -88,7 +88,6 @@ HTTPCACHE_ENABLED = False
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 RETRY_HTTP_CODES = [403]
 
-
 SPLASH_URL = 'http://localhost:8050'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
