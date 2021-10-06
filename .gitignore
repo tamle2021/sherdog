@@ -2,3 +2,4 @@
 .scrapy
 ~/httpcache
 .scrapy/httpcache
+sherdog/__pycache__/

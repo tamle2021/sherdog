@@ -390,7 +390,7 @@ class SherdogFighterSpider(CrawlSpider):
 
             association = checkEmpty(response.xpath("//h5/strong/span/a/span/text()").get())
             if (association != "None"):
-                self.association = setAssociation(self,association)
+                setAssociation(self,association)
             else:
                 self.association = ""
 

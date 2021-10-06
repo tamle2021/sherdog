@@ -70,7 +70,7 @@ def setBirthDate(self,birthDate):
 
 
 def setAssociation(self,association):
-    self.association = association.lower()
+    self.association = str(association).lower()
 
 def setFirstRowFightCard(self,response):
     try:

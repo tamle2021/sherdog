@@ -1,18 +1,14 @@
 fighterName,birthDate,age,height,weight,association,fighterClass,win,loss,locality,country
 francis ngannou,09/05/1986,35,76,263,,heavyweight,16,3,"""Paris""",France
-shanna young,02/20/1991,30,67,135,,bantamweight,7,4,"""Ferrum; Virginia""",United States
+antonina shevchenko,11/20/1984,36,68,125,,flyweight,9,4,"""Bishkek""",Kyrgyzstan
+casey o'neill,10/07/1997,23,66,125,,flyweight,8,0,"""Queensland""",Australia
 justin gaethje,11/14/1988,32,71,155,,lightweight,22,3,"""Safford; Arizona""",United States
 jorge masvidal,11/12/1984,36,71,170,,welterweight,35,15,"""Miami; Florida""",United States
 tony ferguson,02/12/1984,37,72,155,,lightweight,25,6,"""Oxnard; California""",United States
-johnny eduardo,08/03/1978,43,67,135,,bantamweight,28,13,"""Duque de Caxias; Rio de Janeiro""",Brazil
-alejandro perez,09/02/1989,32,66,135,,bantamweight,22,8,"""Estado de Mexico""",Mexico
-stephanie egger,08/12/1988,33,67,135,,bantamweight,6,2,"""St. Gallen""",Switzerland
 gaetano pirrello,04/29/1992,29,67,135,,bantamweight,15,7,"""La Louviere; Hainaut""",Belgium
 douglas silva de andrade,06/22/1985,36,66,135,,bantamweight,27,4,"""Castanhal; Para""",Brazil
 devonte smith,07/30/1993,28,69,155,,lightweight,11,3,"""Bedford; Ohio""",United States
 jamie mullarkey,08/17/1994,27,68,155,,lightweight,14,4,"""Central Coast; New South Wales""",Australia
-antonina shevchenko,11/20/1984,36,68,125,,flyweight,9,4,"""Bishkek""",Kyrgyzstan
-casey o'neill,10/07/1997,23,66,125,,flyweight,8,0,"""Queensland""",Australia
 mike breeden,04/21/1989,32,70,155,,lightweight,10,4,"""Lee's Summit; Missouri""",United States
 alexander hernandez,10/01/1992,29,69,155,,lightweight,13,4,"""San Antonio; Texas""",United States
 thiago santos,01/07/1984,37,74,205,,light heavyweight,22,9,"""Rio de Janeiro; Rio de Janeiro""",Brazil
@@ -27,6 +23,8 @@ patrik white,06/10/1993,28,70,155,,lightweight,9,2,"""Anchorage; Alaska""",Unite
 genaro valdez,None,None,70,155,,lightweight,10,0,"""Tijuana; Baja California""",Mexico
 shonte barnes,02/09/1987,34,72,205,,light heavyweight,6,2,"""Asheville; North Carolina""",United States
 joseph holmes,07/04/1995,26,76,185,,middleweight,6,1,"""Arlington; Texas""",United States
+bethe correia,06/22/1983,38,64,135,,bantamweight,11,6,"""Campina Grande; Paraiba""",Brazil
+karol rosa,12/30/1994,26,67,135,,bantamweight,15,3,"""Vila Velha; Espirito Santo""",Brazil
 joshua weems,05/05/1994,27,68,145,,featherweight,9,2,"""Jackson; Mississippi""",United States
 fernando garcia,04/12/1992,29,67,135,,bantamweight,10,1,"""Dallas; Texas""",United States
 shimon smotritsky,08/22/2000,21,74,170,,welterweight,7,1,"""Holon""",Israel
