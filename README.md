@@ -1,3 +1,3 @@
 
-### Scraping stats from sherdog
+### Sherdog web scraper
 #### Scrape at own risk
