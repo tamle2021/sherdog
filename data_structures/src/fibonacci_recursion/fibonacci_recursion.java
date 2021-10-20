@@ -6,7 +6,7 @@ sum of the two preceding ones, starting from 0 and 1.
 
 ****  fibonacci number using recursion ****
  */
-package recursion_fibonacci;
+package fibonacci_recursion;
 
 class FibonacciRecursion {
     public static void main(String[] args) {
