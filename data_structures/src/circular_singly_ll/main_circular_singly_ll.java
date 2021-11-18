@@ -12,9 +12,10 @@ class MainCircularSinglyLinkedList {
     System.out.println("**** circular singly linked list ****");
     CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
     csll.createCSLL(5);
-    csll.insertCSLL(4, 0);
-    csll.insertCSLL(6, 1);
-    csll.insertCSLL(7, 8);
+    csll.insertCSLL(25,3);
+    csll.insertCSLL(4,0);
+    csll.insertCSLL(6,1);
+    csll.insertCSLL(7,8);
     csll.insertCSLL(testValue,2);
     csll.insertCSLL(-44,5);
     csll.traverseCSLL();
@@ -28,7 +29,7 @@ class MainCircularSinglyLinkedList {
 
     // searching node after deletion
     System.out.print("searching node " + testValue + " after deletion => ");
-    csll.searchNode(11);
+    csll.searchNode(testValue);
 
   }
 }
