@@ -10,7 +10,7 @@ import java.util.Arrays;
 class RotateMatrix {
     public static void main(String[] args) {
         RotateMatrix rm = new RotateMatrix();
-        int[][] matrix = {{4, 2, 7,3}, {22,0, 5, 6}, {3,11, 8, 9},{7,6,13,5}};
+        int[][] matrix = {{4,2,7,3},{22,0,5,6},{3,11,8,9},{7,6,13,5}};
 
         System.out.println("**** rotate matrix or image ****");
         System.out.println("before rotate: ");
