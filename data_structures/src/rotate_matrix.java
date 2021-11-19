@@ -13,8 +13,10 @@ class RotateMatrix {
         int[][] matrix = {{4, 2, 7,3}, {22,0, 5, 6}, {3,11, 8, 9},{7,6,13,5}};
 
         System.out.println("**** rotate matrix or image ****");
+        System.out.println("before rotate: ");
         System.out.println(Arrays.deepToString(matrix));
         rm.start(matrix);
+        System.out.println("after rotate: ");
         System.out.println(Arrays.deepToString(matrix));
 
     }
