@@ -5,7 +5,7 @@ public class DoublyLinkedList {
     Node tail;
     int size;
 
-    public Node createDLL(int nodeValue) {
+    public Node createList(int nodeValue) {
         head = new Node();
         Node newNode = new Node();
         newNode.value = nodeValue;
@@ -18,23 +18,29 @@ public class DoublyLinkedList {
     }
 
     // insertion method
-    public void insertDLL(int nodeValue, int location) {
-      Node newNode = new Node();
+    public void insertList(int nodeValue, int location) {
+        Node newNode = new Node();
         newNode.value = nodeValue;
         if (head == null) {
-            createDLL(nodeValue);
+            createList(nodeValue);
             return;
-        } else if (location == 0) {
+        }
+        // insert at beginning location
+        else if (location == 0) {
             newNode.next = head;
             newNode.prev = null;
             head.prev = newNode;
             head = newNode;
-        } else if (location >= size) {
+        }
+        // insert at end location
+        else if (location >= size) {
             newNode.next = null;
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
-        } else {
+        }
+        // insert at location except head or tail
+        else {
             Node tempNode = head;
             int index = 0;
             while (index < location - 1) {
@@ -50,37 +56,39 @@ public class DoublyLinkedList {
     }
 
     // traverse doubly-linked list
-    public void traverseDLL() {
+    public void traverseList() {
         if (head != null) {
             Node tempNode = head;
             for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
                 if (i != size - 1) {
-                    System.out.print(" -> ");
+                    System.out.print("  ");
                 }
                 tempNode = tempNode.next;
             }
-        } else {
+        }
+        else {
             System.out.println("doubly-linked list does not exist....");
         }
-        System.out.println("\n");
+        System.out.println(" ");
     }
 
-    // reverse traverse
-    public void reverseTraverseDLL() {
+    // reverse traverse list
+    public void reverseTraverseList() {
         if (head != null) {
             Node tempNode = tail;
             for (int i = 0; i < size; i++) {
                 System.out.print(tempNode.value);
                 if (i != size - 1) {
-                    System.out.print(" <- ");
+                    System.out.print("  ");
                 }
                 tempNode = tempNode.prev;
             }
-        } else {
-            System.out.println("The DLL does not exist!");
         }
-        System.out.println("\n");
+        else {
+            System.out.println("doubly-linked list does not exist....");
+        }
+        System.out.println(" ");
     }
 
     // search node
@@ -89,20 +97,21 @@ public class DoublyLinkedList {
             Node tempNode = head;
             for (int i = 0; i < size; i++) {
                 if (tempNode.value == nodeValue) {
-                    System.out.print("The Node is found at location: " + i);
+                    System.out.print("node is found at location: " + i);
                     return true;
                 }
                 tempNode = tempNode.next;
             }
         }
-        System.out.print("Node not found!");
+        System.out.print("node not found....");
+
         return false;
     }
 
-    // deletion
-    public void deleteNodeDLL(int location) {
+    // delete at a location
+    public void deleteNode(int location) {
         if (head == null) {
-            System.out.println("The DLL does not exist!");
+            System.out.println("doubly-linked list does not exist....");
             return;
         }
         else if (location == 0) {
@@ -143,8 +152,8 @@ public class DoublyLinkedList {
         }
     }
 
-    // delete all doubly-linked list
-    public void deleteDLL() {
+    // delete all of doubly-linked list
+    public void deleteList() {
         Node tempNode = head;
         for (int i = 0; i < size; i++) {
             tempNode.prev = null;
@@ -154,6 +163,4 @@ public class DoublyLinkedList {
         tail = null;
         System.out.println("doubly-linked list is deleted....");
     }
-
-
 }
