@@ -3,6 +3,7 @@
 # see: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 import os,re
+from sys import platform
 from scrapy import signals
 from scrapy.exporters import CsvItemExporter
 from .items import EventItem,FightCardItem,FighterItem
@@ -10,9 +11,9 @@ from datetime import datetime
 
 class SherdogStatsPipeline:
     def __init__(self):
-        self.outputEventDir = "sherdog/csv_files/event"
-        self.outputSpecificEventDir = "sherdog/csv_files/specific_event"
-        self.outputFighterDir = "sherdog/csv_files/fighter"
+        self.outputEventDir = "csv_files/event"
+        self.outputSpecificEventDir = "csv_files/specific_event"
+        self.outputFighterDir = "csv_files/fighter"
         self.eventList = ["date","eventName","eventTitle","location"]
         self.specificEventList = ["fighter1Name","fighter1Result","fighter2Name","fighter2Result", \
             "fighterMethodResult"]
@@ -39,6 +40,12 @@ class SherdogStatsPipeline:
         return pipeline
 
     def spider_opened(self,spider):
+        # check system; change if on windows
+        if (platform != "linux"):
+            self.outputEventDir = "csv_files\\event"
+            self.outputSpecificEventDir = "csv_files\\specific_event"
+            self.outputFighterDir = "csv_files\\fighter"
+
         today = datetime.today()
         dt = datetime(today.year,today.month,today.day)
         self.eventFileName = "event_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\

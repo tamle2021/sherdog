@@ -1,3 +1,2 @@
 
-### Sherdog web scraper
-#### Scrape at own risk
+## Sherdog statistics web scraping
