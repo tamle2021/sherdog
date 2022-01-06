@@ -15,7 +15,7 @@ INFO: Overridden settings:
  'SPIDER_MODULES': ['sherdog.spiders'],
  'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}
-INFO: Telnet Password: 96086ce095784017
+INFO: Telnet Password: cc7348e92c28c9f5
 INFO: Enabled extensions:
 ['scrapy.extensions.corestats.CoreStats',
  'scrapy.extensions.telnet.TelnetConsole',
@@ -53,11 +53,4 @@ WARNING: C:\Users\t.a.le\AppData\Local\Programs\Python\Python310\lib\site-packag
 
 DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent via http://localhost:8050/execute> (referer: None)
 DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/2-page via http://localhost:8050/execute> (referer: None)
-DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/16-page via http://localhost:8050/execute> (referer: None)
-INFO: Crawled 3 pages (at 3 pages/min), scraped 0 items (at 0 items/min)
-DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/14-page via http://localhost:8050/execute> (referer: None)
-DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/36-page via http://localhost:8050/execute> (referer: None)
-DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/34-page via http://localhost:8050/execute> (referer: None)
-INFO: Crawled 6 pages (at 3 pages/min), scraped 0 items (at 0 items/min)
-DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent/32-page via http://localhost:8050/execute> (referer: None)
 INFO: Received SIGINT, shutting down gracefully. Send again to force 

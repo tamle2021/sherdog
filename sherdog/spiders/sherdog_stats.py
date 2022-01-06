@@ -119,9 +119,9 @@ class SherdogStatsSpider(scrapy.Spider):
 
                     loader = loadEventItem(self,response)
                     yield loader.load_item()
-                    yield SplashRequest(url=self.eventUrl,callback=self.parseFightCard,\
-                        endpoint="execute",args={"lua_source": self.script2},\
-                        headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+                    # yield SplashRequest(url=self.eventUrl,callback=self.parseFightCard,\
+                    #     endpoint="execute",args={"lua_source": self.script2},\
+                    #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
             createUrl(self)
             for aUrl in self.eventUrlList:
@@ -135,11 +135,14 @@ class SherdogStatsSpider(scrapy.Spider):
 
     def parseEvent(self,response):
         try:
-            trTag = checkEmpty(response.xpath("//table[@class='event']/tbody/tr[contains(@class,'odd') or contains(@class,'even')]"))
-            if (trTag != "None"):
+            trTag = checkEmpty(response.xpath("//table[@class='new_table event']/tbody/tr[contains(@itemtype,'http:') or contains(@onclick,'document.location')]"))
+            if (len(trTag) != 0):
                 for i in trTag:
                     setDate(self,i)
                     setEventNameTitleUrl(self,i,response)
+
+                    # test css
+                    cssLocation = i.css(".itemprop ::text").get()
 
                     location = checkEmpty(i.xpath(".//td[4]/span/text()").get())
                     if (location != "None"):

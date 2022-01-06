@@ -120,37 +120,67 @@ def createUrl(self):
         self.eventUrlList.append(url)
 
 def setEventNameTitleUrl(self,selPath,response):
-    eventName = checkEmpty(selPath.xpath(".//td[2]/a/text()").get())
-    if (eventName != "None"):
-        self.eventName = eventName
-    else:
+    try:
+
+        eventName = checkEmpty(selPath.xpath(".//td/a[contains(@itemprop,'url') and contains(@href,'/events')]/text()").get())
+
+        if (eventName != "None"):
+            self.eventName = eventName
+        else:
+            self.eventName = "None"
+
+    except Exception as ex:
+        print("exception => error setting name --- {0}".format(ex))
         self.eventName = "None"
 
-    eventTitle = checkEmpty(selPath.xpath(".//td[3]/a/text()").get())
-    if (eventTitle != "None"):
-        self.eventTitle = eventTitle
-    else:
+    try:
+        eventTitle = checkEmpty(selPath.xpath(".//td/a[contains(@href,'/events') and not(@itemprop)]/text()").get())
+        if (eventTitle != "None"):
+            self.eventTitle = eventTitle
+        else:
+            self.eventTitle = "None"
+
+    except Exception as ex:
+        print("exception => error setting title --- {0}".format(ex))
         self.eventTitle = "None"
 
-    eventUrl = checkEmpty(selPath.xpath(".//td[2]/a/@href").get())
-    if (eventUrl != "None"):
-        urlJoin = checkEmpty(response.urljoin(eventUrl))
-        if (urlJoin != "None"):
-            self.eventUrl = urlJoin
-        elif (urlJoin == "None"):
-            self.eventUrl = "None"
+    try:
+        eventUrl = checkEmpty(selPath.xpath(".//td[2]/a/@href").get())
+        if (eventUrl != "None"):
+            urlJoin = checkEmpty(response.urljoin(eventUrl))
+            if (urlJoin != "None"):
+                self.eventUrl = urlJoin
+            elif (urlJoin == "None"):
+                self.eventUrl = "None"
+
+    except Exception as ex:
+        print("exception => error setting url --- {0}".format(ex))
+        self.eventUrl = "None"
+
 
 def setDate(self,selPath):
-    month = checkEmpty(selPath.xpath(".//td/span/span[@class='month']/text()").get())
-    day = checkEmpty(selPath.xpath(".//td/span/span[@class='day']/text()").get())
-    year = checkEmpty(selPath.xpath(".//td/span/span[@class='year']/text()").get())
+    try:
+        monthNumber = ""
+        eventDate = checkEmpty(selPath.xpath(".//td/div[@class='calendar-date']/div/text()").getall())
 
-    if (month != "None"):
-        monthNum = switchMonthThreeLetters(month)
+        month = eventDate[0].strip()
+        day = eventDate[1].strip()
+        year = eventDate[2].strip()
 
-    if (monthNum != "None" and day != "None" and year != "None"):
-        self.date = monthNum + "/" + day + "/" + year
-    else:
+        # day = checkEmpty(selPath.xpath(".//td/span/span[@class='day']/text()").get())
+        # year = checkEmpty(selPath.xpath(".//td/span/span[@class='year']/text()").get())
+
+        if (len(eventDate) != 0 and eventDate != "None"):
+            monthNumber = switchMonthThreeLetters(month)
+
+        if (monthNumber != "None" and len(day) != 0 and len(year) != 0):
+            self.date = monthNumber + "/" + day + "/" + year
+        else:
+            self.date = "None"
+
+
+    except Exception as ex:
+        print("exception => error setting date --- {0}".format(ex))
         self.date = "None"
 
 def loadEventItem(self,response):
