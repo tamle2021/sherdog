@@ -16,7 +16,7 @@ def resetFighterStats(self):
 
 def setLocation(self,location):
     subComma = re.sub(r"[\,]",";",location)
-    self.location = '"' + subComma + '"'
+    self.location = '-' + subComma + '-'
 
 def setLocality(self,locality):
     if (re.search(r"N/A",locality) != None):
@@ -119,10 +119,9 @@ def createUrl(self):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 
-def setEventNameTitleUrl(self,selPath,response):
+def setEventDetails(self,xp,response):
     try:
-
-        eventName = checkEmpty(selPath.xpath(".//td/a[contains(@itemprop,'url') and contains(@href,'/events')]/text()").get())
+        eventName = checkEmpty(xp.xpath(".//td/a[contains(@itemprop,'url') and contains(@href,'/events')]/text()").get())
 
         if (eventName != "None"):
             self.eventName = eventName
@@ -134,7 +133,7 @@ def setEventNameTitleUrl(self,selPath,response):
         self.eventName = "None"
 
     try:
-        eventTitle = checkEmpty(selPath.xpath(".//td/a[contains(@href,'/events') and not(@itemprop)]/text()").get())
+        eventTitle = checkEmpty(xp.xpath(".//td/a[contains(@href,'/events') and not(@itemprop)]/text()").get())
         if (eventTitle != "None"):
             self.eventTitle = eventTitle
         else:
@@ -145,17 +144,29 @@ def setEventNameTitleUrl(self,selPath,response):
         self.eventTitle = "None"
 
     try:
-        eventUrl = checkEmpty(selPath.xpath(".//td[2]/a/@href").get())
+        eventUrl = checkEmpty(xp.xpath(".//td/a[contains(@href,'/events') and not(@itemprop)]/@href").get())
         if (eventUrl != "None"):
             urlJoin = checkEmpty(response.urljoin(eventUrl))
             if (urlJoin != "None"):
                 self.eventUrl = urlJoin
-            elif (urlJoin == "None"):
+            else:
                 self.eventUrl = "None"
 
     except Exception as ex:
         print("exception => error setting url --- {0}".format(ex))
         self.eventUrl = "None"
+
+    try:
+        location = checkEmpty(xp.xpath(".//td/span[contains(@itemprop,'location')]/text()").get())
+        if (location != "None"):
+            setLocation(self,location)
+        else:
+            self.location = "None"
+
+    except Exception as ex:
+        print("exception => error setting location --- {0}".format(ex))
+        self.location = "None"
+
 
 
 def setDate(self,selPath):
@@ -167,10 +178,7 @@ def setDate(self,selPath):
         day = eventDate[1].strip()
         year = eventDate[2].strip()
 
-        # day = checkEmpty(selPath.xpath(".//td/span/span[@class='day']/text()").get())
-        # year = checkEmpty(selPath.xpath(".//td/span/span[@class='year']/text()").get())
-
-        if (len(eventDate) != 0 and eventDate != "None"):
+        if (eventDate != "None"):
             monthNumber = switchMonthThreeLetters(month)
 
         if (monthNumber != "None" and len(day) != 0 and len(year) != 0):
@@ -187,12 +195,14 @@ def loadEventItem(self,response):
     self.date = self.date if (self.date != "") else "None"
     self.eventName = self.eventName if (self.eventName != "") else "None"
     self.eventTitle = self.eventTitle if (self.eventTitle != "") else "None"
+    self.eventUrl = self.eventUrl if (self.eventUrl != "") else "None"
     self.location = self.location if (self.location != "") else "None"
 
     loader = ItemLoader(item=EventItem(),response=response)
     loader.add_value("date",self.date)
     loader.add_value("eventName",self.eventName)
     loader.add_value("eventTitle",self.eventTitle)
+    loader.add_value("eventUrl",self.eventUrl)
     loader.add_value("location",self.location)
     return loader
 

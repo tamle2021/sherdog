@@ -7,7 +7,7 @@ from scrapy.spiders import CrawlSpider,Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
-    setEventNameTitleUrl,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
+    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
     setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
@@ -38,6 +38,7 @@ class SherdogStatsSpider(scrapy.Spider):
         self.date = ""
         self.eventName = ""
         self.eventTitle = ""
+        self.eventUrl = ""
         self.location = ""
 
         self.fighter1Name = ""
@@ -109,7 +110,7 @@ class SherdogStatsSpider(scrapy.Spider):
             if (trTag != "None"):
                 for i in trTag:
                     setDate(self,i)
-                    setEventNameTitleUrl(self,i,response)
+                    setEventDetails(self,i,response)
 
                     location = checkEmpty(i.xpath(".//td[4]/span/text()").get())
                     if (location != "None"):
@@ -135,20 +136,15 @@ class SherdogStatsSpider(scrapy.Spider):
 
     def parseEvent(self,response):
         try:
+
+            # test css
+            cssLocation = response.css(".itemprop ::text").getall()
+
             trTag = checkEmpty(response.xpath("//table[@class='new_table event']/tbody/tr[contains(@itemtype,'http:') or contains(@onclick,'document.location')]"))
             if (len(trTag) != 0):
                 for i in trTag:
                     setDate(self,i)
-                    setEventNameTitleUrl(self,i,response)
-
-                    # test css
-                    cssLocation = i.css(".itemprop ::text").get()
-
-                    location = checkEmpty(i.xpath(".//td[4]/span/text()").get())
-                    if (location != "None"):
-                        setLocation(self,location)
-                    else:
-                        self.location = "None"
+                    setEventDetails(self,i,response)
 
                     loader = loadEventItem(self,response)
                     yield loader.load_item()
