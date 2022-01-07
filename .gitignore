@@ -8,3 +8,4 @@ sherdog/__pycache__
 ~log.txt
 *.log
 *.txt
+sherdog/log.txt
