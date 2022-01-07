@@ -74,35 +74,40 @@ def setAssociation(self,association):
 
 def setFirstRowFightCard(self,response):
     try:
-        fighter1Name = checkEmpty(response.xpath("//div[@class='fighter left_side']/h3/a/span/text()").get())
-        if (fighter1Name != "None"):
-            self.fighter1Name = fighter1Name.lower()
-        else:
-            self.fighter1Name = "None"
 
-        fighter1Result = checkEmpty(response.xpath("//div[@class='fighter left_side']/span[1]/text()").get())
-        if (fighter1Result != "None"):
-            self.fighter1Result = checkFightResult(self,fighter1Result.lower())
-        else:
-            self.fighter1Result = "None"
+        # check for meta tag
+        hasMeta = checkEmpty(response.xpath("//div[@class='left-module-pad-line']/meta[@itemprop]").get())
 
-        fighter2Name = checkEmpty(response.xpath("//div[@class='fighter right_side']/h3/a/span/text()").get())
-        if (fighter2Name != "None"):
-            self.fighter2Name = fighter2Name.lower()
-        else:
-            self.fighter2Name = "None"
+        if (hasMeta != "None"):
+            fighter1Name = checkEmpty(response.xpath("//div[@class='fighter left_side']/h3/a/span/text()").get())
+            if (fighter1Name != "None"):
+                self.fighter1Name = fighter1Name.lower()
+            else:
+                self.fighter1Name = "None"
 
-        fighter2Result = checkEmpty(response.xpath("//div[@class='fighter right_side']/span[1]/text()").get())
-        if (fighter2Result != "None"):
-            self.fighter2Result = checkFightResult(self,fighter2Result.lower())
-        else:
-            self.fighter2Result = "None"
+            fighter1Result = checkEmpty(response.xpath("//div[@class='fighter left_side']/span[contains(@class,'final_result')]/text()").get())
+            if (fighter1Result != "None"):
+                self.fighter1Result = checkFightResult(self, fighter1Result.lower())
+            else:
+                self.fighter1Result = "None"
 
-        fighterMethodResult = checkEmpty(response.xpath("//div[@class='footer']/table/tbody/tr/td[2]/text()").get())
-        if (fighterMethodResult != "None"):
-            self.fighterMethodResult = fighterMethodResult.lower()
-        else:
-            self.fighterMethodResult
+            fighter2Name = checkEmpty(response.xpath("//div[@class='fighter right_side']/h3/a/span/text()").get())
+            if (fighter2Name != "None"):
+                self.fighter2Name = fighter2Name.lower()
+            else:
+                self.fighter2Name = "None"
+
+            fighter2Result = checkEmpty(response.xpath("//div[@class='fighter right_side']/span[contains(@class,'final_result')]/text()").get())
+            if (fighter2Result != "None"):
+                self.fighter2Result = checkFightResult(self, fighter2Result.lower())
+            else:
+                self.fighter2Result = "None"
+
+            fighterMethodResult = checkEmpty(response.xpath("//div[@class='footer']/table/tbody/tr/td[2]/text()").get())
+            if (fighterMethodResult != "None"):
+                self.fighterMethodResult = fighterMethodResult.lower()
+            else:
+                self.fighterMethodResult
 
     except Exception as ex:
         print("exception: {0}".format(ex))
@@ -115,7 +120,7 @@ def checkFightResult(self,fightResult):
 
 def createUrl(self):
     # 1-202
-    for i,x in enumerate(range(2,38,2)):
+    for i,x in enumerate(range(2,99,1)):
         url = "https://www.sherdog.com/events/recent/{0}-page".format(x)
         self.eventUrlList.append(url)
 
@@ -168,24 +173,44 @@ def setEventDetails(self,xp,response):
         self.location = "None"
 
 
+def setFighterName(self,fighterName,type):
 
-def setDate(self,selPath):
+    try:
+        firstName = fighterName[0]
+        lastName = fighterName[1]
+
+        if (type == "f1"):
+            self.fighter1Name = firstName.lower() + " " + lastName.lower()
+        else:
+            self.fighter2Name = firstName.lower() + " " + lastName.lower()
+
+
+    except Exception as ex:
+        print("exception => error setting {0} name --- {1}".format(type,ex))
+        if (type == "f1"):
+            self.fighter1Name = "None"
+        else:
+            self.fighter2Name = "None"
+
+
+def setDate(self,sel):
     try:
         monthNumber = ""
-        eventDate = checkEmpty(selPath.xpath(".//td/div[@class='calendar-date']/div/text()").getall())
-
-        month = eventDate[0].strip()
-        day = eventDate[1].strip()
-        year = eventDate[2].strip()
+        eventDate = checkEmpty(sel.xpath(".//td/div[contains(@class,'calendar-date')]/div/text()").getall())
 
         if (eventDate != "None"):
+            month = eventDate[0].strip()
+            day = eventDate[1].strip()
+            year = eventDate[2].strip()
+
             monthNumber = switchMonthThreeLetters(month)
 
-        if (monthNumber != "None" and len(day) != 0 and len(year) != 0):
+            # if (monthNumber != "None" and len(day) != 0 and len(year) != 0):
             self.date = monthNumber + "/" + day + "/" + year
+            # else:
+            # self.date = "None"
         else:
             self.date = "None"
-
 
     except Exception as ex:
         print("exception => error setting date --- {0}".format(ex))
@@ -266,7 +291,7 @@ def checkHeight(data):
         return str(convInches)
 
 def checkEmpty(data):
-    if (data == None):
+    if (data == None or len(data) == 0):
         data = "None"
         return data
     else:

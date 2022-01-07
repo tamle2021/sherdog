@@ -8,7 +8,7 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
     setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
-    setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation
+    setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation,setFighterName
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -52,6 +52,7 @@ class SherdogStatsSpider(scrapy.Spider):
         self.age = ""
         self.height = ""
         self.weight = ""
+        self.association = ""
         self.fighterClass = ""
         self.win = ""
         self.loss = ""
@@ -106,9 +107,11 @@ class SherdogStatsSpider(scrapy.Spider):
     def parseFirstEvent(self,response):
         try:
             # splash renders with body tag
-            trTag = checkEmpty(response.xpath("//table[@class='event']/tbody/tr[contains(@class,'odd') or contains(@class,'even')]"))
-            if (trTag != "None"):
-                for i in trTag:
+            trTags = checkEmpty(response.xpath("//div[@id='recentfights_tab']/div[contains(@class,'new_table')]/table/tbody/tr[contains(@onclick,'document.location')]"))
+            # //*[@id="recentfights_tab"]/div[1]/table
+            if (trTags != "None"):
+                for i in trTags:
+
                     setDate(self,i)
                     setEventDetails(self,i,response)
 
@@ -120,37 +123,36 @@ class SherdogStatsSpider(scrapy.Spider):
 
                     loader = loadEventItem(self,response)
                     yield loader.load_item()
-                    # yield SplashRequest(url=self.eventUrl,callback=self.parseFightCard,\
-                    #     endpoint="execute",args={"lua_source": self.script2},\
-                    #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+                    yield SplashRequest(url=self.eventUrl,callback=self.parseFightCard,\
+                        endpoint="execute",args={"lua_source": self.script2},\
+                        headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
             createUrl(self)
-            for aUrl in self.eventUrlList:
-                yield SplashRequest(url=aUrl,callback=self.parseEvent,\
-                    endpoint="execute",args={"lua_source": self.script2}, \
-                    headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+            # for aUrl in self.eventUrlList:
+            #     yield SplashRequest(url=aUrl,callback=self.parseEvent,\
+            #         endpoint="execute",args={"lua_source": self.script2}, \
+            #         headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
         except Exception as ex:
             logging.info("error => {0}".format(ex))
             print("error => %s" % ex)
 
-    def parseEvent(self,response):
-        try:
-
-            # test css
-            cssLocation = response.css(".itemprop ::text").getall()
-
-            trTag = checkEmpty(response.xpath("//table[@class='new_table event']/tbody/tr[contains(@itemtype,'http:') or contains(@onclick,'document.location')]"))
-            if (len(trTag) != 0):
-                for i in trTag:
-                    setDate(self,i)
-                    setEventDetails(self,i,response)
-
-                    loader = loadEventItem(self,response)
-                    yield loader.load_item()
-
-        except Exception as ex:
-            print("exception: {y}".format(y=ex))
+    # def parseEvent(self,response):
+    #     try:
+    #         # test css
+    #         cssLocation = response.css(".itemprop ::text").getall()
+    #
+    #         trTag = checkEmpty(response.xpath("//table[@class='new_table event']/tbody/tr[contains(@itemtype,'http:') or contains(@onclick,'document.location')]"))
+    #         if (len(trTag) != 0):
+    #             for i in trTag:
+    #                 setDate(self,i)
+    #                 setEventDetails(self,i,response)
+    #
+    #                 loader = loadEventItem(self,response)
+    #                 yield loader.load_item()
+    #
+    #     except Exception as ex:
+    #         print("exception: {y}".format(y=ex))
 
     def parseFightCard(self,response):
         try:
@@ -159,22 +161,22 @@ class SherdogStatsSpider(scrapy.Spider):
             loader = loadFightCardItem(self,response)
             yield loader.load_item()
 
-            trTag = checkEmpty(response.xpath("//div[@class='content table']/table/tbody/tr[contains(@class,'even') or contains(@class,'odd')]"))
-            if (trTag != "None"):
-                for i in trTag:
+            trTags = checkEmpty(response.xpath("//table/tbody/tr[contains(@itemprop,'subEvent')]"))
+            # /html/body/div[4]/div[3]/section[2]/div/table/tbody/tr[2]
+
+            if (trTags != "None"):
+                for i in trTags:
                     resetFightCard(self)
-                    fighter1Name = checkEmpty(i.xpath(".//td[@class='text_right col_fc_upcoming']/div[@class='fighter_result_data']/a/span/text()").get())
-                    if (fighter1Name != "None"):
-                        self.fighter1Name = fighter1Name.lower()
-                    else:
-                        self.fighter1Name = "None"
+                    fighter1Name = checkEmpty(i.xpath(".//td[contains(@class,'text_right')]/div/div[contains(@class,'fighter_result')]/a/span/text()").getall())
+
+                    setFighterName(self,fighter1Name,"f1")
 
                     fighter1Url = checkEmpty(i.xpath(".//td[@class='text_right col_fc_upcoming']/div[@class='fighter_result_data']/a/@href").get())
                     if (fighter1Url != "None"):
                         self.fighter1Url = response.urljoin(fighter1Url)
-                        yield SplashRequest(url=self.fighter1Url,callback=self.parseFighterStats,\
-                            endpoint="execute",args={"lua_source": self.script2},\
-                            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+                        # yield SplashRequest(url=self.fighter1Url,callback=self.parseFighterStats,\
+                        #     endpoint="execute",args={"lua_source": self.script2},\
+                        #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
                     else:
                         self.fighter1Url = "None"

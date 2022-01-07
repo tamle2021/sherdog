@@ -10,7 +10,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\sherdog\csv_files\event\event_01_07_2022_.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\sherdog\csv_files\specific_event\specific_event_01_06_2022_.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\sherdog\csv_files\specific_event\specific_event_01_07_2022_.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
