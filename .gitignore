@@ -9,3 +9,5 @@ sherdog/__pycache__
 *.log
 *.txt
 sherdog/log.txt
+/sherdog/log.txt
+~sherdog/log.txt
