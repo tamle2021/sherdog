@@ -15,7 +15,7 @@ INFO: Overridden settings:
  'SPIDER_MODULES': ['sherdog.spiders'],
  'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}
-INFO: Telnet Password: c4c45157b063a15c
+INFO: Telnet Password: d446748072cf7237
 INFO: Enabled extensions:
 ['scrapy.extensions.corestats.CoreStats',
  'scrapy.extensions.telnet.TelnetConsole',
@@ -52,6 +52,12 @@ WARNING: C:\Users\t.a.le\AppData\Local\Programs\Python\Python310\lib\site-packag
   url = to_native_str(url)
 
 DEBUG: Crawled (200) <GET https://www.sherdog.com/events/recent via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/31/2021'],
+ 'eventName': ['Rizin FF'],
+ 'eventTitle': ['Rizin 33'],
+ 'eventUrl': ['https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339'],
+ 'location': ['-Saitama Super Arena; Saitama; Japan-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/30/2021'],
  'eventName': ['Hardcore FC'],
@@ -119,6 +125,18 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventUrl': ['https://www.sherdog.com/events/JCK-Night-Cage-Series-2021-Division-Finals-Part-2-91444'],
  'location': ['-Haikou; Hainan; China-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/24/2021'],
+ 'eventName': ['SBC 37'],
+ 'eventTitle': ['Serbian Battle Championship 37: Revenge!'],
+ 'eventUrl': ['https://www.sherdog.com/events/SBC-37-Serbian-Battle-Championship-37-Revenge-91755'],
+ 'location': ['-Spens Small Hall; Novi Sad; Serbia-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/23/2021'],
+ 'eventName': ['EWFC 1'],
+ 'eventTitle': ['Eagle Warriors Fighting Championship'],
+ 'eventUrl': ['https://www.sherdog.com/events/EWFC-1-Eagle-Warriors-Fighting-Championship-91756'],
+ 'location': ['-University Gymnasium; Farah; Afghanistan-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/23/2021'],
  'eventName': ['SFC 2'],
  'eventTitle': ['Sparta Fight Championship'],
@@ -178,6 +196,25 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Art of Combat 6: Xmas Battle Ground'],
  'eventUrl': ['https://www.sherdog.com/events/AOC-6-Art-of-Combat-6-Xmas-Battle-Ground-91492'],
  'location': ['-Artjuna Cafe; Anjuna; Goa; India-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/19/2021'],
+ 'eventName': ['SC in Combat'],
+ 'eventTitle': ['SC in COMBAT 4'],
+ 'eventUrl': ['https://www.sherdog.com/events/SC-in-Combat-SC-in-COMBAT-4-91775'],
+ 'location': ['-Ginásio Sebastião João de Souza; Penha; Santa Catarina; '
+              'Brazil.-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/19/2021'],
+ 'eventName': ['TF 33'],
+ 'eventTitle': ['Thunder Fight 33'],
+ 'eventUrl': ['https://www.sherdog.com/events/TF-33-Thunder-Fight-33-91776'],
+ 'location': ['None']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/19/2021'],
+ 'eventName': ['DFS 7'],
+ 'eventTitle': ['Dagestan Fighting Selection 7'],
+ 'eventUrl': ['https://www.sherdog.com/events/DFS-7-Dagestan-Fighting-Selection-7-91746'],
+ 'location': ['-Makhachkala; Dagestan; Russia-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/19/2021'],
  'eventName': ['Guara Fight'],
@@ -268,6 +305,38 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Nacao Cyborg 11'],
  'eventUrl': ['https://www.sherdog.com/events/NC-Nacao-Cyborg-11-91515'],
  'location': ['-Mondri Eventos; Sao Jose dos Pinhais; PR; Brazil-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/18/2021'],
+ 'eventName': ['Shooto Brazil '],
+ 'eventTitle': ['Shooto Brazil 110'],
+ 'eventUrl': ['https://www.sherdog.com/events/Shooto-Brazil-Shooto-Brazil-110-91783'],
+ 'location': ['-Upper Arena; Rio de Janeiro; Brazil-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/18/2021'],
+ 'eventName': ['IFL 8'],
+ 'eventTitle': ['Inside Fighters League 8'],
+ 'eventUrl': ['https://www.sherdog.com/events/IFL-8-Inside-Fighters-League-8-91779'],
+ 'location': ['-Ginasio IAC Rio Grande; Rio Grande; Rio Grande do Sul; '
+              'Brazil-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/18/2021'],
+ 'eventName': ['IFL 7'],
+ 'eventTitle': ['Inside Fighters League 7'],
+ 'eventUrl': ['https://www.sherdog.com/events/IFL-7-Inside-Fighters-League-7-91778'],
+ 'location': ['-Ginasio IAC Rio Grande; Rio Grande; Rio Grande do Sul; '
+              'Brazil-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/18/2021'],
+ 'eventName': ['Serbian MMA Federation'],
+ 'eventTitle': ['MMA League Finals'],
+ 'eventUrl': ['https://www.sherdog.com/events/Serbian-MMA-Federation-MMA-League-Finals-91762'],
+ 'location': ['-Bel Expo Center; Belgrade; Serbia-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/18/2021'],
+ 'eventName': ['HOF'],
+ 'eventTitle': ['Hall of Fame: Alexander Nevsky Cup'],
+ 'eventUrl': ['https://www.sherdog.com/events/HOF-Hall-of-Fame-Alexander-Nevsky-Cup-91753'],
+ 'location': ['-Lokomotiv Arena; Novosibirsk; Russia-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/18/2021'],
  'eventName': ['CTF'],
@@ -377,6 +446,7 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Valhalla Fight Night 4'],
  'eventUrl': ['https://www.sherdog.com/events/Valhalla-Rise-MMA-Valhalla-Fight-Night-4-91415'],
  'location': ['-Rawson; Chubut; Argentina-']}
+INFO: Closing spider (closespider_itemcount)
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/18/2021'],
  'eventName': ['Professional Fighter League Storm'],
@@ -444,7 +514,6 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Colorado Combat Club 10'],
  'eventUrl': ['https://www.sherdog.com/events/CCC-10-Colorado-Combat-Club-10-91226'],
  'location': ['-Island Grove; Greeley; Colorado; United States-']}
-INFO: Closing spider (closespider_itemcount)
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/18/2021'],
  'eventName': ['CT 13'],
@@ -533,6 +602,12 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'location': ['-Mercedes-Benz Arena; Berlin; Germany-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/17/2021'],
+ 'eventName': ['SPC'],
+ 'eventTitle': ['PFC/Pitbull Fight Championship 57'],
+ 'eventUrl': ['https://www.sherdog.com/events/SPC-PFCPitbull-Fight-Championship-57-91747'],
+ 'location': ['-Loiola Passarinho Gymnasium; Castanhal; Para; Brazil-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/17/2021'],
  'eventName': ['SFNA'],
  'eventTitle': ['SFN Afghanistan 6'],
  'eventUrl': ['https://www.sherdog.com/events/SFNA-SFN-Afghanistan-6-91697'],
@@ -591,8 +666,8 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/17/2021'],
  'eventName': ['Titan FC 73'],
- 'eventTitle': ['Titan Fighting Championship'],
- 'eventUrl': ['https://www.sherdog.com/events/Titan-FC-73-Titan-Fighting-Championship-91208'],
+ 'eventTitle': ['Taylor vs. Edwards'],
+ 'eventUrl': ['https://www.sherdog.com/events/Titan-FC-73-Taylor-vs-Edwards-91208'],
  'location': ['-Miami; Florida; United States-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/17/2021'],
@@ -621,6 +696,12 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'location': ['-CSC Jaiyk; Atyrau; Kazakhstan-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/12/2021'],
+ 'eventName': ['Brusque Championship MMA'],
+ 'eventTitle': ['BCMMA'],
+ 'eventUrl': ['https://www.sherdog.com/events/Brusque-Championship-MMA-BCMMA-91774'],
+ 'location': ['-Arena Multiuso; Brusque; Santa Catarina; Brazil.-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/12/2021'],
  'eventName': ['CS 15'],
  'eventTitle': ['Cage Survivor 15'],
  'eventUrl': ['https://www.sherdog.com/events/CS-15-Cage-Survivor-15-91022'],
@@ -643,6 +724,13 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Tokyo Impact 2021'],
  'eventUrl': ['https://www.sherdog.com/events/Deep-Tokyo-Impact-2021-91124'],
  'location': ['-New Pier Hall; Tokyo; Japan-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/12/2021'],
+ 'eventName': ['LFC'],
+ 'eventTitle': ['Lucas Fight Combat 2'],
+ 'eventUrl': ['https://www.sherdog.com/events/LFC-Lucas-Fight-Combat-2-91777'],
+ 'location': ['-Idoso de Bem Com A Vida Club; Lucas do Rio Verde; Mato Grosso; '
+              'Brazil-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/12/2021'],
  'eventName': ['LBS Challenger'],
@@ -729,6 +817,12 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Amateur Fight'],
  'eventUrl': ['https://www.sherdog.com/events/Deep-Jewels-Amateur-Fight-90734'],
  'location': ['-New Pier Hall; Tokyo; Japan-']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
+{'date': ['12/11/2021'],
+ 'eventName': ['RV Fight'],
+ 'eventTitle': ['RV Fight'],
+ 'eventUrl': ['https://www.sherdog.com/events/RV-Fight-RV-Fight-91768'],
+ 'location': ['-CT FTBH; Ibirite; Minas Gerais; Brazil-']}
 DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
 {'date': ['12/11/2021'],
  'eventName': ['AF'],
@@ -1059,371 +1153,188 @@ DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
  'eventTitle': ['Kick Start'],
  'eventUrl': ['https://www.sherdog.com/events/KOTC-Kick-Start-90748'],
  'location': ['-Toyota Arena; Ontario; California; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['UNION OF FIGHT'],
- 'eventTitle': ['Union Of Fight 2'],
- 'eventUrl': ['https://www.sherdog.com/events/UNION-OF-FIGHT-Union-Of-Fight-2-91449'],
- 'location': ['-Artbol Quadra de Esportes\nJoinville; Santa Catarina; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['CWB Fight League'],
- 'eventTitle': ['CWBFL 23'],
- 'eventUrl': ['https://www.sherdog.com/events/CWB-Fight-League-CWBFL-23-91588'],
- 'location': ['-Academia Striker´s House; Curitiba; PR; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['COPA BUSHIDO'],
- 'eventTitle': ['Copa Bushido 4'],
- 'eventUrl': ['https://www.sherdog.com/events/COPA-BUSHIDO-Copa-Bushido-4-91428'],
- 'location': ['-Ginásio Polentão; Campo Largo; PR; Brazil.-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Time To Fight 74'],
- 'eventTitle': ['Dolgoprudny'],
- 'eventUrl': ['https://www.sherdog.com/events/Time-To-Fight-74-Dolgoprudny-91718'],
- 'location': ['-Dolgoprudny; Russia-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['OFT'],
- 'eventTitle': ['Oktogoon Brasil 2'],
- 'eventUrl': ['https://www.sherdog.com/events/OFT-Oktogoon-Brasil-2-91703'],
- 'location': ['-Brasilandia Municipal Gymnasium; Brasilandia; Mato Grosso do '
-              'Sul; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['RITC'],
- 'eventTitle': ['Rage in the Cage OKC 85'],
- 'eventUrl': ['https://www.sherdog.com/events/RITC-Rage-in-the-Cage-OKC-85-91583'],
- 'location': ['-OKC Farmers Market Event Center; Oklahoma City; Oklahoma; '
-              'United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['WFC'],
- 'eventTitle': ['World Fighting Championships 130'],
- 'eventUrl': ['https://www.sherdog.com/events/WFC-World-Fighting-Championships-130-91578'],
- 'location': ['-Buffalo Run Casino; Miami; Oklahoma; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Gladiator Challenge'],
- 'eventTitle': ['Underground 3'],
- 'eventUrl': ['https://www.sherdog.com/events/Gladiator-Challenge-Underground-3-91534'],
- 'location': ['-Valley Center; Valley Center; California; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['MFE'],
- 'eventTitle': ['Mix Fight Events 49: Road to One Championship'],
- 'eventUrl': ['https://www.sherdog.com/events/MFE-Mix-Fight-Events-49-Road-to-One-Championship-91533'],
- 'location': ['-Dinamo Sport Complex; Yerevan; Armenia-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['KFC'],
- 'eventTitle': ['King Fighting Championship Fight Night 5'],
- 'eventUrl': ['https://www.sherdog.com/events/KFC-King-Fighting-Championship-Fight-Night-5-91532'],
- 'location': ['-3sport Studio; Karti-4; Kabul; Afghanistan-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Fusion Fight League'],
- 'eventTitle': ["Season's Beatings Billings"],
- 'eventUrl': ['https://www.sherdog.com/events/Fusion-Fight-League-Seasons-Beatings-Billings-91489'],
- 'location': ['-First Interstate Arena; Billings; Montana; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['AFL 1'],
- 'eventTitle': ['Anaconda Fight League'],
- 'eventUrl': ['https://www.sherdog.com/events/AFL-1-Anaconda-Fight-League-91452'],
- 'location': ['-GOSTiR Hall; Rzgow; Poland-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['JCK Night Cage Series'],
- 'eventTitle': ['2021 MMA Super Round'],
- 'eventUrl': ['https://www.sherdog.com/events/JCK-Night-Cage-Series-2021-MMA-Super-Round-91393'],
- 'location': ['-Haikou; Hainan; China-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['TGC'],
- 'eventTitle': ['The Golden Cage 4'],
- 'eventUrl': ['https://www.sherdog.com/events/TGC-The-Golden-Cage-4-91387'],
- 'location': ["-Mazara Del Vallo's Sports Hall; Mazara Del Vallo; Italy-"]}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['TFX'],
- 'eventTitle': ['Terrier Fight Xtreme'],
- 'eventUrl': ['https://www.sherdog.com/events/TFX-Terrier-Fight-Xtreme-91386'],
- 'location': ['-Bahia; Serrinha; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['SFC 3'],
- 'eventTitle': ['San Francisco Combat 3'],
- 'eventUrl': ['https://www.sherdog.com/events/SFC-3-San-Francisco-Combat-3-91329'],
- 'location': ['-Napa Valley Expo; Napa; California; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['SEC'],
- 'eventTitle': ['Southeastern Elite Combat'],
- 'eventUrl': ['https://www.sherdog.com/events/SEC-Southeastern-Elite-Combat-91328'],
- 'location': ['-Crestview Community Center; Crestview; Florida; United '
-              'States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['NFC'],
- 'eventTitle': ['National Fighting Championship: Xmas Party'],
- 'eventUrl': ['https://www.sherdog.com/events/NFC-National-Fighting-Championship-Xmas-Party-91327'],
- 'location': ['-District Atlanta; Atlanta; Georgia; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['ECF 33'],
- 'eventTitle': ['Holiday Havoc'],
- 'eventUrl': ['https://www.sherdog.com/events/ECF-33-Holiday-Havoc-91326'],
- 'location': ['-The Space; Westbury; New York; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Stockport MMA'],
- 'eventTitle': ['The Carnage Continues'],
- 'eventUrl': ['https://www.sherdog.com/events/Stockport-MMA-The-Carnage-Continues-91325'],
- 'location': ['-Chapel Leisure Centre; England-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['SFC'],
- 'eventTitle': ['Shark Fight Championship 5'],
- 'eventUrl': ['https://www.sherdog.com/events/SFC-Shark-Fight-Championship-5-91309'],
- 'location': ['-Ginassyoum Poliesportivo Dayson Siqueira Pinto; Rio Preta da '
-              'Eva; Amazonas; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['STT'],
- 'eventTitle': ['Serpente Top Team 12'],
- 'eventUrl': ['https://www.sherdog.com/events/STT-Serpente-Top-Team-12-91265'],
- 'location': ['-Manoel Silva Gymnasium; Santa Izabel do Para; Para; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Shamrock FC'],
- 'eventTitle': ['Shamrock 334'],
- 'eventUrl': ['https://www.sherdog.com/events/Shamrock-FC-Shamrock-334-91212'],
- 'location': ['-Ameristar Casino; St. Charles; Missouri; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Caged Steel 27'],
- 'eventTitle': ['Caged Steel Fighting Championship 27'],
- 'eventUrl': ['https://www.sherdog.com/events/Caged-Steel-27-Caged-Steel-Fighting-Championship-27-91211'],
- 'location': ['-Doncaster Dome; Doncaster; England-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['OFU 1'],
- 'eventTitle': ['OFU Entertainment'],
- 'eventUrl': ['https://www.sherdog.com/events/OFU-1-OFU-Entertainment-91197'],
- 'location': ['-Balmoral Convention Center; Lagos; Nigeria-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['EMC 8'],
- 'eventTitle': ['Elite MMA Championship 8'],
- 'eventUrl': ['https://www.sherdog.com/events/EMC-8-Elite-MMA-Championship-8-91196'],
- 'location': ['-Areal Bohler; Dusseldorf; Germany-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['EFC 91'],
- 'eventTitle': ['EFC Worldwide 91'],
- 'eventUrl': ['https://www.sherdog.com/events/EFC-91-EFC-Worldwide-91-91195'],
- 'location': ['-EFC Performance Institute; Johannesburg; South Africa-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['ACA 133'],
- 'eventTitle': ['Absolute Championship Akhmat: Magomedov vs. Matevosyan'],
- 'eventUrl': ['https://www.sherdog.com/events/ACA-133-Absolute-Championship-Akhmat-Magomedov-vs-Matevosyan-91144'],
- 'location': ['-Sibur Arena; Saint Petersburg; Russia-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['MTE'],
- 'eventTitle': ['Muay Thai Extremo'],
- 'eventUrl': ['https://www.sherdog.com/events/MTE-Muay-Thai-Extremo-91077'],
- 'location': ['-Sassaki Events; Ponta Grossa; Parana; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['AOW 21'],
- 'eventTitle': ['Art of War Cage Fighting 21: The Rumble at Rivers'],
- 'eventUrl': ['https://www.sherdog.com/events/AOW-21-Art-of-War-Cage-Fighting-21-The-Rumble-at-Rivers-91068'],
- 'location': ['-Rivers Casino; Philadelphia; Pennsylvania; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['FNC 4'],
- 'eventTitle': ['Armagedon Finals'],
- 'eventUrl': ['https://www.sherdog.com/events/FNC-4-Armagedon-Finals-91067'],
- 'location': ['-Dvorana Gradski Vrt; Osijek; Croatia-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['UCC 50'],
- 'eventTitle': ['Ultimate Combat Challenge'],
- 'eventUrl': ['https://www.sherdog.com/events/UCC-50-Ultimate-Combat-Challenge-91065'],
- 'location': ['-Los Andes Mall; San Miguelito; Panama-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['CWA'],
- 'eventTitle': ['Cage Warriors Academy Wales 5'],
- 'eventUrl': ['https://www.sherdog.com/events/CWA-Cage-Warriors-Academy-Wales-5-91005'],
- 'location': ['-Ebbw Vale Sports Centre; Ebbw Vale; Wales; United Kingdom-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['FFC 48'],
- 'eventTitle': ['Mexico'],
- 'eventUrl': ['https://www.sherdog.com/events/FFC-48-Mexico-90982'],
- 'location': ['-Ciudad de Mexico; Mexico.-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['DCS 76'],
- 'eventTitle': ['Seasons Beatings 2021'],
- 'eventUrl': ['https://www.sherdog.com/events/DCS-76-Seasons-Beatings-2021-90906'],
- 'location': ['-Pinnacle Bank Arena; Lincoln; Nebraska; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Fight Club Den Haag'],
- 'eventTitle': ['Akira FC 4'],
- 'eventUrl': ['https://www.sherdog.com/events/Fight-Club-Den-Haag-Akira-FC-4-90904'],
- 'location': ['-Boksschool Houwaart; Den Haag; Zuid-Holland; The Netherlands-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['CC 5'],
- 'eventTitle': ['Cage Conflict 5: Resistance'],
- 'eventUrl': ['https://www.sherdog.com/events/CC-5-Cage-Conflict-5-Resistance-90903'],
- 'location': ['-The Devenish; Belfast; Northern Ireland-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Arena Global'],
- 'eventTitle': ['Arena Global 15'],
- 'eventUrl': ['https://www.sherdog.com/events/Arena-Global-Arena-Global-15-90897'],
- 'location': ['-Rio de Janeiro; Rio de Janeiro; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Oktagon MMA'],
- 'eventTitle': ['Oktagon 29'],
- 'eventUrl': ['https://www.sherdog.com/events/Oktagon-MMA-Oktagon-29-90783'],
- 'location': ['-Ostravar Arena; Ostrava; Czech Republic-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Ultimate Battle Grounds 10'],
- 'eventTitle': ['Winter Flurries 2'],
- 'eventUrl': ['https://www.sherdog.com/events/Ultimate-Battle-Grounds-10-Winter-Flurries-2-90755'],
- 'location': ['-Barefoot Resort and Golf; North Myrtle Beach; South Carolina; '
-              'United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Impact Promotions'],
- 'eventTitle': ['Beatdown at the Beach 22: Pro-Am 2'],
- 'eventUrl': ['https://www.sherdog.com/events/Impact-Promotions-Beatdown-at-the-Beach-22-ProAm-2-90639'],
- 'location': ['-Laketown Wharf; Panama City Beach; Florida; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['B2 Fighting Series 142'],
- 'eventTitle': ['Kentucky'],
- 'eventUrl': ['https://www.sherdog.com/events/B2-Fighting-Series-142-Kentucky-90398'],
- 'location': ['-Central Bank Center; Lexington; Kentucky; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['UFC on ESPN 31'],
- 'eventTitle': ['Font vs. Aldo'],
- 'eventUrl': ['https://www.sherdog.com/events/UFC-on-ESPN-31-Font-vs-Aldo-90320'],
- 'location': ['-UFC Apex; Las Vegas; Nevada; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/04/2021'],
- 'eventName': ['Home Fight Championship'],
- 'eventTitle': ['HFC 3'],
- 'eventUrl': ['https://www.sherdog.com/events/Home-Fight-Championship-HFC-3-90135'],
- 'location': ['-Municipal Gymnasium Santa Luzia do Para; Para; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['ZFC1: Noorzai vs. Hazim'],
- 'eventTitle': ['Zalmai Arezo Fighting Championship'],
- 'eventUrl': ['https://www.sherdog.com/events/ZFC1-Noorzai-vs-Hazim-Zalmai-Arezo-Fighting-Championship-91496'],
- 'location': ['-Almas Hall; Mazzar Sharif; Balkh; Afghanistan-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['BSC 5'],
- 'eventTitle': ['Hunter vs. Cai Cai'],
- 'eventUrl': ['https://www.sherdog.com/events/BSC-5-Hunter-vs-Cai-Cai-91439'],
- 'location': ['-Gimnasio Olimpico Juan De La Barrera; CDMX; Mexico-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['Combate Global'],
- 'eventTitle': ['Estrada vs. Bravo'],
- 'eventUrl': ['https://www.sherdog.com/events/Combate-Global-Estrada-vs-Bravo-91374'],
- 'location': ['-Univision Studios; Miami; Florida; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['One Championship'],
- 'eventTitle': ['Winter Warriors 2'],
- 'eventUrl': ['https://www.sherdog.com/events/One-Championship-Winter-Warriors-2-91281'],
- 'location': ['-Singapore Indoor Stadium; Kallang; Singapore-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['BFL 70'],
- 'eventTitle': ['Battlefield Fight League'],
- 'eventUrl': ['https://www.sherdog.com/events/BFL-70-Battlefield-Fight-League-91177'],
- 'location': ['-Vancouver; British Columbia; Canada-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['Rigoro Fighting Championship'],
- 'eventTitle': ['RFC: Rockland Fight Night 2'],
- 'eventUrl': ['https://www.sherdog.com/events/Rigoro-Fighting-Championship-RFC-Rockland-Fight-Night-2-91176'],
- 'location': ['-Newburgh Armory; Newburgh; New York; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['LFA 119'],
- 'eventTitle': ['Silveira vs. Revel'],
- 'eventUrl': ['https://www.sherdog.com/events/LFA-119-Silveira-vs-Revel-90921'],
- 'location': ['-Arizona Federal Theatre; Phoenix; Arizona; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['Bellator 272'],
- 'eventTitle': ['Pettis vs. Horiguchi'],
- 'eventUrl': ['https://www.sherdog.com/events/Bellator-272-Pettis-vs-Horiguchi-90729'],
- 'location': ['-Mohegan Sun Arena; Uncasville; Connecticut; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['DSFN'],
- 'eventTitle': [' DS Fight Night 02'],
- 'eventUrl': ['https://www.sherdog.com/events/DSFN-DS-Fight-Night-02-90611'],
- 'location': ['-Arena DS Fight; Salvaterra; Pa; Brazil-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['One Championship'],
- 'eventTitle': ['Winter Warriors'],
- 'eventUrl': ['https://www.sherdog.com/events/One-Championship-Winter-Warriors-90547'],
- 'location': ['-Singapore Indoor Stadium; Kallang; Singapore-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/03/2021'],
- 'eventName': ['B2 Fighting Series 141'],
- 'eventTitle': ['Kentucky'],
- 'eventUrl': ['https://www.sherdog.com/events/B2-Fighting-Series-141-Kentucky-90397'],
- 'location': ['-Central Bank Center; Lexington; Kentucky; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/02/2021'],
- 'eventName': ['MMA Sever'],
- 'eventTitle': ['Parma Fights 11'],
- 'eventUrl': ['https://www.sherdog.com/events/MMA-Sever-Parma-Fights-11-91482'],
- 'location': ['-Syktyvkar; Komi Republic; Russia-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/02/2021'],
- 'eventName': ['FCOC 69'],
- 'eventTitle': ['Fight Club OC'],
- 'eventUrl': ['https://www.sherdog.com/events/FCOC-69-Fight-Club-OC-91314'],
- 'location': ['-The Hanger at the OC Fair & Event Center; Costa Mesa; '
-              'California; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['12/02/2021'],
- 'eventName': ['XKO'],
- 'eventTitle': ['Amateur Series 20'],
- 'eventUrl': ['https://www.sherdog.com/events/XKO-Amateur-Series-20-91064'],
- 'location': ['-The Factory in Deep Ellum; Dallas; Texas; United States-']}
-DEBUG: Scraped from <200 https://www.sherdog.com/events/recent>
-{'date': ['11/30/2021'],
- 'eventName': ['ZWC 15'],
- 'eventTitle': ['Zuri Warriors Championship'],
- 'eventUrl': ['https://www.sherdog.com/events/ZWC-15-Zuri-Warriors-Championship-91683'],
- 'location': ['-France Sports Center Netivot; Netivot; Israel-']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['decision (unanimous)'],
+ 'fighter1Name': ['hiromasa ougikubo'],
+ 'fighter1Result': ['W'],
+ 'fighter1Url': ['None'],
+ 'fighter2Name': ['kai asakura'],
+ 'fighter2Result': ['L'],
+ 'fighter2Url': ['None']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['roberto de souza'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Roberto-de-Souza-148081'],
+ 'fighter2Name': ['yusuke yachi'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Yusuke-Yachi-44738']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['mikuru asakura'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Mikuru-Asakura-113195'],
+ 'fighter2Name': ['yutaka saito'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Yutaka-Saito-87378']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['si woo park'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Si-Woo-Park-262621'],
+ 'fighter2Name': ['rena kubota'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Rena-Kubota-209061']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['seika izawa'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Seika-Izawa-375399'],
+ 'fighter2Name': ['ayaka hamasaki'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Ayaka-Hamasaki-45332']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['koji takeda'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Koji-Takeda-243733'],
+ 'fighter2Name': ['noah bey'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Noah-Bey-386871']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['hideki sekine'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Hideki-Sekine-53587'],
+ 'fighter2Name': ['shoma shibisai'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Shoma-Shibisai-93841']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['kyohei hagiwara'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Kyohei-Hagiwara-245811'],
+ 'fighter2Name': ['hiroaki suzuki'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Hiroaki-Suzuki-392230']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['shinobu ota'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Shinobu-Ota-378738'],
+ 'fighter2Name': ['kazuma sone'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Kazuma-Sone-41120']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['yuki motoya'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Yuki-Motoya-66241'],
+ 'fighter2Name': ['yuto hokamura'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Yuto-Hokamura-80347']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['hiromasa ougikubo'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Hiromasa-Ougikubo-18883'],
+ 'fighter2Name': ['naoki inoue'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Naoki-Inoue-158487']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['kai asakura'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Kai-Asakura-226035'],
+ 'fighter2Name': ['kenta takizawa'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Kenta-Takizawa-131311']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Rizin-FF-Rizin-33-91339>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['kota miura'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Kota-Miura-397029'],
+ 'fighter2Name': ['yushi sakura'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Yushi-Sakura-397030']}
 DEBUG: Crawled (200) <GET https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698 via http://localhost:8050/execute> (referer: None)
 DEBUG: Scraped from <200 https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698>
-{'fighter1Name': ['dmitry klimov'],
+{'fightMethodResult': ['technical submission (rear-naked choke)'],
+ 'fighter1Name': ['dmitry klimov'],
  'fighter1Result': ['W'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Kota-Miura-397029'],
  'fighter2Name': ['alexey meshkov'],
  'fighter2Result': ['L'],
- 'fighterMethodResult': ['None']}
-INFO: Received SIGINT, shutting down gracefully. Send again to force 
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Yushi-Sakura-397030']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['fazliddin madrahimov'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Fazliddin-Madrahimov-272665'],
+ 'fighter2Name': ['andrey efimov'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Andrey-Efimov-281229']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['petr romankevich'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Petr-Romankevich-377177'],
+ 'fighter2Name': ['astemir odizhev'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Astemir-Odizhev-397876']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['danila tereschenko'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Danila-Tereschenko-397875'],
+ 'fighter2Name': ['andi shonazarov'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Andi-Shonazarov-373852']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/Hardcore-FC-Hardcore-MMA-18-91698>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['vladimir taranov'],
+ 'fighter1Result': ['win'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Vladimir-Taranov-206873'],
+ 'fighter2Name': ['vladimir chudnovets'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Vladimir-Chudnovets-137777']}
+DEBUG: Crawled (200) <GET https://www.sherdog.com/events/OTF-Orereta-Top-Fighters-Grand-Prix-91536 via http://localhost:8050/execute> (referer: None)
+DEBUG: Scraped from <200 https://www.sherdog.com/events/OTF-Orereta-Top-Fighters-Grand-Prix-91536>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['melisa deniz'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Vladimir-Taranov-206873'],
+ 'fighter2Name': ['claire dubois'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Vladimir-Chudnovets-137777']}
+DEBUG: Scraped from <200 https://www.sherdog.com/events/OTF-Orereta-Top-Fighters-Grand-Prix-91536>
+{'fightMethodResult': ['None'],
+ 'fighter1Name': ['paulina suska'],
+ 'fighter1Result': ['None'],
+ 'fighter1Url': ['https://www.sherdog.com/fighter/Paulina-Suska-49065'],
+ 'fighter2Name': ['maria santos'],
+ 'fighter2Result': ['None'],
+ 'fighter2Url': ['https://www.sherdog.com/fighter/Maria-Santos-397190']}
+INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 5518,
+ 'downloader/request_count': 4,
+ 'downloader/request_method_count/POST': 4,
+ 'downloader/response_bytes': 1076724,
+ 'downloader/response_count': 4,
+ 'downloader/response_status_count/200': 4,
+ 'elapsed_time_seconds': 25.380048,
+ 'finish_reason': 'closespider_itemcount',
+ 'finish_time': datetime.datetime(2022, 1, 12, 21, 40, 9, 1071),
+ 'item_scraped_count': 200,
+ 'log_count/DEBUG': 204,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 1,
+ 'request_depth_max': 1,
+ 'response_received_count': 4,
+ 'scheduler/dequeued': 8,
+ 'scheduler/dequeued/memory': 8,
+ 'scheduler/enqueued': 185,
+ 'scheduler/enqueued/memory': 185,
+ 'splash/execute/request_count': 4,
+ 'splash/execute/response_count/200': 4,
+ 'start_time': datetime.datetime(2022, 1, 12, 21, 39, 43, 621023)}
+INFO: Spider closed (closespider_itemcount)

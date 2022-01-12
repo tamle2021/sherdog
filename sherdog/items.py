@@ -29,7 +29,9 @@ class FightCardItem(scrapy.Item):
     fighter2Name = scrapy.Field()
     fighter1Result = scrapy.Field()
     fighter2Result = scrapy.Field()
-    fighterMethodResult = scrapy.Field()
+    fighter1Url = scrapy.Field()
+    fighter2Url = scrapy.Field()
+    fightMethodResult = scrapy.Field()
 
 
 

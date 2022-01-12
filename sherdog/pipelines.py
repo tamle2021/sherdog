@@ -15,21 +15,21 @@ class SherdogStatsPipeline:
         self.outputSpecificEventDir = "csv_files/specific_event"
         self.outputFighterDir = "csv_files/fighter"
         self.eventList = ["date","eventName","eventTitle","eventUrl","location"]
-        self.specificEventList = ["fighter1Name","fighter1Result","fighter2Name","fighter2Result", \
-            "fighterMethodResult"]
+        self.fightCardList = ["fighter1Name","fighter1Url","fighter1Result","fighter2Name","fighter2Url", \
+            "fighter2Result","fightMethodResult"]
         self.fighterList = ["fighterName","birthDate","age","height","weight","fighterClass","win","loss", \
             "locality","country"]
 
         self.eventWriter = ""
-        self.specificEventWriter = ""
+        self.fightCardWriter = ""
         self.fighterWriter = ""
         # ----------------------------------
         self.eventFileName = ""
-        self.specificEventFileName = ""
+        self.fightCardFileName = ""
         self.fighterFileName = ""
         # ----------------------------------
         self.eventExporter = ""
-        self.specificEventExporter = ""
+        self.fightCardExporter = ""
         self.fighterExporter = ""
 
     @classmethod
@@ -43,45 +43,45 @@ class SherdogStatsPipeline:
         # check system; change if on windows
         if (platform != "linux"):
             self.outputEventDir = "csv_files\\event"
-            self.outputSpecificEventDir = "csv_files\\specific_event"
+            self.outputFightCardDir = "csv_files\\fight_card"
             self.outputFighterDir = "csv_files\\fighter"
 
         today = datetime.today()
         dt = datetime(today.year,today.month,today.day)
         self.eventFileName = "event_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
-        self.specificEventFileName = "specific_event_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
+        self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
 
         self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + "_.csv"
 
         absolutePathEvent = os.path.join(os.getcwd(),self.outputEventDir)
-        absolutePathSpecificEvent = os.path.join(os.getcwd(),self.outputSpecificEventDir)
+        absolutePathFightCard = os.path.join(os.getcwd(),self.outputFightCardDir)
         absolutePathFighter = os.path.join(os.getcwd(),self.outputFighterDir)
 
         self.eventWriter = open(os.path.join(absolutePathEvent,self.eventFileName),'wb+')
-        self.specificEventWriter = open(os.path.join(absolutePathSpecificEvent,self.specificEventFileName),'wb+')
+        self.fightCardWriter = open(os.path.join(absolutePathFightCard,self.fightCardFileName),'wb+')
         self.fighterWriter = open(os.path.join(absolutePathFighter,self.fighterFileName),"wb+")
 
         self.eventExporter = CsvItemExporter(self.eventWriter)
-        self.specificEventExporter = CsvItemExporter(self.specificEventWriter)
+        self.fightCardExporter = CsvItemExporter(self.fightCardWriter)
         self.fighterExporter = CsvItemExporter(self.fighterWriter)
 
         self.eventExporter.fields_to_export = self.eventList
-        self.specificEventExporter.fields_to_export = self.specificEventList
+        self.fightCardExporter.fields_to_export = self.fightCardList
         self.fighterExporter.fields_to_export = self.fighterList
 
         self.eventExporter.start_exporting()
-        self.specificEventExporter.start_exporting()
+        self.fightCardExporter.start_exporting()
         self.fighterExporter.start_exporting()
 
     def spider_closed(self,spider):
         self.eventExporter.finish_exporting()
-        self.specificEventExporter.finish_exporting()
+        self.fightCardExporter.finish_exporting()
         self.fighterExporter.finish_exporting()
 
         self.eventWriter.close()
-        self.specificEventWriter.close()
+        self.fightCardWriter.close()
         self.fighterWriter.close()
 
     def process_item(self,item,spider):
@@ -95,7 +95,7 @@ class SherdogStatsPipeline:
             if (len(item) == 0):
                 return item
             else:
-                self.specificEventExporter.export_item(item)
+                self.fightCardExporter.export_item(item)
                 return item
         elif (isinstance(item,FighterItem)):
             if (len(item) == 0):

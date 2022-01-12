@@ -7,7 +7,7 @@ from scrapy.spiders import CrawlSpider,Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
-    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setAge,setHeight, \
+    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setFightCard,setAge,setHeight, \
     setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation,setFighterName
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
@@ -43,9 +43,11 @@ class SherdogStatsSpider(scrapy.Spider):
 
         self.fighter1Name = ""
         self.fighter2Name = ""
+        self.fighter1Url = ""
+        self.fighter2Url = ""
         self.fighter1Result = ""
         self.fighter2Result = ""
-        self.fighterMethodResult = ""
+        self.fightMethodResult = ""
 
         self.fighterName = ""
         self.birthDate = ""
@@ -165,55 +167,9 @@ class SherdogStatsSpider(scrapy.Spider):
             # /html/body/div[4]/div[3]/section[2]/div/table/tbody/tr[2]
 
             if (trTags != "None"):
-                for i in trTags:
+                for sel in trTags:
                     resetFightCard(self)
-                    fighter1Name = checkEmpty(i.xpath(".//td[contains(@class,'text_right')]/div/div[contains(@class,'fighter_result')]/a/span/text()").getall())
-
-                    setFighterName(self,fighter1Name,"f1")
-
-                    fighter1Url = checkEmpty(i.xpath(".//td[@class='text_right col_fc_upcoming']/div[@class='fighter_result_data']/a/@href").get())
-                    if (fighter1Url != "None"):
-                        self.fighter1Url = response.urljoin(fighter1Url)
-                        # yield SplashRequest(url=self.fighter1Url,callback=self.parseFighterStats,\
-                        #     endpoint="execute",args={"lua_source": self.script2},\
-                        #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
-
-                    else:
-                        self.fighter1Url = "None"
-
-                    fighter1Result = checkEmpty(i.xpath(".//td[@class='text_right col_fc_upcoming']/div[@class='fighter_result_data']/span/text()").get())
-                    if (fighter1Result != "None"):
-                        self.fighter1Result = checkFightResult(self,fighter1Result.lower())
-                    else:
-                        self.fighter1Result = "None"
-
-                    fighter2Name = checkEmpty(i.xpath(".//td[@class='text_left col_fc_upcoming']/div[@class='fighter_result_data']/a/span/text()").get())
-                    if (fighter2Name != "None"):
-                        self.fighter2Name = fighter2Name.lower()
-                    else:
-                        self.fighter2Name = "None"
-
-                    fighter2Url = checkEmpty(i.xpath(".//td[@class='text_left col_fc_upcoming']/div[@class='fighter_result_data']/a/@href").get())
-                    if (fighter2Url != "None"):
-                        self.fighter2Url = response.urljoin(fighter2Url)
-                        yield SplashRequest(url=self.fighter2Url,callback=self.parseFighterStats,\
-                            endpoint="execute",args={"lua_source": self.script2},\
-                            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
-
-                    else:
-                        self.fighter2Url = "None"
-
-                    fighter2Result = checkEmpty(i.xpath(".//td[@class='text_left col_fc_upcoming']/div[@class='fighter_result_data']/span/text()").get())
-                    if (fighter2Result != "None"):
-                        self.fighter2Result = checkFightResult(self,fighter2Result.lower())
-                    else:
-                        self.fighter2Result = "None"
-
-                    fighterMethodResult = checkEmpty(i.xpath(".//td[5]/text()").get())
-                    if (fighterMethodResult != "None"):
-                        self.fighterMethodResult = fighterMethodResult.lower()
-                    else:
-                        self.fighterMethodResult
+                    setFightCard(self,response,sel)
 
                     loader = loadFightCardItem(self,response)
                     yield loader.load_item()

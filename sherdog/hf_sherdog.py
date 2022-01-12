@@ -103,14 +103,63 @@ def setFirstRowFightCard(self,response):
             else:
                 self.fighter2Result = "None"
 
-            fighterMethodResult = checkEmpty(response.xpath("//div[@class='footer']/table/tbody/tr/td[2]/text()").get())
-            if (fighterMethodResult != "None"):
-                self.fighterMethodResult = fighterMethodResult.lower()
+            fightMethodResult = checkEmpty(
+                response.xpath("//div/table[contains(@class,'fight_card_resume')]/tbody/tr/td[2]/text()").get())
+            if (fightMethodResult != "None"):
+                self.fightMethodResult = fightMethodResult.strip().lower()
             else:
-                self.fighterMethodResult
+                self.fightMethodResult = "None"
 
     except Exception as ex:
-        print("exception: {0}".format(ex))
+        print("exception => error setting first row fight card --- {0}".format(ex))
+
+def setFightCard(self,response,sel):
+    try:
+        fighter1Name = checkEmpty(sel.xpath(".//td[contains(@class,'text_right')]/div[@class='fighter_list left']/div/a/span/text()").getall())
+        setFighterName(self,fighter1Name,"f1")
+
+        fighter1Url = checkEmpty(sel.xpath(".//td[contains(@class,'text_right')]/div[@class='fighter_list left']/div/a/@href").get())
+        if (fighter1Url != "None"):
+            self.fighter1Url = response.urljoin(fighter1Url)
+            # yield SplashRequest(url=self.fighter1Url,callback=self.parseFighterStats,\
+            #     endpoint="execute",args={"lua_source": self.script2},\
+            #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+        else:
+            self.fighter1Url = "None"
+
+        fighter1Result = checkEmpty(sel.xpath(".//td[contains(@class,'text_right')]/div[@class='fighter_list left']/div/span[contains(@class,'final_result')]/text()").get())
+        if (fighter1Result != "None"):
+            self.fighter1Result = fighter1Result.lower()
+        else:
+            self.fighter1Result = "None"
+
+        fighter2Name = checkEmpty(sel.xpath(".//td[contains(@class,'text_left')]/div[@class='fighter_list right']/div/a/span/text()").getall())
+        setFighterName(self,fighter2Name,"f2")
+
+        fighter2Url = checkEmpty(sel.xpath(".//td[contains(@class,'text_left')]/div[@class='fighter_list right']/div/a/@href").get())
+        if (fighter2Url != "None"):
+            self.fighter2Url = response.urljoin(fighter2Url)
+            # yield SplashRequest(url=self.fighter2Url, callback=self.parseFighterStats, \
+            #                     endpoint="execute", args={"lua_source": self.script2}, \
+            #                     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+        else:
+            self.fighter2Url = "None"
+
+        fighter2Result = checkEmpty(
+            sel.xpath(".//td[@class='text_left col_fc_upcoming']/div[@class='fighter_result_data']/span/text()").get())
+        if (fighter2Result != "None"):
+            self.fighter2Result = checkFightResult(self, fighter2Result.lower())
+        else:
+            self.fighter2Result = "None"
+
+        fightMethodResult = checkEmpty(sel.xpath(".//td[@class='winby']/text()").get())
+        if (fightMethodResult != "None"):
+            self.fightMethodResult = fightMethodResult.strip().lower()
+        else:
+            self.fightMethodResult = "None"
+
+    except Exception as ex:
+        print("exception => error setting fight card --- {0}".format(ex))
 
 def checkFightResult(self,fightResult):
     if (fightResult == "win"):
@@ -234,16 +283,20 @@ def loadEventItem(self,response):
 def loadFightCardItem(self,response):
     self.fighter1Name = self.fighter1Name if (self.fighter1Name != "") else "None"
     self.fighter2Name = self.fighter2Name if (self.fighter2Name != "") else "None"
+    self.fighter1Url = self.fighter1Url if (self.fighter1Url != "") else "None"
+    self.fighter2Url = self.fighter2Url if (self.fighter2Url != "") else "None"
     self.fighter1Result = self.fighter1Result if (self.fighter1Result != "") else "None"
     self.fighter2Result = self.fighter2Result if (self.fighter2Result != "") else "None"
-    self.fighterMethodResult = self.fighterMethodResult if (self.fighterMethodResult != "") else "None"
+    self.fightMethodResult = self.fightMethodResult if (self.fightMethodResult != "") else "None"
 
     loader = ItemLoader(item=FightCardItem(),response=response)
     loader.add_value("fighter1Name",self.fighter1Name)
     loader.add_value("fighter2Name",self.fighter2Name)
+    loader.add_value("fighter1Url", self.fighter1Url)
+    loader.add_value("fighter2Url", self.fighter2Url)
     loader.add_value("fighter1Result",self.fighter1Result)
     loader.add_value("fighter2Result",self.fighter2Result)
-    loader.add_value("fighterMethodResult",self.fighterMethodResult)
+    loader.add_value("fightMethodResult",self.fightMethodResult)
     return loader
 
 def loadFighterItem(self,response):
@@ -278,7 +331,7 @@ def resetFightCard(self):
     self.fighter2Name = ""
     self.fighter1Result = ""
     self.fighter2Result = ""
-    self.fighterMethodResult = ""
+    self.fightMethodResult = ""
 
 def checkHeight(data):
     subDoubleQuote = re.sub(r"[\"\\]",'',data)
