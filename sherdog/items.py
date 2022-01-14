@@ -25,6 +25,9 @@ class EventItem(scrapy.Item):
     location = scrapy.Field()
 
 class FightCardItem(scrapy.Item):
+    dateFightCard = scrapy.Field()
+    eventNameFightCard = scrapy.Field()
+    locationFightCard = scrapy.Field()
     fighter1Name = scrapy.Field()
     fighter2Name = scrapy.Field()
     fighter1Result = scrapy.Field()

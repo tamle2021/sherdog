@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\sherdog\csv_files\event\event_01_14_2022_.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\sherdog\csv_files\fight_card\fight_card_01_12_2022_.csv">
           <value>
             <Attribute>
@@ -31,21 +38,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\sherdog\csv_files\fight_card\specific_event_01_07_2022_.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\sherdog\csv_files\fight_card\specific_event_01_12_2022_.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\sherdog\csv_files\specific_event\specific_event_01_07_2022_.csv">
+        <entry key="\sherdog\csv_files\fight_card\fight_card_01_14_2022_.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

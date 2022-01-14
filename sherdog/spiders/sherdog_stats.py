@@ -7,8 +7,8 @@ from scrapy.spiders import CrawlSpider,Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
-    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFirstRowFightCard,setFightCard,setAge,setHeight, \
-    setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation,setFighterName
+    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
+    setHeight,setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation,setFighterName
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -20,9 +20,9 @@ class SherdogStatsSpider(scrapy.Spider):
 
     custom_settings = {
         "ITEM_PIPELINES": {
-            'sherdog.pipelines.SherdogStatsPipeline': 199,
+            'sherdog.pipelines.SherdogStatsPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 65
+        "CLOSESPIDER_ITEMCOUNT": 125
     }
 
     configure_logging(install_root_handler=False)
@@ -41,6 +41,9 @@ class SherdogStatsSpider(scrapy.Spider):
         self.eventUrl = ""
         self.location = ""
 
+        self.dateFightCard = ""
+        self.eventNameFightCard = ""
+        self.locationFightCard = ""
         self.fighter1Name = ""
         self.fighter2Name = ""
         self.fighter1Url = ""
@@ -159,6 +162,7 @@ class SherdogStatsSpider(scrapy.Spider):
     def parseFightCard(self,response):
         try:
             resetFightCard(self)
+            setFightCardDetails(self,response)
             setFirstRowFightCard(self,response)
             loader = loadFightCardItem(self,response)
             yield loader.load_item()

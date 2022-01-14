@@ -72,9 +72,56 @@ def setBirthDate(self,birthDate):
 def setAssociation(self,association):
     self.association = str(association).lower()
 
+def setFightCardDetails(self,response):
+    try:
+        # /html/body/div[4]/div[3]/section[1]/div[2]/div[1]/div/div[2]/span[1]
+        dateFightCard = checkEmpty(response.xpath("//div[contains(@class,'event_detail')]/div/div[@class='info']/span/text()").get())
+
+        if (dateFightCard != "None"):
+            setDateFightCard(self,dateFightCard)
+
+    except Exception as ex:
+        print("exeception => error setting date fight card ---  {0}".format(ex))
+        self.dateFightCard = "None"
+
+
+    try:
+        eventNameFightCard = checkEmpty(response.xpath("//div[contains(@class,'event_detail')]/div/h1/span[@itemprop='name']/text()").get())
+
+        if (eventNameFightCard != "None"):
+            self.eventNameFightCard = eventNameFightCard.lower()
+        else:
+            self.eventNameFightCard = "None"
+
+    except Exception as ex:
+        print("exeception => error setting event name fight card ---  {0}".format(ex))
+        self.eventNameFightCard = "None"
+
+    try:
+        locationFightCard = checkEmpty(response.xpath("//div[contains(@class,'event_detail')]/div/div[@class='info']/span/span[@itemprop='location']/text()").get())
+
+        if (locationFightCard != "None"):
+            replaceComma = locationFightCard.strip().replace(",",";")
+            self.locationFightCard = "-" + replaceComma + "-"
+        else:
+            self.locationFightCard = "None"
+
+    except Exception as ex:
+        print("exeception => error setting location fight card ---  {0}".format(ex))
+        self.locationFightCard = "None"
+
+
+def setDateFightCard(self,dateFightCard):
+    splitStr = dateFightCard.split(" ")
+
+    month = switchMonthThreeLetters(splitStr[0])
+    day = splitStr[1].replace(",","")
+    year = splitStr[2]
+
+    self.dateFightCard = month + "/" + day + "/" + year
+
 def setFirstRowFightCard(self,response):
     try:
-
         # check for meta tag
         hasMeta = checkEmpty(response.xpath("//div[@class='left-module-pad-line']/meta[@itemprop]").get())
 
@@ -281,6 +328,9 @@ def loadEventItem(self,response):
     return loader
 
 def loadFightCardItem(self,response):
+    self.dateFightCard = self.dateFightCard if (self.dateFightCard != "") else "None"
+    self.eventNameFightCard = self.eventNameFightCard if (self.eventNameFightCard != "") else "None"
+    self.locationFightCard = self.locationFightCard if (self.locationFightCard != "") else "None"
     self.fighter1Name = self.fighter1Name if (self.fighter1Name != "") else "None"
     self.fighter2Name = self.fighter2Name if (self.fighter2Name != "") else "None"
     self.fighter1Url = self.fighter1Url if (self.fighter1Url != "") else "None"
@@ -290,6 +340,9 @@ def loadFightCardItem(self,response):
     self.fightMethodResult = self.fightMethodResult if (self.fightMethodResult != "") else "None"
 
     loader = ItemLoader(item=FightCardItem(),response=response)
+    loader.add_value("dateFightCard", self.dateFightCard)
+    loader.add_value("eventNameFightCard", self.eventNameFightCard)
+    loader.add_value("locationFightCard", self.locationFightCard)
     loader.add_value("fighter1Name",self.fighter1Name)
     loader.add_value("fighter2Name",self.fighter2Name)
     loader.add_value("fighter1Url", self.fighter1Url)

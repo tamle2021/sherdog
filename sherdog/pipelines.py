@@ -15,8 +15,8 @@ class SherdogStatsPipeline:
         self.outputSpecificEventDir = "csv_files/specific_event"
         self.outputFighterDir = "csv_files/fighter"
         self.eventList = ["date","eventName","eventTitle","eventUrl","location"]
-        self.fightCardList = ["fighter1Name","fighter1Url","fighter1Result","fighter2Name","fighter2Url", \
-            "fighter2Result","fightMethodResult"]
+        self.fightCardList = ["dateFightCard","eventNameFightCard","locationFightCard","fighter1Name","fighter1Url","fighter1Result", \
+            "fighter2Name","fighter2Url","fighter2Result","fightMethodResult"]
         self.fighterList = ["fighterName","birthDate","age","height","weight","fighterClass","win","loss", \
             "locality","country"]
 
