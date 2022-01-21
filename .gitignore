@@ -21,29 +21,29 @@ Scripts/
 Lib
 Lib/
 
-# Editors
+# editors
 .vscode/
 .idea/
 
-# Vagrant
+# vagrant
 .vagrant/
 
-# Mac/OSX
+# mac os
 .DS_Store
 
-# Windows
+# windows
 Thumbs.db
 
-# Source for the following rules: https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
-# Byte-compiled / optimized / DLL files
+# source for the following rules: https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
+# byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+# c extensions
 *.so
 
-# Distribution / packaging
+# distribution/packaging
 .Python
 build/
 develop-eggs/
