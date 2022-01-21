@@ -15,6 +15,12 @@ sherdog/log.txt
 bin
 bin/
 
+Script
+Scripts/
+
+Lib
+Lib/
+
 # Editors
 .vscode/
 .idea/
