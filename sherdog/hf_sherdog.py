@@ -1,8 +1,14 @@
 import re
+from datetime import datetime
 from scrapy.loader import ItemLoader
 from .items import EventItem,FightCardItem,FighterItem
 import logging
 from .switch_month import switchMonthThreeLetters
+
+def printTime():
+    now = datetime.now()
+    currentDate = now.strftime("%m_%d_%y")
+    return currentDate
 
 def resetFighterStats(self):
     self.birthDate = ""

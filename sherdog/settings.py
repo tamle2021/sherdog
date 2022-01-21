@@ -6,6 +6,8 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import pathlib
+from .hf_sherdog import printTime
 
 BOT_NAME = 'sherdog'
 SPIDER_MODULES = ['sherdog.spiders']
@@ -24,7 +26,7 @@ CONCURRENT_REQUESTS = 3
 # configure a delay for requests for the same website (default: 0)
 # see https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # see also autothrottle settings and docs
-DOWNLOAD_DELAY = 2.5
+DOWNLOAD_DELAY = 2.25
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -86,6 +88,16 @@ HTTPCACHE_ENABLED = True
 # HTTPCACHE_IGNORE_HTTP_CODES = [403]
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 RETRY_HTTP_CODES = [403]
+
+
+# logging
+logTime = printTime()
+pathLog = "log"
+pathlib.Path(pathLog).mkdir(parents=True,exist_ok=True)
+
+LOG_FILE = f'{pathLog}/{logTime}.log'
+LOG_LEVEL = "INFO"
+
 
 SPLASH_URL = 'http://localhost:8050'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'

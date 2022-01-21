@@ -9,7 +9,7 @@ from scrapy.exporters import CsvItemExporter
 from .items import EventItem,FightCardItem,FighterItem
 from datetime import datetime
 
-class SherdogStatsPipeline:
+class SherdogEventFightCardPipeline:
     def __init__(self):
         self.outputEventDir = "csv_files/event"
         self.outputSpecificEventDir = "csv_files/specific_event"
@@ -17,20 +17,15 @@ class SherdogStatsPipeline:
         self.eventList = ["date","eventName","eventTitle","eventUrl","location"]
         self.fightCardList = ["dateFightCard","eventNameFightCard","locationFightCard","fighter1Name","fighter1Url","fighter1Result", \
             "fighter2Name","fighter2Url","fighter2Result","fightMethodResult"]
-        self.fighterList = ["fighterName","birthDate","age","height","weight","fighterClass","win","loss", \
-            "locality","country"]
 
         self.eventWriter = ""
         self.fightCardWriter = ""
-        self.fighterWriter = ""
         # ----------------------------------
         self.eventFileName = ""
         self.fightCardFileName = ""
-        self.fighterFileName = ""
         # ----------------------------------
         self.eventExporter = ""
         self.fightCardExporter = ""
-        self.fighterExporter = ""
 
     @classmethod
     def from_crawler(cls,crawler):
@@ -44,7 +39,6 @@ class SherdogStatsPipeline:
         if (platform != "linux"):
             self.outputEventDir = "csv_files\\event"
             self.outputFightCardDir = "csv_files\\fight_card"
-            self.outputFighterDir = "csv_files\\fighter"
 
         today = datetime.today()
         dt = datetime(today.year,today.month,today.day)
@@ -53,36 +47,28 @@ class SherdogStatsPipeline:
         self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
 
-        self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + "_.csv"
 
         absolutePathEvent = os.path.join(os.getcwd(),self.outputEventDir)
         absolutePathFightCard = os.path.join(os.getcwd(),self.outputFightCardDir)
-        absolutePathFighter = os.path.join(os.getcwd(),self.outputFighterDir)
 
         self.eventWriter = open(os.path.join(absolutePathEvent,self.eventFileName),'wb+')
         self.fightCardWriter = open(os.path.join(absolutePathFightCard,self.fightCardFileName),'wb+')
-        self.fighterWriter = open(os.path.join(absolutePathFighter,self.fighterFileName),"wb+")
 
         self.eventExporter = CsvItemExporter(self.eventWriter)
         self.fightCardExporter = CsvItemExporter(self.fightCardWriter)
-        self.fighterExporter = CsvItemExporter(self.fighterWriter)
 
         self.eventExporter.fields_to_export = self.eventList
         self.fightCardExporter.fields_to_export = self.fightCardList
-        self.fighterExporter.fields_to_export = self.fighterList
 
         self.eventExporter.start_exporting()
         self.fightCardExporter.start_exporting()
-        self.fighterExporter.start_exporting()
 
     def spider_closed(self,spider):
         self.eventExporter.finish_exporting()
         self.fightCardExporter.finish_exporting()
-        self.fighterExporter.finish_exporting()
 
         self.eventWriter.close()
         self.fightCardWriter.close()
-        self.fighterWriter.close()
 
     def process_item(self,item,spider):
         if (isinstance(item,EventItem)):
@@ -97,12 +83,6 @@ class SherdogStatsPipeline:
             else:
                 self.fightCardExporter.export_item(item)
                 return item
-        elif (isinstance(item,FighterItem)):
-            if (len(item) == 0):
-                return item
-            else:
-                self.fighterExporter.export_item(item)
-                return item
 
     def checkMonthDay(self,dayOrMonth):
         if (int(dayOrMonth) <= 9):
@@ -110,7 +90,6 @@ class SherdogStatsPipeline:
             return concatStr
         else:
             return str(dayOrMonth)
-
 
 class SherdogFighterPipeline:
     def __init__(self):
