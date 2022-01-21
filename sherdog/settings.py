@@ -89,7 +89,6 @@ HTTPCACHE_ENABLED = True
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 RETRY_HTTP_CODES = [403]
 
-
 # logging
 logTime = printTime()
 pathLog = "log"
@@ -97,7 +96,6 @@ pathlib.Path(pathLog).mkdir(parents=True,exist_ok=True)
 
 LOG_FILE = f'{pathLog}/{logTime}.log'
 LOG_LEVEL = "INFO"
-
 
 SPLASH_URL = 'http://localhost:8050'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'

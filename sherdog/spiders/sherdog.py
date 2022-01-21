@@ -190,7 +190,7 @@ class SherdogFighterSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogFighterPipeline': 275,
         },
-        "CLOSESPIDER_ITEMCOUNT": 159
+        "CLOSESPIDER_ITEMCOUNT": 44
     }
     handle_httpstatus_list = [403]
 
@@ -246,27 +246,27 @@ class SherdogFighterSpider(CrawlSpider):
 
     def parseFighter(self,response):
         try:
-            print("here...")
-            resetFighterStats(self)
             # //div[@class ='birth_info']/span/span/text()
 
-            fighterName = checkEmpty(response.xpath("//div[@class='module bio_fighter vcard']/h1/span/text()").get())
-            if (fighterName != "None"):
-                self.fighterName = fighterName.lower()
+            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div/div/h1/span[contains(@class,'fn')]/text()").get())
+            if (name != "None"):
+                self.name = name.lower()
             else:
-                self.fighterName = "None"
+                self.name = "None"
 
-            birthDate = checkEmpty(response.xpath("//div[@class='birth_info']/span/span/text()").get())
+            trTags = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
+
+            age = checkEmpty(trTags[0].xpath(".//td[2]/b/text()").get())
+            if (age != "None"):
+                self.age = age
+            else:
+                self.age = "None"
+
+            birthDate = checkEmpty(trTags[0].xpath(".//td[2]/span/text()").get())
             if (birthDate != "None"):
                 setBirthDate(self, birthDate)
             else:
                 self.birthDate = "None"
-
-            age = checkEmpty(response.xpath("//div[@class='birth_info']/span/strong/text()").get())
-            if (age != "None"):
-                setAge(self, age)
-            else:
-                self.age = "None"
 
             height = checkEmpty(response.xpath("//div[@class='size_info']/span[@class='item height']/strong/text()").get())
             if (height != "None"):
@@ -321,8 +321,7 @@ class SherdogFighterSpider(CrawlSpider):
             yield loader.load_item()
 
         except Exception as ex:
-            print("error => %s" % ex)
-            logging.info("error => {0}".format(ex))
+            print("exception => error in parse fighter --- {0}".format(ex))
 
 
 

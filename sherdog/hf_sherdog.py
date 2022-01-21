@@ -11,10 +11,13 @@ def printTime():
     return currentDate
 
 def resetFighterStats(self):
+    self.name
     self.birthDate = ""
     self.age = ""
     self.height = ""
     self.weight = ""
+    self.association = ""
+    self.fighterClass = ""
     self.win = ""
     self.loss = ""
     self.locality = ""
@@ -67,13 +70,19 @@ def setBirthDate(self,birthDate):
     if (re.search(r"N/A",birthDate) != None):
         self.birthDate = "None"
     else:
-        splitDash = birthDate.split("-")
-        month = splitDash[1]
-        day  = splitDash[2]
-        year = splitDash[0]
+        splitStr = birthDate.split(" ")
 
-        self.birthDate = month + "/" + day + "/" + year
+        month = splitStr[0]
+        if (len(month) != 0):
+            month = switchMonthThreeLetters(month)
 
+        day  = splitStr[1].replace(",","")
+        year = splitStr[2]
+
+        if (month != "None"):
+            self.birthDate = month + "/" + day + "/" + year
+        else:
+            self.birthDate = "None"
 
 def setAssociation(self,association):
     self.association = str(association).lower()
