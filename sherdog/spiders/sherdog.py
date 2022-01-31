@@ -246,8 +246,6 @@ class SherdogFighterSpider(CrawlSpider):
 
     def parseFighter(self,response):
         try:
-            # //div[@class ='birth_info']/span/span/text()
-
             name = checkEmpty(response.xpath("//div[@class='fighter-right']/div/div/h1/span[contains(@class,'fn')]/text()").get())
             if (name != "None"):
                 self.name = name.lower()
@@ -280,15 +278,13 @@ class SherdogFighterSpider(CrawlSpider):
             else:
                 self.weight = "None"
 
-            # /html/body/div[4]/div[3]/div/section[1]/div/div[1]/div/div[2]/div[1]/div/span/a/span
             association = checkEmpty(response.xpath("//div[@class='association-class']/span[contains(@itemprop,'memberOf')]/a/span/text()").get())
             if (association != "None"):
                 setAssociation(self,association)
             else:
                 self.association = ""
 
-            # /html/body/div[4]/div[3]/div/section[1]/div/div[1]/div/div[2]/div[1]/div/span/a/span
-            fighterClass = checkEmpty(response.xpath("//div[@class ='size_info']/h6/strong/a/text()").get())
+            fighterClass = checkEmpty(response.xpath("//div[@class ='association-class']/a[contains(@href,'stats')]/text()").get())
             if (fighterClass != "None"):
                 self.fighterClass = str(fighterClass).lower()
             else:
