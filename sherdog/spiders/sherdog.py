@@ -194,10 +194,10 @@ class SherdogFighterSpider(CrawlSpider):
     }
     handle_httpstatus_list = [403]
 
-    configure_logging(install_root_handler=False)
-    logging.basicConfig(filename='log.txt',format='%(levelname)s: %(message)s', \
-        level=logging.INFO,filemode="w+"
-    )
+    # configure_logging(install_root_handler=False)
+    # logging.basicConfig(filename='log.txt',format='%(levelname)s: %(message)s', \
+    #     level=logging.INFO,filemode="w+"
+    # )
 
     rules = (
         # extract links matching fighter and parse with spider's method
