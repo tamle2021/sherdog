@@ -50,7 +50,7 @@ def setHeight(self,height):
 
 def setWeight(self,weight):
     subLetters = re.sub(r"[^0-9]","",weight)
-    if (subLetters != "0"):
+    if (subLetters != "0" and len(subLetters) != 0):
         self.weight = subLetters
     else:
         self.weight = "None"

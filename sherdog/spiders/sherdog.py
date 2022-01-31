@@ -254,38 +254,40 @@ class SherdogFighterSpider(CrawlSpider):
             else:
                 self.name = "None"
 
-            trTags = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
+            trTagsAgeWeightHeight = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
 
-            age = checkEmpty(trTags[0].xpath(".//td[2]/b/text()").get())
+            age = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/b/text()").get())
             if (age != "None"):
                 self.age = age
             else:
                 self.age = "None"
 
-            birthDate = checkEmpty(trTags[0].xpath(".//td[2]/span/text()").get())
+            birthDate = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/span/text()").get())
             if (birthDate != "None"):
                 setBirthDate(self, birthDate)
             else:
                 self.birthDate = "None"
 
-            height = checkEmpty(response.xpath("//div[@class='size_info']/span[@class='item height']/strong/text()").get())
+            height = checkEmpty(trTagsAgeWeightHeight[1].xpath(".//td[2]/b/text()").get())
             if (height != "None"):
                 setHeight(self, height)
             else:
                 self.height = "None"
 
-            weight = checkEmpty(response.xpath("//div[@class='size_info']/span[@class='item weight']/strong/text()").get())
+            weight = checkEmpty(trTagsAgeWeightHeight[2].xpath(".//td[2]/b/text()").get())
             if (weight != "None"):
                 setWeight(self,weight)
             else:
                 self.weight = "None"
 
-            association = checkEmpty(response.xpath("//h5/strong/span/a/span/text()").get())
+            # /html/body/div[4]/div[3]/div/section[1]/div/div[1]/div/div[2]/div[1]/div/span/a/span
+            association = checkEmpty(response.xpath("//div[@class='association-class']/span[contains(@itemprop,'memberOf')]/a/span/text()").get())
             if (association != "None"):
                 setAssociation(self,association)
             else:
                 self.association = ""
 
+            # /html/body/div[4]/div[3]/div/section[1]/div/div[1]/div/div[2]/div[1]/div/span/a/span
             fighterClass = checkEmpty(response.xpath("//div[@class ='size_info']/h6/strong/a/text()").get())
             if (fighterClass != "None"):
                 self.fighterClass = str(fighterClass).lower()
