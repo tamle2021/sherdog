@@ -290,11 +290,14 @@ class SherdogFighterSpider(CrawlSpider):
             else:
                 self.fighterClass = ""
 
-            win = checkEmpty(response.xpath("//div[@class='bio_graph']/span[@class='card']/span[2]/text()").get())
+            win = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='wins']/div/span[2]/text()").get())
             if (win != "None"):
                 self.win = win
             else:
                 self.win = ""
+
+
+
 
             loss = checkEmpty(response.xpath("//div[@class='bio_graph loser']/span[@class='card']/span[2]/text()").get())
             if (loss != "None"):
