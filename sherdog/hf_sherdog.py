@@ -387,6 +387,7 @@ def loadFighterItem(self,response):
     self.loss = self.loss if (self.loss != "") else "None"
     self.nationality = self.nationality if (self.nationality != "") else "None"
     self.locality = self.locality if (self.locality != "") else "None"
+    self.url = self.url if (self.url != "") else "None"
 
     loader = ItemLoader(item=FighterItem(),response=response)
     loader.add_value("name",self.name)
@@ -400,6 +401,7 @@ def loadFighterItem(self,response):
     loader.add_value("loss",self.loss)
     loader.add_value("nationality",self.nationality)
     loader.add_value("locality",self.locality)
+    loader.add_value("url",self.url)
     return loader
 
 def resetFightCard(self):

@@ -189,7 +189,7 @@ class SherdogFighterSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogFighterPipeline': 245,
         },
-        "CLOSESPIDER_ITEMCOUNT": 212
+        "CLOSESPIDER_ITEMCOUNT": 255
     }
     handle_httpstatus_list = [403]
 
@@ -217,6 +217,7 @@ class SherdogFighterSpider(CrawlSpider):
         self.loss = ""
         self.nationality = ""
         self.locality = ""
+        self.url = ""
 
         self.count = 0
         # self.url = "https://www.sherdog.com"
@@ -303,6 +304,12 @@ class SherdogFighterSpider(CrawlSpider):
 
             locality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/span[@itemprop='address']/span/text()").get())
             setLocality(self,locality)
+
+            url = checkEmpty(response.url)
+            if (url != "None"):
+                self.url = url
+            else:
+                self.url = "None"
 
             loader = loadFighterItem(self,response)
             yield loader.load_item()

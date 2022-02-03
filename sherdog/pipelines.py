@@ -94,7 +94,7 @@ class SherdogFighterPipeline:
     def __init__(self):
         self.outputFighterDir = "csv_files/fighter"
         self.fighterList = ["name","birthDate","age","height","weight","association","fighterClass", \
-            "win","loss","nationality","locality"]
+            "win","loss","nationality","locality","url"]
 
         self.fighterWriter = ""
         self.fighterFileName = ""

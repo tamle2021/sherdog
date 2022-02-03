@@ -16,6 +16,7 @@ class FighterItem(scrapy.Item):
     loss = scrapy.Field()
     nationality = scrapy.Field()
     locality = scrapy.Field()
+    url = scrapy.Field()
 
 class EventItem(scrapy.Item):
     date = scrapy.Field()
