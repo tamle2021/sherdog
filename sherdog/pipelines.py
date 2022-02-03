@@ -47,7 +47,6 @@ class SherdogEventFightCardPipeline:
         self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
 
-
         absolutePathEvent = os.path.join(os.getcwd(),self.outputEventDir)
         absolutePathFightCard = os.path.join(os.getcwd(),self.outputFightCardDir)
 
@@ -93,9 +92,9 @@ class SherdogEventFightCardPipeline:
 
 class SherdogFighterPipeline:
     def __init__(self):
-        self.outputFighterDir = "sherdog/csv_files/fighter"
-        self.fighterList = ["fighterName","birthDate","age","height","weight","association","fighterClass", \
-            "win","loss","locality","country"]
+        self.outputFighterDir = "csv_files/fighter"
+        self.fighterList = ["name","birthDate","age","height","weight","association","fighterClass", \
+            "win","loss","nationality","locality"]
 
         self.fighterWriter = ""
         self.fighterFileName = ""
@@ -109,11 +108,18 @@ class SherdogFighterPipeline:
         return pipeline
 
     def spider_opened(self,spider):
+        # check system; change if on windows
+        if (platform != "linux"):
+            self.outputFighterDir = "csv_files\\fighter"
+
         today = datetime.today()
         dt = datetime(today.year,today.month,today.day)
 
-        self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + "_.csv"
+        self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + \
+            "_.csv"
+
         absolutePathFighter = os.path.join(os.getcwd(),self.outputFighterDir)
+
         self.fighterWriter = open(os.path.join(absolutePathFighter,self.fighterFileName),"wb+")
         self.fighterExporter = CsvItemExporter(self.fighterWriter)
         self.fighterExporter.fields_to_export = self.fighterList

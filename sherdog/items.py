@@ -5,7 +5,7 @@
 import scrapy
 
 class FighterItem(scrapy.Item):
-    fighterName = scrapy.Field()
+    name = scrapy.Field()
     birthDate = scrapy.Field()
     age = scrapy.Field()
     height = scrapy.Field()
@@ -14,8 +14,8 @@ class FighterItem(scrapy.Item):
     fighterClass = scrapy.Field()
     win = scrapy.Field()
     loss = scrapy.Field()
+    nationality = scrapy.Field()
     locality = scrapy.Field()
-    country = scrapy.Field()
 
 class EventItem(scrapy.Item):
     date = scrapy.Field()

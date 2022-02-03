@@ -8,7 +8,7 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
     setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
-    setHeight,setWeight,setCountry,setLocality,resetFighterStats,loadFighterItem,setLocation,setAssociation,setFighterName
+    setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -181,16 +181,15 @@ class SherdogEventFightCardSpider(scrapy.Spider):
         except Exception as ex:
             print("exception: %s" % ex)
 
-
 class SherdogFighterSpider(CrawlSpider):
     name = "sherdog_fighter"
     allowed_domains = ["www.sherdog.com","sherdog.com"]
     start_urls = ["https://www.sherdog.com"]
     custom_settings = {
         "ITEM_PIPELINES": {
-            'sherdog.pipelines.SherdogFighterPipeline': 275,
+            'sherdog.pipelines.SherdogFighterPipeline': 245,
         },
-        "CLOSESPIDER_ITEMCOUNT": 44
+        "CLOSESPIDER_ITEMCOUNT": 212
     }
     handle_httpstatus_list = [403]
 
@@ -207,7 +206,7 @@ class SherdogFighterSpider(CrawlSpider):
 
     def __init__(self,*args,**kwargs):
         super(SherdogFighterSpider,self).__init__(*args,**kwargs)
-        self.fighterName = ""
+        self.name = ""
         self.birthDate = ""
         self.age = ""
         self.height = ""
@@ -216,8 +215,8 @@ class SherdogFighterSpider(CrawlSpider):
         self.fighterClass = ""
         self.win = ""
         self.loss = ""
+        self.nationality = ""
         self.locality = ""
-        self.country = ""
 
         self.count = 0
         # self.url = "https://www.sherdog.com"
@@ -246,7 +245,7 @@ class SherdogFighterSpider(CrawlSpider):
 
     def parseFighter(self,response):
         try:
-            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div/div/h1/span[contains(@class,'fn')]/text()").get())
+            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/h1/span[contains(@class,'fn')]/text()").get())
             if (name != "None"):
                 self.name = name.lower()
             else:
@@ -255,10 +254,7 @@ class SherdogFighterSpider(CrawlSpider):
             trTagsAgeWeightHeight = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
 
             age = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/b/text()").get())
-            if (age != "None"):
-                self.age = age
-            else:
-                self.age = "None"
+            setAge(self,age)
 
             birthDate = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/span/text()").get())
             if (birthDate != "None"):
@@ -296,29 +292,19 @@ class SherdogFighterSpider(CrawlSpider):
             else:
                 self.win = ""
 
-
-
-
-            loss = checkEmpty(response.xpath("//div[@class='bio_graph loser']/span[@class='card']/span[2]/text()").get())
+            loss = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='loses']/div/span[2]/text()").get())
             if (loss != "None"):
                 self.loss = loss
             else:
                 self.loss = ""
 
-            locality = checkEmpty(response.xpath(
-                "//div[@class='birth_info']/span[@class='item birthplace']/span/span[@class='locality']/text()").get())
-            if (locality != "None"):
-                setLocality(self, locality)
-            else:
-                self.locality = "None"
+            nationality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/strong/text()").get())
+            setNationality(self,nationality)
 
-            country = checkEmpty(response.xpath("//div[@class='birth_info']/span[@class='item birthplace']/strong[@itemprop='nationality']/text()").get())
-            if (country != "None"):
-                setCountry(self, country)
-            else:
-                self.country = "None"
+            locality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/span[@itemprop='address']/span/text()").get())
+            setLocality(self,locality)
 
-            loader = loadFighterItem(self, response)
+            loader = loadFighterItem(self,response)
             yield loader.load_item()
 
         except Exception as ex:

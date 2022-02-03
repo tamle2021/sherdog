@@ -52,6 +52,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\sherdog\csv_files\fighter\fighter_02_03_2022_.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

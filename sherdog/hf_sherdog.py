@@ -28,17 +28,18 @@ def setLocation(self,location):
     self.location = '-' + subComma + '-'
 
 def setLocality(self,locality):
-    if (re.search(r"N/A",locality) != None):
+    if (re.search(r"N/A",locality) != None or len(locality) == 0 or locality == "None"):
         self.locality = "None"
     else:
-        subComma = re.sub(r"[\,]",";",locality)
-        self.locality = '"' + subComma + '"'
+        # subComma = re.sub(r"[\,]",";",locality)
+        # self.locality = '"' + subComma + '"'
+        self.locality = locality
 
-def setCountry(self,country):
-    if (re.search(r"N/A",country) != None):
-        self.country = "None"
+def setNationality(self,nationality):
+    if (re.search(r"N/A",nationality) != None or len(nationality) == 0 or nationality == "None"):
+        self.nationality = "None"
     else:
-        self.country = country
+        self.nationality = nationality
 
 def setHeight(self,height):
     if (re.search(r"N/A",height) == None and re.search(r"0'0",height) == None):
@@ -56,12 +57,16 @@ def setWeight(self,weight):
         self.weight = "None"
 
 def setAge(self,age):
-    subStr = ""
-    if (re.search(r"N/A",age) != None):
-        self.age = "None"
-    else:
-        subStr = re.sub(r"AGE:","",age)
-        self.age = subStr.strip()
+    try:
+        subStr = ""
+        if (re.search(r"N/A", age) != None or len(age) == 0 or age == "None"):
+            self.age = "None"
+        else:
+            subStr = re.sub(r"AGE:", "",age)
+            self.age = int(subStr.strip())
+
+    except Exception as ex:
+        print("exception => error setting age --- {0}".format(ex))
 
 def setBirthDate(self,birthDate):
     month = ""
@@ -85,7 +90,11 @@ def setBirthDate(self,birthDate):
             self.birthDate = "None"
 
 def setAssociation(self,association):
-    self.association = str(association).lower()
+    try:
+        self.association = str(association).lower()
+
+    except Exception as ex:
+        print("exception => error setting association --- {0}".format(ex))
 
 def setFightCardDetails(self,response):
     try:
@@ -368,7 +377,7 @@ def loadFightCardItem(self,response):
     return loader
 
 def loadFighterItem(self,response):
-    self.fighterName = self.fighterName if (self.fighterName != "") else "None"
+    self.name = self.name if (self.name != "") else "None"
     self.birthDate = self.birthDate if (self.birthDate != "") else "None"
     self.age = self.age if (self.age != "") else "None"
     self.height = self.height if (self.height != "") else "None"
@@ -377,11 +386,11 @@ def loadFighterItem(self,response):
     self.fighterClass = self.fighterClass if (self.fighterClass != "") else "None"
     self.win = self.win if (self.win != "") else "None"
     self.loss = self.loss if (self.loss != "") else "None"
+    self.nationality = self.nationality if (self.nationality != "") else "None"
     self.locality = self.locality if (self.locality != "") else "None"
-    self.country = self.country if (self.country != "") else "None"
 
     loader = ItemLoader(item=FighterItem(),response=response)
-    loader.add_value("fighterName",self.fighterName)
+    loader.add_value("name",self.name)
     loader.add_value("birthDate",self.birthDate)
     loader.add_value("age",self.age)
     loader.add_value("height",self.height)
@@ -390,8 +399,8 @@ def loadFighterItem(self,response):
     loader.add_value("fighterClass",self.fighterClass)
     loader.add_value("win",self.win)
     loader.add_value("loss",self.loss)
+    loader.add_value("nationality",self.nationality)
     loader.add_value("locality",self.locality)
-    loader.add_value("country",self.country)
     return loader
 
 def resetFightCard(self):
