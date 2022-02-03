@@ -31,9 +31,8 @@ def setLocality(self,locality):
     if (re.search(r"N/A",locality) != None or len(locality) == 0 or locality == "None"):
         self.locality = "None"
     else:
-        # subComma = re.sub(r"[\,]",";",locality)
-        # self.locality = '"' + subComma + '"'
-        self.locality = locality
+        subQuote = re.sub(r'[\"\,]',"",locality)
+        self.locality = '-' + subQuote + '-'
 
 def setNationality(self,nationality):
     if (re.search(r"N/A",nationality) != None or len(nationality) == 0 or nationality == "None"):
@@ -63,7 +62,7 @@ def setAge(self,age):
             self.age = "None"
         else:
             subStr = re.sub(r"AGE:", "",age)
-            self.age = int(subStr.strip())
+            self.age = subStr.strip()
 
     except Exception as ex:
         print("exception => error setting age --- {0}".format(ex))
