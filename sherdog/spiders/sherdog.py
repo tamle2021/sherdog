@@ -189,7 +189,7 @@ class SherdogFighterSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogFighterPipeline': 245,
         },
-        "CLOSESPIDER_ITEMCOUNT": 255
+        "CLOSESPIDER_ITEMCOUNT": 34
     }
     handle_httpstatus_list = [403]
 
@@ -218,6 +218,8 @@ class SherdogFighterSpider(CrawlSpider):
         self.nationality = ""
         self.locality = ""
         self.url = ""
+
+        self.urlList = []
 
         self.count = 0
         # self.url = "https://www.sherdog.com"
@@ -311,8 +313,20 @@ class SherdogFighterSpider(CrawlSpider):
             else:
                 self.url = "None"
 
+            urlTrTags = checkEmpty(response.xpath("//div[@class='new_table_holder']/table[contains(@class,'fighter')]/tbody/tr[not(@class)]"))
+
             loader = loadFighterItem(self,response)
             yield loader.load_item()
+
+
+            if (len(urlTrTags) != 0):
+                for sel in urlTrTags:
+                    partialUrl = sel.xpath(".//td/a[contains(@href,'fighter')]/@href").get()
+                    fighterUrl = response.urljoin(partialUrl)
+
+                    yield SplashRequest(url=fighterUrl,callback=self.parseFighter,endpoint="execute",args={"lua_source": self.script}, \
+                        headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+
 
         except Exception as ex:
             print("exception => error in parse fighter --- {0}".format(ex))
