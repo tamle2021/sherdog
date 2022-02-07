@@ -7,7 +7,7 @@ class Main {
     int[] temps = new int[numDays];
     // record temperatures and find average
     int sum = 0;
-    for (int i=0; i<numDays; i++) {
+    for (int i=0; i < numDays; i++) {
       System.out.print("Day " + (i+1) + "'s high temp: ");
       temps[i] = console.nextInt();
       sum += temps[i];
@@ -22,7 +22,7 @@ class Main {
       }
     }
     System.out.println();
-    System.out.println("Average Temp = " + average);
+    System.out.println("average Temp = " + average);
     System.out.println(above + " days above average");
 
   }
