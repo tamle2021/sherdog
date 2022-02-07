@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/data_structures/data_structures.iml" filepath="$PROJECT_DIR$/data_structures/data_structures.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/data_structures/recursion_fibonacci.iml" filepath="$PROJECT_DIR$/data_structures/recursion_fibonacci.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/sherdog.iml" filepath="$PROJECT_DIR$/.idea/sherdog.iml" />
+>>>>>>> cd2c1b76a1f15b0c816836fe5e0239afbceadf0c
     </modules>
   </component>
 </project>
