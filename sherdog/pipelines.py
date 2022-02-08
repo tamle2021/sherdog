@@ -1,7 +1,6 @@
 # define your item pipelines here
 # don't forget to add your pipeline to the ITEM_PIPELINES setting
 # see: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
 import os,re
 from sys import platform
 from scrapy import signals
