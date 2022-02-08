@@ -1,2 +1,1 @@
-
 ## Sherdog statistics web scraping
