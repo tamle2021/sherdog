@@ -1,1 +1,0 @@
-{"error": 400, "type": "ScriptError", "description": "Error happened while executing Lua script", "info": {"source": "[string \"...\"]", "line_number": 5, "error": "http400", "type": "LUA_ERROR", "message": "Lua error: [string \"...\"]:5: http400"}}
