@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-=======
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (sherdog_crawler)" project-jdk-type="Python SDK" />
->>>>>>> cd2c1b76a1f15b0c816836fe5e0239afbceadf0c
 </project>

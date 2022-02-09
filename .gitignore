@@ -1,4 +1,13 @@
-# Compiled class file
+.scrapy
+sherdog/__pycache__
+
+Lib
+Scripts
+Include
+
+bin
+
+# compiled class file
 *.class
 
 # Log file
