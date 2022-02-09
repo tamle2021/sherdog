@@ -4,6 +4,7 @@ sherdog/__pycache__
 Lib
 Scripts
 Scripts/
+Scripts/*
 Include
 
 bin
