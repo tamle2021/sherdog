@@ -12,6 +12,8 @@ Scripts/*
 
 .scrapy
 sherdog/__pycache__
+__pycache__
+__pycache__/
 
 Lib
 Lib/
