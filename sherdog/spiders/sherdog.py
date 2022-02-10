@@ -22,7 +22,7 @@ class SherdogEventFightCardSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogEventFightCardPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 125
+        "CLOSESPIDER_ITEMCOUNT": 45
     }
 
     # configure_logging(install_root_handler=False)

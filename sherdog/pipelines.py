@@ -115,7 +115,7 @@ class SherdogFighterPipeline:
         dt = datetime(today.year,today.month,today.day)
 
         self.fighterFileName = "fighter_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" + str(dt.year) + \
-            "_.csv"
+            ".csv"
 
         absolutePathFighter = os.path.join(os.getcwd(),self.outputFighterDir)
 
