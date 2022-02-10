@@ -1,3 +1,6 @@
+# configuration file
+*.cfg
+
 .scrapy
 sherdog/__pycache__
 
@@ -5,14 +8,23 @@ Lib
 Scripts
 Scripts/
 Scripts/*
+/Scripts
+~Scripts
 Include
 
 bin
+bin/
+/bin
+
+log
+/log
+log/
+~log
 
 # compiled class file
 *.class
 
-# Log file
+# log file
 *.log
 
 # BlueJ files

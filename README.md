@@ -1,1 +1,1 @@
-## Sherdog statistics web scraping
+## Sherdog fighter web scraping

@@ -189,7 +189,7 @@ class SherdogFighterSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.SherdogFighterPipeline': 245,
         },
-        "CLOSESPIDER_ITEMCOUNT": 25
+        "CLOSESPIDER_ITEMCOUNT": 45
     }
     handle_httpstatus_list = [403]
 
