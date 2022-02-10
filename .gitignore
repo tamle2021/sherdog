@@ -14,6 +14,7 @@ Scripts/*
 sherdog/__pycache__
 
 Lib
+Lib/
 lib
 lib/
 Include
