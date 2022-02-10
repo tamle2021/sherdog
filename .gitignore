@@ -1,3 +1,9 @@
+Scripts
+Scripts/
+Scripts/*
+/Scripts
+~Scripts
+
 .idea
 .idea/
 
@@ -8,11 +14,6 @@
 sherdog/__pycache__
 
 Lib
-Scripts
-Scripts/
-Scripts/*
-/Scripts
-~Scripts
 Include
 
 bin
