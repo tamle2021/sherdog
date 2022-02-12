@@ -27,9 +27,9 @@ bin/
 /bin
 
 log
-/log
 log/
-~log
+/log
+sherdog/log
 
 # compiled class file
 *.class
