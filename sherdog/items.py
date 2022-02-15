@@ -36,6 +36,8 @@ class FightCardItem(scrapy.Item):
     fighter1Url = scrapy.Field()
     fighter2Url = scrapy.Field()
     fightMethodResult = scrapy.Field()
+    fightRound = scrapy.Field()
+    time = scrapy.Field()
 
 
 

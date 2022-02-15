@@ -6,23 +6,23 @@ import logging
 from scrapy.spiders import CrawlSpider,Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
-from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate, \
-    setEventDetails,createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
+from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate,setEventDetails,setLocation, \
+    createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
     setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
-class SherdogEventFightCardSpider(scrapy.Spider):
-    name = "sherdog_event_fight_card"
+class EventFightCardSpider(scrapy.Spider):
+    name = "event_fight_card"
     allowed_domains = ["www.sherdog.com",'sherdog.com']
     # start_urls = ['https://www.sherdog.com/events/recent']
     # https://www.sherdog.com/events/recent/267-page
 
     custom_settings = {
         "ITEM_PIPELINES": {
-            'sherdog.pipelines.SherdogEventFightCardPipeline': 198,
+            'sherdog.pipelines.EventFightCardPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 45
+        "CLOSESPIDER_ITEMCOUNT": 211
     }
 
     # configure_logging(install_root_handler=False)
@@ -33,7 +33,7 @@ class SherdogEventFightCardSpider(scrapy.Spider):
     # )
 
     def __init__(self,*args,**kwargs):
-        super(SherdogEventFightCardSpider,self).__init__(*args,**kwargs)
+        super(EventFightCardSpider,self).__init__(*args,**kwargs)
         self.eventUrlList = []
         self.date = ""
         self.eventName = ""
@@ -41,6 +41,7 @@ class SherdogEventFightCardSpider(scrapy.Spider):
         self.eventUrl = ""
         self.location = ""
 
+        # fight history
         self.dateFightCard = ""
         self.eventNameFightCard = ""
         self.locationFightCard = ""
@@ -51,6 +52,8 @@ class SherdogEventFightCardSpider(scrapy.Spider):
         self.fighter1Result = ""
         self.fighter2Result = ""
         self.fightMethodResult = ""
+        self.fightRound = ""
+        self.time = ""
 
         self.fighterName = ""
         self.birthDate = ""
@@ -116,7 +119,6 @@ class SherdogEventFightCardSpider(scrapy.Spider):
             # //*[@id="recentfights_tab"]/div[1]/table
             if (trTags != "None"):
                 for i in trTags:
-
                     setDate(self,i)
                     setEventDetails(self,i,response)
 
@@ -132,32 +134,9 @@ class SherdogEventFightCardSpider(scrapy.Spider):
                         endpoint="execute",args={"lua_source": self.script2},\
                         headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
-            # createUrl(self)
-            # for aUrl in self.eventUrlList:
-            #     yield SplashRequest(url=aUrl,callback=self.parseEvent,\
-            #         endpoint="execute",args={"lua_source": self.script2}, \
-            #         headers={"User-Agent": random.choice(USER_AGENT_LIST)})
-
         except Exception as ex:
             logging.info("error => {0}".format(ex))
             print("error => %s" % ex)
-
-    # def parseEvent(self,response):
-    #     try:
-    #         # test css
-    #         cssLocation = response.css(".itemprop ::text").getall()
-    #
-    #         trTag = checkEmpty(response.xpath("//table[@class='new_table event']/tbody/tr[contains(@itemtype,'http:') or contains(@onclick,'document.location')]"))
-    #         if (len(trTag) != 0):
-    #             for i in trTag:
-    #                 setDate(self,i)
-    #                 setEventDetails(self,i,response)
-    #
-    #                 loader = loadEventItem(self,response)
-    #                 yield loader.load_item()
-    #
-    #     except Exception as ex:
-    #         print("exception: {y}".format(y=ex))
 
     def parseFightCard(self,response):
         try:
@@ -181,13 +160,13 @@ class SherdogEventFightCardSpider(scrapy.Spider):
         except Exception as ex:
             print("exception: %s" % ex)
 
-class SherdogFighterSpider(CrawlSpider):
-    name = "sherdog_fighter"
+class FighterSpider(CrawlSpider):
+    name = "fighter"
     allowed_domains = ["www.sherdog.com","sherdog.com"]
     start_urls = ["https://www.sherdog.com"]
     custom_settings = {
         "ITEM_PIPELINES": {
-            'sherdog.pipelines.SherdogFighterPipeline': 245,
+            'sherdog.pipelines.FighterPipeline': 245,
         },
         "CLOSESPIDER_ITEMCOUNT": 45
     }
@@ -318,6 +297,148 @@ class SherdogFighterSpider(CrawlSpider):
             loader = loadFighterItem(self,response)
             yield loader.load_item()
 
+            if (len(urlTrTags) != 0):
+                for sel in urlTrTags:
+                    partialUrl = sel.xpath(".//td/a[contains(@href,'fighter')]/@href").get()
+                    fighterUrl = response.urljoin(partialUrl)
+
+                    yield SplashRequest(url=fighterUrl,callback=self.parseFighter,endpoint="execute",args={"lua_source": self.script}, \
+                        headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+
+        except Exception as ex:
+            print("exception => error in parse fighter --- {0}".format(ex))
+
+class FightCardSpider(scrapy.Spider):
+    name = "fight_card"
+    allowed_domains = ["www.sherdog.com","sherdog.com"]
+    start_urls = ["https://www.sherdog.com"]
+    custom_settings = {
+        "ITEM_PIPELINES": {
+            'sherdog.pipelines.FightCardPipeline': 245,
+        },
+        "CLOSESPIDER_ITEMCOUNT": 32
+    }
+    handle_httpstatus_list = [403]
+
+    # configure_logging(install_root_handler=False)
+    # logging.basicConfig(filename='log.txt',format='%(levelname)s: %(message)s', \
+    #     level=logging.INFO,filemode="w+"
+    # )
+
+    def __init__(self,*args,**kwargs):
+        super(FightCardSpider,self).__init__(*args,**kwargs)
+        self.name = ""
+        self.birthDate = ""
+        self.age = ""
+        self.height = ""
+        self.weight = ""
+        self.association = ""
+        self.fighterClass = ""
+        self.win = ""
+        self.loss = ""
+        self.nationality = ""
+        self.locality = ""
+        self.url = ""
+
+        self.urlList = []
+
+        self.count = 0
+        # self.url = "https://www.sherdog.com"
+        self.script = """
+                         function main(splash,args)
+                             local cookies = splash:get_cookies()
+                             splash:init_cookies(cookies)
+                             assert(splash:go(splash.args.url))
+                             assert(splash:wait(1.5))
+
+                             return {
+                                 cookies,
+                                 html = splash:html(),
+                                 -- png = splash:png(),
+                                 -- har = splash:har()
+                             }
+                         end
+                      """
+
+    def parseFromRule(self,request,htmlResponse):
+        # error: spider must return request, item, or None, got 'generator'
+        # return instead of yield generator
+        return SplashRequest(url=request.url,callback=self.parseFighter,
+            endpoint="execute",args={"lua_source": self.script},
+            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+
+    def parseFighter(self,response):
+        try:
+            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/h1/span[contains(@class,'fn')]/text()").get())
+            if (name != "None"):
+                self.name = name.lower()
+            else:
+                self.name = "None"
+
+            trTagsAgeWeightHeight = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
+
+            age = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/b/text()").get())
+            setAge(self,age)
+
+            birthDate = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/span/text()").get())
+            if (birthDate != "None"):
+                setBirthDate(self, birthDate)
+            else:
+                self.birthDate = "None"
+
+            height = checkEmpty(trTagsAgeWeightHeight[1].xpath(".//td[2]/b/text()").get())
+            if (height != "None"):
+                setHeight(self, height)
+            else:
+                self.height = "None"
+
+            weight = checkEmpty(trTagsAgeWeightHeight[2].xpath(".//td[2]/b/text()").get())
+            if (weight != "None"):
+                setWeight(self,weight)
+            else:
+                self.weight = "None"
+
+            association = checkEmpty(response.xpath("//div[@class='association-class']/span[contains(@itemprop,'memberOf')]/a/span/text()").get())
+            if (association != "None"):
+                setAssociation(self,association)
+            else:
+                self.association = ""
+
+            fighterClass = checkEmpty(response.xpath("//div[@class ='association-class']/a[contains(@href,'stats')]/text()").get())
+            if (fighterClass != "None"):
+                self.fighterClass = str(fighterClass).lower()
+            else:
+                self.fighterClass = ""
+
+            win = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='wins']/div/span[2]/text()").get())
+            if (win != "None"):
+                self.win = win
+            else:
+                self.win = ""
+
+            loss = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='loses']/div/span[2]/text()").get())
+            if (loss != "None"):
+                self.loss = loss
+            else:
+                self.loss = ""
+
+            nationality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/strong/text()").get())
+            setNationality(self,nationality)
+
+            locality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/span[@itemprop='address']/span/text()").get())
+            setLocality(self,locality)
+
+            url = checkEmpty(response.url)
+            if (url != "None"):
+                self.url = url
+            else:
+                self.url = "None"
+
+            urlTrTags = checkEmpty(response.xpath("//div[@class='new_table_holder']/table[contains(@class,'fighter')]/tbody/tr[not(@class)]"))
+
+            loader = loadFighterItem(self,response)
+            yield loader.load_item()
+
 
             if (len(urlTrTags) != 0):
                 for sel in urlTrTags:
@@ -330,7 +451,6 @@ class SherdogFighterSpider(CrawlSpider):
 
         except Exception as ex:
             print("exception => error in parse fighter --- {0}".format(ex))
-
 
 
 
