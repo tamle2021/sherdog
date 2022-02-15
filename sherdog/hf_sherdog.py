@@ -213,7 +213,7 @@ def setTime(self,time):
             self.time = "None"
 
     except Exception as ex:
-        print("exception => error setting first row fight card --- {0}".format(ex))
+        print("exception => error setting time --- {0}".format(ex))
         self.time = "None"
 
 def setFightCard(self,response,sel):
