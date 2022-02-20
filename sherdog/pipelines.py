@@ -8,14 +8,13 @@ from scrapy.exporters import CsvItemExporter
 from .items import EventItem,FightCardItem,FighterItem
 from datetime import datetime
 
-class SherdogEventFightCardPipeline:
+class EventFightCardPipeline:
     def __init__(self):
         self.outputEventDir = "csv_files/event"
-        self.outputSpecificEventDir = "csv_files/specific_event"
-        self.outputFighterDir = "csv_files/fighter"
+        self.fightCardDir = "csv_files/fight_card"
         self.eventList = ["date","eventName","eventTitle","eventUrl","location"]
         self.fightCardList = ["dateFightCard","eventNameFightCard","locationFightCard","fighter1Name","fighter1Url","fighter1Result", \
-            "fighter2Name","fighter2Url","fighter2Result","fightMethodResult"]
+            "fighter2Name","fighter2Url","fighter2Result","fightMethodResult","fightRound","time"]
 
         self.eventWriter = ""
         self.fightCardWriter = ""
@@ -44,7 +43,7 @@ class SherdogEventFightCardPipeline:
         self.eventFileName = "event_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
             + str(dt.year) + "_.csv"
         self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_"\
-            + str(dt.year) + "_.csv"
+            + str(dt.year) + ".csv"
 
         absolutePathEvent = os.path.join(os.getcwd(),self.outputEventDir)
         absolutePathFightCard = os.path.join(os.getcwd(),self.outputFightCardDir)
@@ -89,7 +88,7 @@ class SherdogEventFightCardPipeline:
         else:
             return str(dayOrMonth)
 
-class SherdogFighterPipeline:
+class FighterPipeline:
     def __init__(self):
         self.outputFighterDir = "csv_files/fighter"
         self.fighterList = ["name","birthDate","age","height","weight","association","fighterClass", \
@@ -142,3 +141,58 @@ class SherdogFighterPipeline:
             return concatStr
         else:
             return str(dayOrMonth)
+
+class FightCardPipeline:
+    def __init__(self):
+        self.outputFighterDir = "csv_files/fight_card"
+        self.fightCardList = ["name","birthDate","age","height","weight","association","fighterClass", \
+            "win","loss","nationality","locality","url"]
+
+        self.fightCardWriter = ""
+        self.fightCardFileName = ""
+        self.fightCardExporter = ""
+
+    @classmethod
+    def from_crawler(cls,crawler):
+        pipeline = cls()
+        crawler.signals.connect(pipeline.spider_opened,signals.spider_opened)
+        crawler.signals.connect(pipeline.spider_closed,signals.spider_closed)
+        return pipeline
+
+    def spider_opened(self,spider):
+        # check system; change if on windows
+        if (platform != "linux"):
+            self.fightCardDir = "csv_files\\fight_card"
+
+        today = datetime.today()
+        dt = datetime(today.year,today.month,today.day)
+
+        self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" \
+            + str(dt.year) + ".csv"
+
+        absolutePathFightCard = os.path.join(os.getcwd(),self.fightCardDir)
+
+        self.fightCardWriter = open(os.path.join(absolutePathFightCard,self.fightCardFileName),"wb+")
+        self.fightCardExporter = CsvItemExporter(self.fightCardWriter)
+        self.fightCardExporter.fields_to_export = self.fightCardList
+        self.fightCardExporter.start_exporting()
+
+    def spider_closed(self,spider):
+        self.fighterExporter.finish_exporting()
+        self.fighterWriter.close()
+
+    def process_item(self,item,spider):
+        if (isinstance(item,FightCardItem)):
+            if (len(item) == 0):
+                return item
+            else:
+                self.fightCardExporter.export_item(item)
+                return item
+
+    def checkMonthDay(self,dayOrMonth):
+        if (int(dayOrMonth) <= 9):
+            concatStr = "0" + str(dayOrMonth)
+            return concatStr
+        else:
+            return str(dayOrMonth)
+

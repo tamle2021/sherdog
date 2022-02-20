@@ -173,15 +173,48 @@ def setFirstRowFightCard(self,response):
             else:
                 self.fighter2Result = "None"
 
-            fightMethodResult = checkEmpty(
-                response.xpath("//div/table[contains(@class,'fight_card_resume')]/tbody/tr/td[2]/text()").get())
+            fightMethodResult = checkEmpty(response.xpath("//div/table[contains(@class,'fight_card_resume')]/tbody/tr/td[2]/text()").get())
             if (fightMethodResult != "None"):
                 self.fightMethodResult = fightMethodResult.strip().lower()
             else:
                 self.fightMethodResult = "None"
 
+            fightRound = checkEmpty(response.xpath("//div/table[contains(@class,'fight_card_resume')]/tbody/tr/td[4]/text()").get())
+            if (fightRound != "None"):
+                self.fightRound = fightRound.strip().lower()
+            else:
+                self.fightRound = "None"
+
+            time = checkEmpty(response.xpath("//div/table[contains(@class,'fight_card_resume')]/tbody/tr/td[5]/text()").get())
+            setTime(self,time)
+
+            print("")
+
+
+
     except Exception as ex:
         print("exception => error setting first row fight card --- {0}".format(ex))
+
+def setTime(self,time):
+    try:
+        if (time != "None"):
+            splitColon = time.split(":")
+            min = splitColon[0]
+            seconds = splitColon[1]
+
+            if (min == "0"):
+                convertMin = 0
+            else:
+                convertMin = int(min) * 60
+
+            self.time = str(convertMin + int(seconds))
+
+        else:
+            self.time = "None"
+
+    except Exception as ex:
+        print("exception => error setting time --- {0}".format(ex))
+        self.time = "None"
 
 def setFightCard(self,response,sel):
     try:
@@ -191,9 +224,6 @@ def setFightCard(self,response,sel):
         fighter1Url = checkEmpty(sel.xpath(".//td[contains(@class,'text_right')]/div[@class='fighter_list left']/div/a/@href").get())
         if (fighter1Url != "None"):
             self.fighter1Url = response.urljoin(fighter1Url)
-            # yield SplashRequest(url=self.fighter1Url,callback=self.parseFighterStats,\
-            #     endpoint="execute",args={"lua_source": self.script2},\
-            #     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
         else:
             self.fighter1Url = "None"
 
@@ -209,9 +239,6 @@ def setFightCard(self,response,sel):
         fighter2Url = checkEmpty(sel.xpath(".//td[contains(@class,'text_left')]/div[@class='fighter_list right']/div/a/@href").get())
         if (fighter2Url != "None"):
             self.fighter2Url = response.urljoin(fighter2Url)
-            # yield SplashRequest(url=self.fighter2Url, callback=self.parseFighterStats, \
-            #                     endpoint="execute", args={"lua_source": self.script2}, \
-            #                     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
         else:
             self.fighter2Url = "None"
 
@@ -227,6 +254,15 @@ def setFightCard(self,response,sel):
             self.fightMethodResult = fightMethodResult.strip().lower()
         else:
             self.fightMethodResult = "None"
+
+        fightRound = checkEmpty(sel.xpath(".//td[@class='winby']/td[1]/text()").get())
+        if (fightRound != "None"):
+            self.fightRound = fightRound.strip().lower()
+        else:
+            self.fightRound = "None"
+
+        time = checkEmpty(sel.xpath(".//td[@class='winby']/td[2]/text()").get())
+        setTime(self,time)
 
     except Exception as ex:
         print("exception => error setting fight card --- {0}".format(ex))
@@ -361,6 +397,8 @@ def loadFightCardItem(self,response):
     self.fighter1Result = self.fighter1Result if (self.fighter1Result != "") else "None"
     self.fighter2Result = self.fighter2Result if (self.fighter2Result != "") else "None"
     self.fightMethodResult = self.fightMethodResult if (self.fightMethodResult != "") else "None"
+    self.fightRound = self.fightRound if (self.fightRound != "") else "None"
+    self.time = self.time if (self.time != "") else "None"
 
     loader = ItemLoader(item=FightCardItem(),response=response)
     loader.add_value("dateFightCard", self.dateFightCard)
@@ -373,6 +411,8 @@ def loadFightCardItem(self,response):
     loader.add_value("fighter1Result",self.fighter1Result)
     loader.add_value("fighter2Result",self.fighter2Result)
     loader.add_value("fightMethodResult",self.fightMethodResult)
+    loader.add_value("fightRound",self.fightRound)
+    loader.add_value("time",self.time)
     return loader
 
 def loadFighterItem(self,response):
