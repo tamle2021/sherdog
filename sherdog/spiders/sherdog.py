@@ -329,40 +329,14 @@ class FightHistorySpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(FightHistorySpider,self).__init__(*args,**kwargs)
+        self.eventDir = "../csv_files/event"
+        self.fightCardDir = "../csv_files/fight_card"
         self.eventUrlList = []
-        self.date = ""
-        self.eventName = ""
-        self.eventTitle = ""
-        self.eventUrl = ""
-        self.location = ""
 
-        # fight history
-        self.dateFightCard = ""
-        self.eventNameFightCard = ""
-        self.locationFightCard = ""
         self.fighter1Name = ""
-        self.fighter2Name = ""
-        self.fighter1Url = ""
-        self.fighter2Url = ""
-        self.fighter1Result = ""
-        self.fighter2Result = ""
-        self.fightMethodResult = ""
-        self.fightRound = ""
-        self.time = ""
 
-        self.fighterName = ""
-        self.birthDate = ""
-        self.age = ""
-        self.height = ""
-        self.weight = ""
-        self.association = ""
-        self.fighterClass = ""
-        self.win = ""
-        self.loss = ""
-        self.locality = ""
-        self.country = ""
 
-        self.url = "https://www.sherdog.com/events/recent"
+        self.url = ""
         self.script = """
                              function main(splash)
                                  local cookies = splash:get_cookies()
@@ -404,14 +378,19 @@ class FightHistorySpider(scrapy.Spider):
 
     def start_requests(self):
 
-        os.path.join("")
+        print(os.getcwd())
+
+        for file in os.listdir(self.eventDir):
+            print("")
+
+
+        os.path.join(self.eventDir,)
 
         print("")
         print("")
 
-        yield SplashRequest(url=self.url, callback=self.parseFirstEvent, \
-                            endpoint="execute", args={"lua_source": self.script2},
-                            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+        yield SplashRequest(url=self.url,callback=self.parseFirstEvent, \
+            endpoint="execute",args={"lua_source": self.script2},headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
     # def parse(self):
     #     print("here....")
