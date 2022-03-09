@@ -310,7 +310,7 @@ class FighterSpider(CrawlSpider):
 
 class FightHistorySpider(scrapy.Spider):
     name = "fight_history"
-    allowed_domains = ["www.sherdog.com", 'sherdog.com']
+    allowed_domains = ["www.sherdog.com",'sherdog.com']
     # start_urls = ['https://www.sherdog.com/events/recent']
 
     custom_settings = {
@@ -329,8 +329,8 @@ class FightHistorySpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(FightHistorySpider,self).__init__(*args,**kwargs)
-        self.eventDir = "../csv_files/event"
-        self.fightCardDir = "../csv_files/fight_card"
+        self.fightCardDir = "csv_files/fight_card"
+        self.fighterDir = "csv_files/fighter"
         self.eventUrlList = []
 
         self.fighter1Name = ""
@@ -377,11 +377,27 @@ class FightHistorySpider(scrapy.Spider):
                           """
 
     def start_requests(self):
-
         print(os.getcwd())
 
-        for file in os.listdir(self.eventDir):
-            print("")
+        for file in os.listdir(self.fightCardDir):
+
+            try:
+                fileReader = open(os.path.join(self.fightCardDir,file),"r")
+                next(fileReader)
+                text = fileReader.readlines()
+
+                for line in text:
+                    splitStr = line.split(",")
+
+                    # search for fighter
+                    for i in splitStr:
+                        if (re.search(r"fighter",i) != None):
+                            print("match....")
+
+
+
+            except Exception as ex:
+                print("exception => error opening file --- {0}".format(ex))
 
 
         os.path.join(self.eventDir,)
