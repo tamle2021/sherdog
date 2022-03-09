@@ -22,7 +22,7 @@ class EventFightCardSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.EventFightCardPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 211
+        "CLOSESPIDER_ITEMCOUNT": 1905
     }
 
     # configure_logging(install_root_handler=False)
@@ -168,7 +168,7 @@ class FighterSpider(CrawlSpider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.FighterPipeline': 245,
         },
-        "CLOSESPIDER_ITEMCOUNT": 45
+        "CLOSESPIDER_ITEMCOUNT": 65
     }
     handle_httpstatus_list = [403]
 
@@ -184,7 +184,7 @@ class FighterSpider(CrawlSpider):
     )
 
     def __init__(self,*args,**kwargs):
-        super(SherdogFighterSpider,self).__init__(*args,**kwargs)
+        super(FighterSpider,self).__init__(*args,**kwargs)
         self.name = ""
         self.birthDate = ""
         self.age = ""
@@ -227,7 +227,7 @@ class FighterSpider(CrawlSpider):
 
     def parseFighter(self,response):
         try:
-            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/h1/span[contains(@class,'fn')]/text()").get())
+            name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/div/h1/span[contains(@class,'fn')]/text()").get())
             if (name != "None"):
                 self.name = name.lower()
             else:
@@ -308,26 +308,49 @@ class FighterSpider(CrawlSpider):
         except Exception as ex:
             print("exception => error in parse fighter --- {0}".format(ex))
 
-class FightCardSpider(scrapy.Spider):
-    name = "fight_card"
-    allowed_domains = ["www.sherdog.com","sherdog.com"]
-    start_urls = ["https://www.sherdog.com"]
+class FightHistorySpider(scrapy.Spider):
+    name = "fight_history"
+    allowed_domains = ["www.sherdog.com", 'sherdog.com']
+    # start_urls = ['https://www.sherdog.com/events/recent']
+
     custom_settings = {
         "ITEM_PIPELINES": {
-            'sherdog.pipelines.FightCardPipeline': 245,
+            'sherdog.pipelines.FightHistoryPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 32
+        "CLOSESPIDER_ITEMCOUNT": 37
     }
-    handle_httpstatus_list = [403]
 
     # configure_logging(install_root_handler=False)
-    # logging.basicConfig(filename='log.txt',format='%(levelname)s: %(message)s', \
+    # logging.basicConfig(
+    #     filename='log.txt',
+    #     format='%(levelname)s: %(message)s',
     #     level=logging.INFO,filemode="w+"
     # )
 
-    def __init__(self,*args,**kwargs):
-        super(FightCardSpider,self).__init__(*args,**kwargs)
-        self.name = ""
+    def __init__(self, *args, **kwargs):
+        super(FightHistorySpider,self).__init__(*args,**kwargs)
+        self.eventUrlList = []
+        self.date = ""
+        self.eventName = ""
+        self.eventTitle = ""
+        self.eventUrl = ""
+        self.location = ""
+
+        # fight history
+        self.dateFightCard = ""
+        self.eventNameFightCard = ""
+        self.locationFightCard = ""
+        self.fighter1Name = ""
+        self.fighter2Name = ""
+        self.fighter1Url = ""
+        self.fighter2Url = ""
+        self.fighter1Result = ""
+        self.fighter2Result = ""
+        self.fightMethodResult = ""
+        self.fightRound = ""
+        self.time = ""
+
+        self.fighterName = ""
         self.birthDate = ""
         self.age = ""
         self.height = ""
@@ -336,36 +359,64 @@ class FightCardSpider(scrapy.Spider):
         self.fighterClass = ""
         self.win = ""
         self.loss = ""
-        self.nationality = ""
         self.locality = ""
-        self.url = ""
+        self.country = ""
 
-        self.urlList = []
-
-        self.count = 0
-        # self.url = "https://www.sherdog.com"
+        self.url = "https://www.sherdog.com/events/recent"
         self.script = """
-                         function main(splash,args)
-                             local cookies = splash:get_cookies()
-                             splash:init_cookies(cookies)
-                             assert(splash:go(splash.args.url))
-                             assert(splash:wait(1.5))
+                             function main(splash)
+                                 local cookies = splash:get_cookies()
+                                 splash:init_cookies(cookies)
 
-                             return {
-                                 cookies,
-                                 html = splash:html(),
-                                 -- png = splash:png(),
-                                 -- har = splash:har()
-                             }
-                         end
-                      """
+                                 assert(splash:go{splash.args.url,headers=splash.args.headers,
+                                     http_method=splash.args.http_method,body=splash.args.body})
+                                 assert(splash:wait(0.5))
 
-    def parseFromRule(self,request,htmlResponse):
-        # error: spider must return request, item, or None, got 'generator'
-        # return instead of yield generator
-        return SplashRequest(url=request.url,callback=self.parseFighter,
-            endpoint="execute",args={"lua_source": self.script},
-            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+                                 local entries = splash:history()
+                                 local last_response = entries[#entries].response
+
+                                 return {
+                                     url = splash:url(),
+                                     headers = last_response.headers,
+                                     http_status = last_response.status,
+                                     cookies = splash:get_cookies(),
+                                     html = splash:html()
+                                     -- png = splash:png(),
+                                     -- har = splash:har()
+                                 }
+                             end
+                         """
+        self.script2 = """
+                              function main(splash,args)
+                                  local cookies = splash:get_cookies()
+                                  splash:init_cookies(cookies)
+                                  assert(splash:go(splash.args.url))
+                                  assert(splash:wait(1.5))
+
+                                  return {
+                                      cookies,
+                                      html = splash:html(),
+                                      -- png = splash:png(),
+                                      -- har = splash:har()
+                                  }
+                              end
+                          """
+
+    def start_requests(self):
+
+        os.path.join("")
+
+        print("")
+        print("")
+
+        yield SplashRequest(url=self.url, callback=self.parseFirstEvent, \
+                            endpoint="execute", args={"lua_source": self.script2},
+                            headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+
+    # def parse(self):
+    #     print("here....")
+    #
+    #     print("")
 
     def parseFighter(self,response):
         try:
@@ -447,7 +498,6 @@ class FightCardSpider(scrapy.Spider):
 
                     yield SplashRequest(url=fighterUrl,callback=self.parseFighter,endpoint="execute",args={"lua_source": self.script}, \
                         headers={"User-Agent": random.choice(USER_AGENT_LIST)})
-
 
         except Exception as ex:
             print("exception => error in parse fighter --- {0}".format(ex))

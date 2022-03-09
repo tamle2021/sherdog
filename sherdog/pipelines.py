@@ -142,15 +142,14 @@ class FighterPipeline:
         else:
             return str(dayOrMonth)
 
-class FightCardPipeline:
+class FightHistoryPipeline:
     def __init__(self):
-        self.outputFighterDir = "csv_files/fight_card"
-        self.fightCardList = ["name","birthDate","age","height","weight","association","fighterClass", \
-            "win","loss","nationality","locality","url"]
+        self.fightHistoryDir = "csv_files/fight_history"
+        self.fightHistoryList = ["figher1Name"]
 
-        self.fightCardWriter = ""
-        self.fightCardFileName = ""
-        self.fightCardExporter = ""
+        self.fightHistoryWriter = ""
+        self.fightHistoryFileName = ""
+        self.fightHistoryExporter = ""
 
     @classmethod
     def from_crawler(cls,crawler):
@@ -162,31 +161,31 @@ class FightCardPipeline:
     def spider_opened(self,spider):
         # check system; change if on windows
         if (platform != "linux"):
-            self.fightCardDir = "csv_files\\fight_card"
+            self.fightHistoryDir = "csv_files\\fight_history"
 
         today = datetime.today()
         dt = datetime(today.year,today.month,today.day)
 
-        self.fightCardFileName = "fight_card_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" \
+        self.fightHistoryFileName = "fight_history_" + self.checkMonthDay(dt.month) + "_" + self.checkMonthDay(dt.day) + "_" \
             + str(dt.year) + ".csv"
 
-        absolutePathFightCard = os.path.join(os.getcwd(),self.fightCardDir)
+        absolutePathFightHistory = os.path.join(os.getcwd(),self.fightHistoryDir)
 
-        self.fightCardWriter = open(os.path.join(absolutePathFightCard,self.fightCardFileName),"wb+")
-        self.fightCardExporter = CsvItemExporter(self.fightCardWriter)
-        self.fightCardExporter.fields_to_export = self.fightCardList
-        self.fightCardExporter.start_exporting()
+        self.fightHistoryWriter = open(os.path.join(absolutePathFightHistory,self.fightHistoryFileName),"wb+")
+        self.fightHistoryExporter = CsvItemExporter(self.fightHistoryWriter)
+        self.fightHistoryExporter.fields_to_export = self.fightHistoryList
+        self.fightHistoryExporter.start_exporting()
 
     def spider_closed(self,spider):
-        self.fighterExporter.finish_exporting()
-        self.fighterWriter.close()
+        self.fightHistoryExporter.finish_exporting()
+        self.fightHistoryWriter.close()
 
     def process_item(self,item,spider):
-        if (isinstance(item,FightCardItem)):
+        if (isinstance(item,FightHistoryItem)):
             if (len(item) == 0):
                 return item
             else:
-                self.fightCardExporter.export_item(item)
+                self.fightHistoryExporter.export_item(item)
                 return item
 
     def checkMonthDay(self,dayOrMonth):

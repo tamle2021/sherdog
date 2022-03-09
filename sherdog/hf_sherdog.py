@@ -190,8 +190,6 @@ def setFirstRowFightCard(self,response):
 
             print("")
 
-
-
     except Exception as ex:
         print("exception => error setting first row fight card --- {0}".format(ex))
 
