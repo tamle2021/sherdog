@@ -16,6 +16,7 @@ class ExtractFighterUrl():
     def start(self):
         try:
             # print(os.getcwd())
+            # iterate through fight card directory
             for file in os.listdir(self.fightCardDir):
                 fileReader = open(os.path.join(self.fightCardDir,file), "r")
                 next(fileReader)
@@ -31,8 +32,23 @@ class ExtractFighterUrl():
 
                 fileReader.close()
 
-            filterList = set(self.urlList)
+            # iterate through fighter directory
+            for file in os.listdir(self.fighterDir):
+                fileReader = open(os.path.join(self.fighterDir,file), "r")
+                next(fileReader)
+                text = fileReader.readlines()
 
+                for line in text:
+                    splitStr = line.split(",")
+
+                    # search for fighter
+                    for i in splitStr:
+                        if (re.search(r"fighter", i) != None):
+                            self.urlList.append(i)
+
+                fileReader.close()
+
+            filterList = set(self.urlList)
             fileWriter = open(os.path.join(self.fighterUrlDir,self.fighterUrlFileName),"w+")
             for line in filterList:
                 fileWriter.write(line.strip() + "\n")
