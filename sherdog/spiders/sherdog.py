@@ -329,8 +329,7 @@ class FightHistorySpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(FightHistorySpider,self).__init__(*args,**kwargs)
-        self.fightCardDir = "csv_files/fight_card"
-        self.fighterDir = "csv_files/fighter"
+        self.fighterUrlDir = "text_files/fighter_url"
         self.eventUrlList = []
 
         self.fighter1Name = ""
@@ -377,27 +376,11 @@ class FightHistorySpider(scrapy.Spider):
                           """
 
     def start_requests(self):
-        print(os.getcwd())
+        try:
+            print("")
 
-        for file in os.listdir(self.fightCardDir):
-
-            try:
-                fileReader = open(os.path.join(self.fightCardDir,file),"r")
-                next(fileReader)
-                text = fileReader.readlines()
-
-                for line in text:
-                    splitStr = line.split(",")
-
-                    # search for fighter
-                    for i in splitStr:
-                        if (re.search(r"fighter",i) != None):
-                            print("match....")
-
-
-
-            except Exception as ex:
-                print("exception => error opening file --- {0}".format(ex))
+        except Exception as ex:
+            print("exception => error in opening file --- {0}".format(ex))
 
 
         os.path.join(self.eventDir,)
