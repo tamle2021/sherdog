@@ -27,7 +27,7 @@ class ExtractFighterUrl():
 
                     # search for fighter
                     for i in splitStr:
-                        if (re.search(r"fighter", i) != None):
+                        if (re.search(r"fighter\/",i) != None):
                             self.urlList.append(i)
 
                 fileReader.close()
@@ -43,7 +43,7 @@ class ExtractFighterUrl():
 
                     # search for fighter
                     for i in splitStr:
-                        if (re.search(r"fighter", i) != None):
+                        if (re.search(r"fighter\/", i) != None):
                             self.urlList.append(i)
 
                 fileReader.close()
