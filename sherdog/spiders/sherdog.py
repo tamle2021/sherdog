@@ -329,7 +329,8 @@ class FightHistorySpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(FightHistorySpider,self).__init__(*args,**kwargs)
-        self.fighterUrlDir = "text_files/fighter_url"
+        self.fighterUrlDir = "text_files"
+        self.fighterUrlFileName = "fighter_url1.txt"
         self.eventUrlList = []
 
         self.fighter1Name = ""
@@ -377,27 +378,29 @@ class FightHistorySpider(scrapy.Spider):
 
     def start_requests(self):
         try:
-            print("")
+
+            print(os.getcwd())
+            fileReader = open(os.path.join(self.fighterUrlDir,self.fighterUrlFileName),"r")
+            text = fileReader.readlines()
+
+            for url in text:
+                yield SplashRequest(url=url,callback=self.parseFightHistory,endpoint="execute", \
+                    args={"lua_source": self.script2},headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
         except Exception as ex:
-            print("exception => error in opening file --- {0}".format(ex))
+            print("exception => error opening file --- {0}".format(ex))
 
-
-        os.path.join(self.eventDir,)
-
-        print("")
-        print("")
-
-        yield SplashRequest(url=self.url,callback=self.parseFirstEvent, \
-            endpoint="execute",args={"lua_source": self.script2},headers={"User-Agent": random.choice(USER_AGENT_LIST)})
-
-    # def parse(self):
-    #     print("here....")
-    #
-    #     print("")
-
-    def parseFighter(self,response):
+    def parseFightHistory(self,response):
         try:
+            trTags = checkEmpty(response.xpath(".//table[contains(@class,'new_table')]/tbody/tr[not(@class)]"))
+
+            for sel in trTags:
+                fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
+
+                print("")
+
+
+
             name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/h1/span[contains(@class,'fn')]/text()").get())
             if (name != "None"):
                 self.name = name.lower()
