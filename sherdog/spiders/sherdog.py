@@ -8,7 +8,8 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate,setEventDetails,setLocation, \
     createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
-    setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName
+    setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName, \
+    setFighter2Result
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -334,7 +335,9 @@ class FightHistorySpider(scrapy.Spider):
         self.eventUrlList = []
 
         self.fighter1Name = ""
-
+        self.fighter2Name = ""
+        self.fighter1Result = ""
+        self.fighter2Result = ""
 
         self.url = ""
         self.script = """
@@ -378,28 +381,34 @@ class FightHistorySpider(scrapy.Spider):
 
     def start_requests(self):
         try:
-
             print(os.getcwd())
             fileReader = open(os.path.join(self.fighterUrlDir,self.fighterUrlFileName),"r")
             text = fileReader.readlines()
 
             for url in text:
+                splitFighter = url.split("fighter/")[1]
+                subStr = re.sub(r"[0-9\-]"," ",splitFighter)
+                fighter1Name = subStr.strip()
+
                 yield SplashRequest(url=url,callback=self.parseFightHistory,endpoint="execute", \
-                    args={"lua_source": self.script2},headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+                    args={"lua_source": self.script2},headers={"User-Agent": random.choice(USER_AGENT_LIST)}, \
+                    cb_kwargs={"fighter1Name": fighter1Name})
 
         except Exception as ex:
             print("exception => error opening file --- {0}".format(ex))
 
-    def parseFightHistory(self,response):
+    def parseFightHistory(self,response,**kwargs):
         try:
             trTags = checkEmpty(response.xpath(".//table[contains(@class,'new_table')]/tbody/tr[not(@class)]"))
 
             for sel in trTags:
-                fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
+                self.fighter1Name = kwargs["fighter1Name"]
+                self.fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
+                self.fighter1Result = checkEmpty(sel.xpath(".//td[1]/span/text()").get())
+
+                setFighter2Result(self)
 
                 print("")
-
-
 
             name = checkEmpty(response.xpath("//div[@class='fighter-right']/div[contains(@class,'fighter-title')]/h1/span[contains(@class,'fn')]/text()").get())
             if (name != "None"):
