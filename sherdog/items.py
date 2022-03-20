@@ -39,5 +39,8 @@ class FightCardItem(scrapy.Item):
     fightRound = scrapy.Field()
     time = scrapy.Field()
 
+class FightHistoryItem(scrapy.Item):
+    fighter1Name = scrapy.Field()
+
 
 

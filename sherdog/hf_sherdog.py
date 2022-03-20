@@ -10,6 +10,16 @@ def printTime():
     currentDate = now.strftime("%m_%d_%y")
     return currentDate
 
+def setFighter2Result(self):
+    try:
+        if (self.fighter1Result.lower() == "loss"):
+            self.fighter2Result = "win"
+        else:
+            self.fighter2Result = "loss"
+
+    except Exception as ex:
+        print("exception => error setting fighter2Result --- {0}".format(ex))
+
 def resetFighterStats(self):
     self.name
     self.birthDate = ""
@@ -189,8 +199,6 @@ def setFirstRowFightCard(self,response):
             setTime(self,time)
 
             print("")
-
-
 
     except Exception as ex:
         print("exception => error setting first row fight card --- {0}".format(ex))

@@ -1,6 +1,6 @@
 # scrapy settings for sherdog project
 #
-# For simplicity, this file contains only settings considered important or commonly used. You can find
+# for simplicity, this file contains only settings considered important or commonly used. You can find
 # more settings consulting the documentation:
 #
 #     https://docs.scrapy.org/en/latest/topics/settings.html
@@ -26,7 +26,7 @@ CONCURRENT_REQUESTS = 3
 # configure a delay for requests for the same website (default: 0)
 # see https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # see also autothrottle settings and docs
-DOWNLOAD_DELAY = 2.25
+DOWNLOAD_DELAY = 2.0
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
