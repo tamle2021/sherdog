@@ -338,6 +338,8 @@ class FightHistorySpider(scrapy.Spider):
         self.fighter2Name = ""
         self.fighter1Result = ""
         self.fighter2Result = ""
+        self.event = ""
+        self.date = ""
 
         self.url = ""
         self.script = """
@@ -402,11 +404,13 @@ class FightHistorySpider(scrapy.Spider):
             trTags = checkEmpty(response.xpath(".//table[contains(@class,'new_table')]/tbody/tr[not(@class)]"))
 
             for sel in trTags:
+                self.fighter1Result = checkEmpty(sel.xpath(".//td[1]/span/text()").get())
+                setFighter2Result(self)
                 self.fighter1Name = kwargs["fighter1Name"]
                 self.fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
-                self.fighter1Result = checkEmpty(sel.xpath(".//td[1]/span/text()").get())
 
-                setFighter2Result(self)
+                event = checkEmpty(sel.xpath(".//td[3]/a/text()").get())
+                date = checkEmpty(sel.xpath(".//td[3]/span/text()").get())
 
                 print("")
 
