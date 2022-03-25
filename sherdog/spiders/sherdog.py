@@ -9,7 +9,7 @@ from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate,setEventDetails,setLocation, \
     createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
     setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName, \
-    setFighter2Result
+    setFighter2Result,setEvent,setDateFightHistory
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -339,7 +339,7 @@ class FightHistorySpider(scrapy.Spider):
         self.fighter1Result = ""
         self.fighter2Result = ""
         self.event = ""
-        self.date = ""
+        self.dateFightHistory = ""
 
         self.url = ""
         self.script = """
@@ -410,7 +410,10 @@ class FightHistorySpider(scrapy.Spider):
                 self.fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
 
                 event = checkEmpty(sel.xpath(".//td[3]/a/text()").get())
-                date = checkEmpty(sel.xpath(".//td[3]/span/text()").get())
+                setEvent(self,event)
+
+                dateFightHistory = checkEmpty(sel.xpath(".//td[3]/span/text()").get())
+                setDateFightHistory(self,dateFightHistory)
 
                 print("")
 
