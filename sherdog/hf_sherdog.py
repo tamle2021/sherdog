@@ -51,6 +51,16 @@ def setDateFightHistory(self,dateFightHistory):
         print("exception => error setting date in fight history --- {0}".format(ex))
         self.dateFightHistory = "None"
 
+def setMethod(self,method):
+    try:
+        self.method = method.lower()
+
+    except Exception as ex:
+        print("exception => error setting method --- {0}".format(ex))
+        self.method = "None"
+
+
+
 def setLocation(self,location):
     subComma = re.sub(r"[\,]",";",location)
     self.location = '-' + subComma + '-'
