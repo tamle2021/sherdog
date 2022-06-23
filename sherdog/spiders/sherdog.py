@@ -434,7 +434,7 @@ class FightHistorySpider(scrapy.Spider):
             else:
                 self.name = "None"
 
-
+            ####
             # loader = loadFighterItem(self,response)
             # yield loader.load_item()
 
