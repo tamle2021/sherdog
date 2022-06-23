@@ -9,7 +9,7 @@ from scrapy.utils.log import configure_logging
 from ..hf_sherdog import checkEmpty,resetFightCard,loadEventItem,checkHeight,setBirthDate,setDate,setEventDetails,setLocation, \
     createUrl,checkFightResult,loadFightCardItem,setFightCardDetails,setFirstRowFightCard,setFightCard,setAge, \
     setHeight,setWeight,setNationality,setLocality,resetFighterStats,loadFighterItem,setAssociation,setFighterName, \
-    setFighter2Result
+    setFighter2Result,setEvent,setDateFightHistory,setMethod,setTime
 from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
@@ -338,6 +338,11 @@ class FightHistorySpider(scrapy.Spider):
         self.fighter2Name = ""
         self.fighter1Result = ""
         self.fighter2Result = ""
+        self.event = ""
+        self.dateFightHistory = ""
+        self.method = ""
+        self.round = ""
+        self.time = ""
 
         self.url = ""
         self.script = """
@@ -402,11 +407,24 @@ class FightHistorySpider(scrapy.Spider):
             trTags = checkEmpty(response.xpath(".//table[contains(@class,'new_table')]/tbody/tr[not(@class)]"))
 
             for sel in trTags:
+                self.fighter1Result = checkEmpty(sel.xpath(".//td[1]/span/text()").get())
+                setFighter2Result(self)
                 self.fighter1Name = kwargs["fighter1Name"]
                 self.fighter2Name = checkEmpty(sel.xpath(".//td[2]/a/text()").get())
-                self.fighter1Result = checkEmpty(sel.xpath(".//td[1]/span/text()").get())
 
-                setFighter2Result(self)
+                event = checkEmpty(sel.xpath(".//td[3]/a/text()").get())
+                setEvent(self,event)
+
+                dateFightHistory = checkEmpty(sel.xpath(".//td[3]/span/text()").get())
+                setDateFightHistory(self,dateFightHistory)
+
+                method = checkEmpty(sel.xpath("./td[contains(@class,'winby')]/b/text()").get())
+                setMethod(self,method)
+
+                self.round = checkEmpty(sel.xpath("./td[5]/text()").get())
+
+                time = checkEmpty(sel.xpath("./td[6]/text()").get())
+                setTime(self,time)
 
                 print("")
 
@@ -416,81 +434,16 @@ class FightHistorySpider(scrapy.Spider):
             else:
                 self.name = "None"
 
-            trTagsAgeWeightHeight = checkEmpty(response.xpath("//div[@class='fighter-data']/div/table/tbody/tr"))
 
-            age = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/b/text()").get())
-            setAge(self,age)
+            # loader = loadFighterItem(self,response)
+            # yield loader.load_item()
 
-            birthDate = checkEmpty(trTagsAgeWeightHeight[0].xpath(".//td[2]/span/text()").get())
-            if (birthDate != "None"):
-                setBirthDate(self, birthDate)
-            else:
-                self.birthDate = "None"
-
-            height = checkEmpty(trTagsAgeWeightHeight[1].xpath(".//td[2]/b/text()").get())
-            if (height != "None"):
-                setHeight(self, height)
-            else:
-                self.height = "None"
-
-            weight = checkEmpty(trTagsAgeWeightHeight[2].xpath(".//td[2]/b/text()").get())
-            if (weight != "None"):
-                setWeight(self,weight)
-            else:
-                self.weight = "None"
-
-            association = checkEmpty(response.xpath("//div[@class='association-class']/span[contains(@itemprop,'memberOf')]/a/span/text()").get())
-            if (association != "None"):
-                setAssociation(self,association)
-            else:
-                self.association = ""
-
-            fighterClass = checkEmpty(response.xpath("//div[@class ='association-class']/a[contains(@href,'stats')]/text()").get())
-            if (fighterClass != "None"):
-                self.fighterClass = str(fighterClass).lower()
-            else:
-                self.fighterClass = ""
-
-            win = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='wins']/div/span[2]/text()").get())
-            if (win != "None"):
-                self.win = win
-            else:
-                self.win = ""
-
-            loss = checkEmpty(response.xpath("//div[@class='fighter-data']/div[contains(@class,'winsloses-holder')]/div[@class='loses']/div/span[2]/text()").get())
-            if (loss != "None"):
-                self.loss = loss
-            else:
-                self.loss = ""
-
-            nationality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/strong/text()").get())
-            setNationality(self,nationality)
-
-            locality = checkEmpty(response.xpath("//div[@class='fighter-nationality']/span[contains(@class,'item birthplace')]/span[@itemprop='address']/span/text()").get())
-            setLocality(self,locality)
-
-            url = checkEmpty(response.url)
-            if (url != "None"):
-                self.url = url
-            else:
-                self.url = "None"
-
-            urlTrTags = checkEmpty(response.xpath("//div[@class='new_table_holder']/table[contains(@class,'fighter')]/tbody/tr[not(@class)]"))
-
-            loader = loadFighterItem(self,response)
-            yield loader.load_item()
-
-
-            if (len(urlTrTags) != 0):
-                for sel in urlTrTags:
-                    partialUrl = sel.xpath(".//td/a[contains(@href,'fighter')]/@href").get()
-                    fighterUrl = response.urljoin(partialUrl)
-
-                    yield SplashRequest(url=fighterUrl,callback=self.parseFighter,endpoint="execute",args={"lua_source": self.script}, \
-                        headers={"User-Agent": random.choice(USER_AGENT_LIST)})
+            # yield SplashRequest(url=fighterUrl, callback=self.parseFighter, endpoint="execute",
+            #     args={"lua_source": self.script}, \
+            #                     headers={"User-Agent": random.choice(USER_AGENT_LIST)})
 
         except Exception as ex:
-            print("exception => error in parse fighter --- {0}".format(ex))
+            print("exception => error in parse fighter history --- {0}".format(ex))
 
 
 

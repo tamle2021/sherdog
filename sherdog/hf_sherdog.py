@@ -33,6 +33,34 @@ def resetFighterStats(self):
     self.locality = ""
     self.country = ""
 
+def setEvent(self,event):
+    try:
+        self.event = event.lower()
+
+    except Exception as ex:
+        print("exception => error setting event --- {0}".format(ex))
+        self.event = "None"
+
+def setDateFightHistory(self,dateFightHistory):
+    try:
+        subForwardSlash = re.sub(r"/","-",dateFightHistory.strip())
+        # removing whitespace
+        self.dateFightHistory = re.sub(r" +","",subForwardSlash)
+
+    except Exception as ex:
+        print("exception => error setting date in fight history --- {0}".format(ex))
+        self.dateFightHistory = "None"
+
+def setMethod(self,method):
+    try:
+        self.method = method.lower()
+
+    except Exception as ex:
+        print("exception => error setting method --- {0}".format(ex))
+        self.method = "None"
+
+
+
 def setLocation(self,location):
     subComma = re.sub(r"[\,]",";",location)
     self.location = '-' + subComma + '-'
