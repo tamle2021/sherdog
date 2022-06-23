@@ -14,7 +14,7 @@ from ..settings import USER_AGENT_LIST
 from scrapy_splash import SplashRequest,SplashFormRequest
 
 class EventFightCardSpider(scrapy.Spider):
-    name = "event_fight_card"
+    name = "sd_event_fight_card"
     allowed_domains = ["www.sherdog.com",'sherdog.com']
     # start_urls = ['https://www.sherdog.com/events/recent']
     # https://www.sherdog.com/events/recent/267-page
@@ -23,7 +23,7 @@ class EventFightCardSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'sherdog.pipelines.EventFightCardPipeline': 198,
         },
-        "CLOSESPIDER_ITEMCOUNT": 1905
+        "CLOSESPIDER_ITEMCOUNT": 44
     }
 
     # configure_logging(install_root_handler=False)

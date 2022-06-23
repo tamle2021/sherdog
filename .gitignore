@@ -37,7 +37,7 @@ sherdog/log
 # log file
 *.log
 
-# BlueJ files
+# bluej files
 *.ctxt
 
 # mobile tools for java
