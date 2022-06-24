@@ -5,7 +5,7 @@ from .items import EventItem,FightCardItem,FighterItem
 import logging
 from .switch_month import switchMonthThreeLetters
 
-def printTime():
+def getTime():
     now = datetime.now()
     currentDate = now.strftime("%m_%d_%y")
     return currentDate
